@@ -29,6 +29,14 @@
                     script later, it will be blocked until you add its address
                     there. If you change the one-line inline script in <head>,
                     its sha256 hash in that line must be updated too.
+                    "media-src 'self'" is what lets the demo videos play.
+  - Visual effects: assets/js/fx.js (scroll reveals, 3D tilt, lazy videos,
+                    the "Pause animations" buttons) and assets/js/gl.js (the two
+                    WebGL backgrounds). Screenshots and videos of the concept
+                    sites are in assets/media/; re-capture them if those sites
+                    change. To switch every effect off, delete the
+                    <script type="module" src="assets/js/fx.js"> line: the page
+                    still works and shows still images instead.
 
   Every editable value is tagged data-edit="..." so you can find it quickly.
   ================================================================
@@ -37,7 +45,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; form-action https://formspree.io; base-uri 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; form-action https://formspree.io; base-uri 'none'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Small Business Websites from $299 | E.M Web Design</title>
   <meta name="description" content="Fast-loading, mobile-friendly websites for small businesses across the United States, from a one-person studio based in Ohio. Fixed prices from $299. First 3 clients get 30% off.">
@@ -68,6 +76,7 @@
   <script>document.documentElement.classList.add('js')</script>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <script type="module" src="assets/js/fx.js"></script>
 
   <script type="application/ld+json">
   {
@@ -327,6 +336,7 @@
   </svg>
 
   <header class="site-header">
+    <span class="scroll-progress" aria-hidden="true"></span>
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="E.M, back to top">
         <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M16 6c4 3 6 7 6 11l-3 3h-6l-3-3c0-4 2-8 6-11z" fill="#fff"/><circle cx="16" cy="14" r="2" fill="currentColor"/><path d="M13 22l3 4 3-4z" fill="#fb923c"/></svg>
@@ -362,7 +372,7 @@
           <h1 id="hero-title">Websites for small businesses, from <span data-edit="price">$299</span></h1>
           <p class="lead">I build fast-loading, mobile-friendly websites for restaurants, salons, trades, gyms and shops. Your site is usually live 7 to 10 business days after I have your content. Fixed prices, plain-English help, and no surprise bills.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Get a free quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-accent btn-glow" href="#contact">Get a free quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <a class="btn btn-ghost" href="#pricing">See pricing</a>
           </div>
           <ul class="hero-points" aria-label="What is included">
@@ -373,46 +383,30 @@
           <p class="hero-location"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Based in Ohio, working remotely with small businesses across the United States.</p>
         </div>
 
-        <!-- Decorative illustration: a phone showing a mock local business site -->
-        <div class="hero-art" aria-hidden="true">
-          <svg viewBox="0 0 320 380" focusable="false">
-            <defs>
-              <linearGradient id="g-screen" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#eef2ff"/><stop offset="1" stop-color="#fff"/>
-              </linearGradient>
-            </defs>
-            <rect x="30" y="40" width="200" height="320" rx="28" fill="#1e1b4b"/>
-            <rect x="42" y="56" width="176" height="288" rx="18" fill="url(#g-screen)"/>
-            <rect x="56" y="72" width="70" height="10" rx="5" fill="#4338ca"/>
-            <rect x="170" y="72" width="34" height="10" rx="5" fill="#c7d2fe"/>
-            <rect x="56" y="98" width="148" height="80" rx="10" fill="#4338ca"/>
-            <path d="M70 160l24-28 18 18 14-12 24 22z" fill="#818cf8"/>
-            <circle cx="178" cy="118" r="10" fill="#fb923c"/>
-            <rect x="56" y="192" width="120" height="10" rx="5" fill="#1e1b4b"/>
-            <rect x="56" y="210" width="148" height="7" rx="3.5" fill="#c7d2fe"/>
-            <rect x="56" y="224" width="130" height="7" rx="3.5" fill="#c7d2fe"/>
-            <rect x="56" y="246" width="70" height="26" rx="13" fill="#ea580c"/>
-            <rect x="56" y="288" width="68" height="40" rx="8" fill="#e0e7ff"/>
-            <rect x="136" y="288" width="68" height="40" rx="8" fill="#e0e7ff"/>
-            <g class="float-card">
-              <g transform="translate(196 150)">
-                <rect width="110" height="64" rx="14" fill="#fff" stroke="#e0e7ff" stroke-width="2"/>
-                <rect x="14" y="14" width="22" height="22" rx="6" fill="#fff7ed"/>
-                <path d="M19 25l4 4 8-8" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <rect x="44" y="16" width="52" height="7" rx="3.5" fill="#1e1b4b"/>
-                <rect x="44" y="28" width="38" height="6" rx="3" fill="#c7d2fe"/>
-                <rect x="14" y="44" width="82" height="6" rx="3" fill="#e0e7ff"/>
-              </g>
-            </g>
-            <g class="float-rocket">
-              <g transform="translate(232 54)">
-                <circle r="26" cx="26" cy="26" fill="#fff7ed"/>
-                <path d="M26 12c6 4 9 10 9 16l-4 4h-10l-4-4c0-6 3-12 9-16z" fill="#ea580c"/>
-                <circle cx="26" cy="24" r="3" fill="#fff7ed"/>
-              </g>
-            </g>
-          </svg>
-        </div>
+        <!-- Decorative: real screenshots of the two concept sites in a 3D device rig.
+             The WebGL background and the tilt are added by assets/js/fx.js; without
+             JS or WebGL this shows as a still image on a CSS gradient. -->
+        <figure class="hero-stage">
+          <div class="device-rig" aria-hidden="true">
+            <div class="device-browser">
+              <div class="browser-bar"><span class="browser-dots"></span><span class="browser-url"></span></div>
+              <div class="browser-screen">
+                <img src="assets/media/bakery-desktop-poster.webp" width="960" height="600" alt="" decoding="async" fetchpriority="low">
+                <video muted playsinline loop preload="none" poster="assets/media/bakery-desktop-poster.webp" data-src="assets/media/bakery-desktop.webm" tabindex="-1"></video>
+              </div>
+              <span class="device-glare"></span>
+            </div>
+            <div class="device-phone">
+              <div class="phone-screen"><img class="phone-pan" src="assets/media/plumber-mobile.webp" width="585" height="3300" alt="" decoding="async" fetchpriority="low"></div>
+              <span class="device-glare"></span>
+            </div>
+            <div class="device-chip">
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              <span>Built mobile-first</span>
+            </div>
+          </div>
+          <figcaption class="stage-caption">Shown: my concept sites for fictional businesses</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -568,6 +562,8 @@
           <p class="kicker">How it works</p>
           <h2 id="process-title">From first chat to launch in 4 steps</h2>
         </div>
+        <div class="steps-wrap">
+        <div class="steps-track" aria-hidden="true"><span class="steps-fill"></span><span class="steps-fly"><svg class="steps-rocket" viewBox="0 0 24 24" focusable="false"><use href="#i-rocket"/></svg></span></div>
         <ol class="steps">
           <li class="step">
             <span class="step-num" aria-hidden="true">1</span>
@@ -590,6 +586,7 @@
             <p>You pay the other 50%, I put the site live, connect your domain and show you how everything works.</p>
           </li>
         </ol>
+        </div>
       </div>
     </section>
 
@@ -618,17 +615,15 @@
         </div>
         <div class="work-grid">
           <a class="work-card" href="./portfolio/bakery/index.html">
-            <div class="work-thumb work-thumb-bakery" aria-hidden="true">
-              <svg viewBox="0 0 200 120" focusable="false">
-                <rect width="200" height="120" fill="#fff7ed"/>
-                <rect x="14" y="12" width="50" height="8" rx="4" fill="#9a3412"/>
-                <rect x="14" y="32" width="90" height="12" rx="6" fill="#431407"/>
-                <rect x="14" y="50" width="70" height="7" rx="3.5" fill="#fdba74"/>
-                <rect x="14" y="68" width="46" height="18" rx="9" fill="#c2410c"/>
-                <ellipse cx="150" cy="78" rx="36" ry="18" fill="#fb923c"/>
-                <path d="M120 74c10-8 50-8 60 0" stroke="#fff7ed" stroke-width="3" fill="none" stroke-linecap="round"/>
-                <path d="M128 66c8-6 36-6 44 0" stroke="#fff7ed" stroke-width="3" fill="none" stroke-linecap="round"/>
-              </svg>
+            <div class="work-thumb work-media work-media-bakery" aria-hidden="true">
+              <div class="media-browser">
+                <div class="browser-bar"><span class="browser-dots"></span><span class="browser-url"></span></div>
+                <div class="browser-screen">
+                  <img src="assets/media/bakery-desktop-poster.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
+                  <video muted playsinline loop preload="none" poster="assets/media/bakery-desktop-poster.webp" data-src="assets/media/bakery-desktop.webm" tabindex="-1"></video>
+                </div>
+              </div>
+              <div class="media-phone"><div class="phone-screen"><img class="phone-pan" src="assets/media/bakery-mobile.webp" width="585" height="3300" alt="" loading="lazy" decoding="async"></div></div>
             </div>
             <div class="work-body">
               <p class="work-tag">Concept project, fictional business</p>
@@ -638,16 +633,15 @@
             </div>
           </a>
           <a class="work-card" href="./portfolio/plumber/index.html">
-            <div class="work-thumb work-thumb-plumber" aria-hidden="true">
-              <svg viewBox="0 0 200 120" focusable="false">
-                <rect width="200" height="120" fill="#eff6ff"/>
-                <rect x="14" y="12" width="50" height="8" rx="4" fill="#1e40af"/>
-                <rect x="14" y="32" width="96" height="12" rx="6" fill="#172554"/>
-                <rect x="14" y="50" width="74" height="7" rx="3.5" fill="#93c5fd"/>
-                <rect x="14" y="68" width="56" height="18" rx="9" fill="#1d4ed8"/>
-                <path d="M130 40h30v20h14v30" stroke="#2563eb" stroke-width="10" fill="none" stroke-linejoin="round"/>
-                <path d="M174 98c-4 6-4 10 0 12 4-2 4-6 0-12z" fill="#60a5fa"/>
-              </svg>
+            <div class="work-thumb work-media work-media-plumber" aria-hidden="true">
+              <div class="media-browser">
+                <div class="browser-bar"><span class="browser-dots"></span><span class="browser-url"></span></div>
+                <div class="browser-screen">
+                  <img src="assets/media/plumber-desktop-poster.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
+                  <video muted playsinline loop preload="none" poster="assets/media/plumber-desktop-poster.webp" data-src="assets/media/plumber-desktop.webm" tabindex="-1"></video>
+                </div>
+              </div>
+              <div class="media-phone"><div class="phone-screen"><img class="phone-pan" src="assets/media/plumber-mobile.webp" width="585" height="3300" alt="" loading="lazy" decoding="async"></div></div>
             </div>
             <div class="work-body">
               <p class="work-tag">Concept project, fictional business</p>
