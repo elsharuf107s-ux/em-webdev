@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlowRight Plumbing | Local Plumbers, 24/7 Emergency Service (Concept Site)</title>
+<meta name="description" content="FlowRight Plumbing: licensed local plumbers for leaks, drains, water heaters and emergencies. Upfront pricing. A concept site by E.M for a fictional business.">
+<meta name="theme-color" content="#0b1f3a">
+<style>
+  :root {
+    --navy: #0b1f3a;
+    --navy-2: #12305a;
+    --blue: #1f6feb;
+    --sky: #d9e8ff;
+    --orange: #ff7a1a;
+    --orange-dark: #c2410c;
+    --white: #ffffff;
+    --off: #f3f6fa;
+    --ink: #0f172a;
+    --muted: #475569;
+    --line: #d5deea;
+    --ok: #15803d;
+    --radius: 14px;
+    --shadow: 0 2px 4px rgba(11,31,58,.06), 0 18px 40px -18px rgba(11,31,58,.35);
+    --sans: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    --display: "Arial Black", "Helvetica Neue", "Segoe UI Black", Impact, system-ui, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+  body {
+    margin: 0; background: var(--white); color: var(--ink);
+    font: 400 1.0625rem/1.6 var(--sans);
+    padding-bottom: 4.5rem; -webkit-font-smoothing: antialiased;
+  }
+  svg { display: block; }
+  a { color: var(--blue); text-underline-offset: 3px; }
+  :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 4px; }
+  /* orange is ~2.5:1 on the light sections, so use navy there */
+  .skip:focus-visible, .services :focus-visible, #why :focus-visible, #quote :focus-visible, .concept-badge:focus-visible { outline-color: var(--navy); }
+  .svc.emerg :focus-visible, #quote .call-card :focus-visible { outline-color: var(--orange); }
+  h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; letter-spacing: -.02em; }
+  h1 { font: 900 clamp(2.5rem, 6.4vw, 4.6rem)/1 var(--display); text-transform: uppercase; letter-spacing: -.01em; }
+  h2 { font: 900 clamp(1.9rem, 4vw, 2.8rem)/1.05 var(--display); text-transform: uppercase; letter-spacing: -.005em; }
+  h3 { font-size: 1.2rem; font-weight: 800; }
+  p { margin: 0 0 1em; }
+  .wrap { width: min(1180px, 100% - 2.5rem); margin-inline: auto; }
+  .skip { position: absolute; left: 1rem; top: -100px; z-index: 200; background: var(--orange); color: var(--navy); font-weight: 800; padding: .7rem 1rem; border-radius: 8px; }
+  .skip:focus { top: 1rem; }
+  .kicker { display: inline-block; font: 800 .78rem/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--orange-dark); margin-bottom: .9rem; }
+  .kicker.on-dark { color: var(--orange); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+    padding: 1rem 1.5rem; border-radius: 10px; border: 2px solid transparent;
+    font: 800 1rem/1 var(--sans); text-decoration: none; cursor: pointer;
+    transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-orange { background: var(--orange); color: var(--navy); box-shadow: 0 6px 0 var(--orange-dark); }
+  .btn-orange:hover { background: #ff8c3a; color: var(--navy); transform: translateY(-2px); box-shadow: 0 8px 0 var(--orange-dark); }
+  .btn-outline { border-color: rgba(255,255,255,.6); color: #fff; }
+  .btn-outline:hover { background: #fff; color: var(--navy); }
+
+  /* Emergency banner */
+  .emergency {
+    background: repeating-linear-gradient(-45deg, var(--orange) 0 18px, #ff8a33 18px 36px);
+    color: var(--navy); font-weight: 800;
+  }
+  .emergency .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .4rem 1rem; padding-block: .6rem; text-align: center; }
+  .emergency .pulse { width: 10px; height: 10px; border-radius: 50%; background: #b91c1c; box-shadow: 0 0 0 0 rgba(185,28,28,.7); animation: pulse 1.6s infinite; flex: none; }
+  @keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(185,28,28,0); } 100% { box-shadow: 0 0 0 0 rgba(185,28,28,0); } }
+  .emergency a {
+    display: inline-flex; align-items: center; gap: .45rem; background: var(--navy); color: #fff;
+    padding: .45rem .9rem; border-radius: 999px; text-decoration: none; font-weight: 800; white-space: nowrap;
+  }
+  .emergency a:hover { background: #000; }
+  .emergency a:focus-visible { outline-color: var(--navy); }
+
+  /* Header */
+  .site-header { position: sticky; top: 0; z-index: 60; background: var(--navy); color: #fff; box-shadow: 0 2px 0 rgba(255,255,255,.06); }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .85rem; }
+  .brand { display: flex; align-items: center; gap: .6rem; color: #fff; text-decoration: none; }
+  .brand-name { font: 900 1.35rem/1 var(--display); text-transform: uppercase; letter-spacing: -.01em; }
+  .brand-name span { color: var(--orange); }
+  .nav ul { display: flex; gap: 1.6rem; list-style: none; margin: 0; padding: 0; }
+  .nav ul a { color: #cfdcf0; text-decoration: none; font-weight: 700; font-size: .95rem; }
+  .nav ul a:hover { color: #fff; }
+  .nav .btn { padding: .75rem 1.1rem; font-size: .92rem; box-shadow: 0 4px 0 var(--orange-dark); }
+  @media (max-width: 880px) { .nav ul { display: none; } }
+
+  /* Hero */
+  .hero {
+    background:
+      radial-gradient(800px 400px at 100% 0%, rgba(31,111,235,.45), transparent 60%),
+      linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: #fff; position: relative; overflow: hidden;
+  }
+  .hero::before { /* blueprint grid */
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 60%); mask-image: linear-gradient(90deg, transparent, #000 60%);
+  }
+  .hero-grid { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; gap: 3rem; align-items: center; padding-block: clamp(3.5rem, 8vw, 6rem); }
+  .hero h1 .hl { color: var(--orange); display: block; }
+  .hero .lede { font-size: 1.2rem; color: #cfdcf0; max-width: 40ch; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1.8rem; }
+  .hero-checks { list-style: none; padding: 0; margin: 2rem 0 0; display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; color: #e2ebf8; font-weight: 700; font-size: .95rem; }
+  .hero-checks li { display: flex; align-items: center; gap: .45rem; }
+  .hero-art { justify-self: center; width: 100%; max-width: 440px; }
+  .drip { animation: drip 2.2s ease-in infinite; transform-origin: center; }
+  @keyframes drip { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 80% { transform: translateY(70px); opacity: 1; } 100% { transform: translateY(78px); opacity: 0; } }
+  @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; } .hero-art { max-width: 320px; order: -1; } }
+
+  /* Trust strip */
+  .strip { background: var(--orange); color: var(--navy); }
+  .strip ul { list-style: none; margin: 0; padding: 1rem 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; font-weight: 800; text-align: center; }
+  .strip li { display: flex; align-items: center; justify-content: center; gap: .5rem; }
+  @media (max-width: 760px) { .strip ul { grid-template-columns: 1fr 1fr; } }
+
+  section { scroll-margin-top: 80px; }
+  .section { padding-block: clamp(3.5rem, 8vw, 6rem); }
+  .section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem 2rem; margin-bottom: 2.5rem; }
+  .section-head > div { max-width: 640px; }
+  .section-head p { color: var(--muted); font-size: 1.1rem; margin: 0; }
+
+  /* Services */
+  .services { background: var(--off); }
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .svc {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.6rem;
+    border-top: 5px solid var(--blue); box-shadow: var(--shadow);
+    transition: transform .2s ease, border-color .2s ease;
+  }
+  .svc:hover { transform: translateY(-4px); border-top-color: var(--orange); }
+  .svc .icon { width: 54px; height: 54px; border-radius: 12px; background: var(--sky); display: grid; place-items: center; margin-bottom: 1rem; }
+  .svc p { color: var(--muted); font-size: .97rem; }
+  .svc ul { margin: 0; padding-left: 1.1rem; color: var(--ink); font-size: .93rem; }
+  .svc ul li::marker { color: var(--orange-dark); }
+  .svc.emerg { background: var(--navy); color: #fff; border-color: var(--navy); border-top-color: var(--orange); }
+  .svc.emerg p, .svc.emerg ul { color: #cfdcf0; }
+  .svc.emerg .icon { background: rgba(255,122,26,.18); }
+  .svc.emerg a { color: var(--orange); font-weight: 800; }
+  @media (max-width: 960px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .svc-grid { grid-template-columns: 1fr; } }
+
+  /* Trust */
+  .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 2px solid var(--navy); border-radius: var(--radius); overflow: hidden; }
+  .trust-item { padding: 1.8rem; border-right: 2px solid var(--navy); border-bottom: 2px solid var(--navy); }
+  .trust-item:nth-child(3n) { border-right: 0; }
+  .trust-item:nth-last-child(-n+3) { border-bottom: 0; }
+  .trust-item .num { font: 900 2.4rem/1 var(--display); color: var(--orange-dark); margin-bottom: .6rem; display: block; }
+  .trust-item p { color: var(--muted); margin: 0; font-size: .97rem; }
+  @media (max-width: 860px) {
+    .trust-grid { grid-template-columns: 1fr; }
+    .trust-item, .trust-item:nth-child(3n), .trust-item:nth-last-child(-n+3) { border-right: 0; border-bottom: 2px solid var(--navy); }
+    .trust-item:last-child { border-bottom: 0; }
+  }
+  .promise {
+    margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center;
+    background: var(--sky); border-left: 6px solid var(--blue); padding: 1.2rem 1.4rem; border-radius: 10px;
+  }
+  .promise p { margin: 0; flex: 1 1 300px; color: var(--navy); font-weight: 600; }
+
+  /* Area */
+  .area { background: var(--navy); color: #fff; }
+  .area .section-head p { color: #cfdcf0; }
+  .area-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+  .towns { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+  .towns li { display: flex; align-items: center; gap: .55rem; padding: .7rem .9rem; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; font-weight: 700; }
+  .towns li svg { flex: none; }
+  .area-note { margin-top: 1.4rem; color: #cfdcf0; font-size: .95rem; }
+  .area-note strong { color: #fff; }
+  @media (max-width: 860px) { .area-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 420px) { .towns { grid-template-columns: 1fr; } }
+
+  /* Quote form */
+  .quote-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 3rem; align-items: start; }
+  @media (max-width: 760px) { .quote-grid { grid-template-columns: 1fr; } }
+  .quote-aside .call-card { margin-top: 1.5rem; background: var(--navy); color: #fff; border-radius: var(--radius); padding: 1.6rem; }
+  .call-card p { color: #cfdcf0; }
+  .call-card .big { display: block; font: 900 1.9rem/1.1 var(--display); color: var(--orange); text-decoration: none; margin: .3rem 0 .6rem; }
+  .call-card .big:hover { text-decoration: underline; }
+  .what-next { list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: .8rem; }
+  .what-next li { display: flex; gap: .7rem; align-items: flex-start; color: var(--muted); }
+  .what-next li svg { flex: none; }
+  .what-next b { color: var(--ink); }
+  form.quote { background: #fff; border: 2px solid var(--navy); border-radius: var(--radius); padding: clamp(1.4rem, 3vw, 2.2rem); box-shadow: 10px 10px 0 var(--navy); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 600px) { .row { grid-template-columns: 1fr; } }
+  .field { display: grid; gap: .35rem; margin-bottom: 1.1rem; align-content: start; }
+  label, legend { font-weight: 800; font-size: .95rem; color: var(--ink); }
+  .req { color: #b91c1c; }
+  .hint { font-size: .85rem; color: var(--muted); font-weight: 400; }
+  input[type=text], input[type=tel], input[type=email], select, textarea {
+    width: 100%; font: inherit; color: var(--ink); background: var(--off);
+    border: 2px solid var(--line); border-radius: 8px; padding: .75rem .85rem;
+    transition: border-color .15s, background .15s;
+  }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--blue); background: #fff; box-shadow: 0 0 0 4px rgba(31,111,235,.2); }
+  textarea { min-height: 120px; resize: vertical; }
+  fieldset { border: 0; padding: 0; margin: 0 0 1.2rem; }
+  .urgency { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin-top: .45rem; }
+  @media (max-width: 520px) { .urgency { grid-template-columns: 1fr; } }
+  .urgency label { position: relative; display: block; cursor: pointer; }
+  .urgency input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .urgency span { display: block; text-align: center; padding: .75rem .5rem; border: 2px solid var(--line); border-radius: 8px; font-weight: 800; background: var(--off); }
+  .urgency small { display: block; font-weight: 500; color: var(--muted); font-size: .78rem; }
+  .urgency input:checked + span { border-color: var(--navy); background: var(--navy); color: #fff; }
+  .urgency input:checked + span small { color: #cfdcf0; }
+  .urgency input:focus-visible + span { outline: 3px solid var(--navy); outline-offset: 2px; }
+  .check { display: flex; gap: .6rem; align-items: flex-start; font-weight: 500; margin-bottom: 1.2rem; }
+  .check input { width: 20px; height: 20px; margin-top: .15rem; accent-color: var(--navy); flex: none; }
+  .check input:focus-visible { outline: 3px solid var(--navy); outline-offset: 2px; }
+  form.quote .btn { width: 100%; font-size: 1.05rem; }
+  .form-note { font-size: .85rem; color: var(--muted); margin: .9rem 0 0; text-align: center; }
+
+  /* Footer */
+  .site-footer { background: #06142a; color: #b6c4d9; padding-block: 3rem 2rem; }
+  .site-footer a { color: #fff; }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; }
+  .site-footer h3 { color: #fff; font-size: 1rem; text-transform: uppercase; letter-spacing: .1em; }
+  .site-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .4rem; }
+  .fine { border-top: 1px solid rgba(255,255,255,.1); margin-top: 2rem; padding-top: 1.2rem; font-size: .85rem; }
+  @media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr; } }
+
+  /* Concept badge */
+  .concept-badge {
+    position: fixed; z-index: 150; right: 14px; bottom: 14px;
+    display: inline-flex; align-items: center; gap: .5rem; max-width: calc(100% - 28px);
+    padding: .55rem .9rem; border-radius: 8px;
+    background: #fff; color: var(--navy); text-decoration: none;
+    font: 700 .8rem/1.3 var(--sans);
+    border: 2px solid var(--navy); box-shadow: 4px 4px 0 var(--navy);
+  }
+  .concept-badge:hover { background: var(--orange); color: var(--navy); }
+  .concept-badge svg { flex: none; }
+  @media (max-width: 520px) { .concept-badge { left: 14px; right: 14px; justify-content: center; text-align: center; } }
+
+  .visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<aside class="emergency" aria-label="Emergency service">
+  <div class="wrap">
+    <span class="pulse" aria-hidden="true"></span>
+    <span>Burst pipe or flooding? Real plumbers on call 24/7.</span>
+    <a href="tel:+15550104477">
+      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2" fill="currentColor"/></svg>
+      Tap to call (555) 010-4477
+    </a>
+  </div>
+</aside>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Primary">
+    <a class="brand" href="#top" aria-label="FlowRight Plumbing, home">
+      <svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true">
+        <rect width="48" height="48" rx="10" fill="#ff7a1a"/>
+        <path d="M24 9c-6 8-11 14-11 20a11 11 0 0 0 22 0c0-6-5-12-11-20z" fill="#0b1f3a"/>
+        <path d="M18 30a6 6 0 0 0 6 6" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span class="brand-name">Flow<span>Right</span></span>
+    </a>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why FlowRight</a></li>
+      <li><a href="#area">Service area</a></li>
+      <li><a href="#quote">Free quote</a></li>
+    </ul>
+    <a class="btn btn-orange" href="#quote">Get a free quote</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker on-dark">Licensed local plumbers</p>
+        <h1 id="hero-title">Fixed right. <span class="hl">The first time.</span></h1>
+        <p class="lede">Leaks, clogs, water heaters and full repipes, handled by FlowRight's uniformed plumbers who show up on time, quote upfront, and leave your home cleaner than they found it.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-orange" href="#quote">Request a free quote</a>
+          <a class="btn btn-outline" href="tel:+15550104477">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2" fill="currentColor"/></svg>
+            Call (555) 010-4477
+          </a>
+        </div>
+        <ul class="hero-checks">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#ff7a1a"/><path d="M7 12.5l3 3 7-7" stroke="#0b1f3a" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Flat-rate pricing</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#ff7a1a"/><path d="M7 12.5l3 3 7-7" stroke="#0b1f3a" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>2-hour arrival windows</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#ff7a1a"/><path d="M7 12.5l3 3 7-7" stroke="#0b1f3a" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>No overtime surcharge</li>
+        </ul>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 400 400" role="img" aria-labelledby="hero-svg-title">
+          <title id="hero-svg-title">Illustration of a wrench crossed over a pipe joint with a shield badge</title>
+          <defs>
+            <linearGradient id="pipe" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#9fb4d1"/><stop offset=".45" stop-color="#e6eef9"/><stop offset="1" stop-color="#6c84a6"/>
+            </linearGradient>
+            <linearGradient id="pipeV" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#9fb4d1"/><stop offset=".45" stop-color="#e6eef9"/><stop offset="1" stop-color="#6c84a6"/>
+            </linearGradient>
+            <linearGradient id="copper" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffb070"/><stop offset=".5" stop-color="#ff7a1a"/><stop offset="1" stop-color="#c2410c"/>
+            </linearGradient>
+          </defs>
+          <circle cx="200" cy="200" r="180" fill="#1f6feb" opacity=".22"/>
+          <circle cx="200" cy="200" r="135" fill="none" stroke="#ffffff" stroke-opacity=".15" stroke-width="2" stroke-dasharray="6 10"/>
+          <rect x="20" y="150" width="200" height="56" fill="url(#pipe)"/>
+          <rect x="196" y="150" width="56" height="210" fill="url(#pipeV)"/>
+          <path d="M196 150h56v56h-56z" fill="url(#pipe)"/>
+          <rect x="176" y="138" width="20" height="80" rx="4" fill="url(#copper)"/>
+          <rect x="184" y="206" width="80" height="20" rx="4" fill="url(#copper)" transform="rotate(0)"/>
+          <rect x="70" y="138" width="16" height="80" rx="4" fill="#c7d4e6"/>
+          <ellipse class="drip" cx="224" cy="368" rx="7" ry="10" fill="#7fb2ff"/>
+          <g transform="rotate(-40 230 160)">
+            <rect x="150" y="148" width="190" height="26" rx="13" fill="#0b1f3a" stroke="#ff7a1a" stroke-width="4"/>
+            <path d="M320 120c26 0 44 18 44 41s-18 41-44 41l-6-24h-10v-34h10z" fill="#0b1f3a" stroke="#ff7a1a" stroke-width="4" stroke-linejoin="round"/>
+            <circle cx="170" cy="161" r="5" fill="#ff7a1a"/>
+          </g>
+          <g transform="translate(270 250)">
+            <path d="M50 0l46 16v32c0 30-22 50-46 60C26 98 4 78 4 48V16z" fill="#ff7a1a" stroke="#0b1f3a" stroke-width="5"/>
+            <path d="M30 52l14 14 26-28" stroke="#0b1f3a" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <ul class="wrap" aria-label="Quick facts">
+      <li>24/7 emergency line</li>
+      <li>Licensed &amp; insured</li>
+      <li>Upfront, written quotes</li>
+      <li>Workmanship warranty</li>
+    </ul>
+  </div>
+
+  <section class="services section" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker">What we fix</p>
+          <h2 id="services-title">Plumbing services, start to finish</h2>
+          <p>From a dripping tap to a whole-home repipe, one call covers it. Every job starts with a clear diagnosis and a written price before any work begins.</p>
+        </div>
+        <a class="btn btn-orange" href="#quote">Describe your job</a>
+      </div>
+      <div class="svc-grid">
+        <article class="svc emerg">
+          <div class="icon"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l10 18H2z" fill="none" stroke="#ff7a1a" stroke-width="2.2" stroke-linejoin="round"/><path d="M12 9v5" stroke="#ff7a1a" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="17" r="1.4" fill="#ff7a1a"/></svg></div>
+          <h3>24/7 Emergency Repairs</h3>
+          <p>Burst pipes, overflowing toilets, no hot water at midnight. We answer every call with a real person.</p>
+          <ul><li>Emergency water shut-off</li><li>Burst and frozen pipes</li><li>Sewer backups</li></ul>
+          <p style="margin:1rem 0 0"><a href="tel:+15550104477">Call now: (555) 010-4477</a></p>
+        </article>
+        <article class="svc">
+          <div class="icon"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c-4 5-7 8.5-7 12a7 7 0 0 0 14 0c0-3.5-3-7-7-12z" fill="#1f6feb"/></svg></div>
+          <h3>Leak Detection &amp; Repair</h3>
+          <p>Non-invasive detection finds hidden leaks before they become water damage.</p>
+          <ul><li>Slab and wall leaks</li><li>Fixture and supply-line leaks</li><li>Water bill spike checks</li></ul>
+        </article>
+        <article class="svc">
+          <div class="icon"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="#1f6feb" stroke-width="2.4"/><path d="M12 12c0-3 3-4 4-2M12 12c-3 0-4 3-2 4M12 12c0 3-3 4-4 2M12 12c3 0 4-3 2-4" stroke="#1f6feb" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <h3>Drain Cleaning</h3>
+          <p>Slow sinks and stubborn clogs cleared properly, not just pushed further down the line.</p>
+          <ul><li>Kitchen and bath drains</li><li>Camera line inspections</li><li>Hydro-jetting</li></ul>
+        </article>
+        <article class="svc">
+          <div class="icon"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="#1f6feb" stroke-width="2.2"/><path d="M12 9c-1.5 2-2.5 3-2.5 4.5a2.5 2.5 0 0 0 5 0C14.5 12 13.5 11 12 9z" fill="#ff7a1a"/></svg></div>
+          <h3>Water Heaters</h3>
+          <p>Repair, replacement and tankless upgrades, with same-day installs when stock allows.</p>
+          <ul><li>Tank and tankless units</li><li>Pilot and element repair</li><li>Annual flush and service</li></ul>
+        </article>
+        <article class="svc">
+          <div class="icon"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h11v4H4zM15 7h4v10h-4z" fill="none" stroke="#1f6feb" stroke-width="2.2" stroke-linejoin="round"/><path d="M2 12h2" stroke="#1f6feb" stroke-width="2.2"/></svg></div>
+          <h3>Fixtures &amp; Fittings</h3>
+          <p>Faucets, toilets, garbage disposals and shower valves, installed level, sealed, and tested.</p>
+          <ul><li>Faucet and toilet installs</li><li>Disposal replacement</li><li>Shut-off valve upgrades</li></ul>
+        </article>
+        <article class="svc">
+          <div class="icon"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V9l9-6 9 6v11" fill="none" stroke="#1f6feb" stroke-width="2.2" stroke-linejoin="round"/><path d="M8 20v-6h8v6M8 14V11" stroke="#ff7a1a" stroke-width="2.2" fill="none"/></svg></div>
+          <h3>Repiping &amp; Remodels</h3>
+          <p>Whole-home PEX or copper repipes and rough-in for kitchen and bath remodels.</p>
+          <ul><li>Galvanized pipe replacement</li><li>Remodel rough-in</li><li>Gas line work</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="why" aria-labelledby="why-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Why homeowners call us</p>
+          <h2 id="why-title">Straight answers. Solid work.</h2>
+          <p>No star ratings to scroll through here, just the commitments FlowRight puts in writing on every job.</p>
+        </div>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-item"><span class="num" aria-hidden="true">01</span><h3>Price before work</h3><p>You'll get a written, flat-rate quote after diagnosis. The price you approve is the price you pay, with no hourly meter running.</p></div>
+        <div class="trust-item"><span class="num" aria-hidden="true">02</span><h3>Licensed &amp; insured</h3><p>Every plumber on our team holds a state license, and every job is covered by liability insurance. Ask to see both.</p></div>
+        <div class="trust-item"><span class="num" aria-hidden="true">03</span><h3>On-time arrival</h3><p>Two-hour arrival windows and a text when your plumber is on the way, with their name and photo.</p></div>
+        <div class="trust-item"><span class="num" aria-hidden="true">04</span><h3>Clean job sites</h3><p>Shoe covers, drop cloths, and a full clean-up before we leave. Your home is treated like ours.</p></div>
+        <div class="trust-item"><span class="num" aria-hidden="true">05</span><h3>Warranty on labor</h3><p>If something we fixed fails because of our workmanship, we come back and make it right at no charge.</p></div>
+        <div class="trust-item"><span class="num" aria-hidden="true">06</span><h3>Local &amp; independent</h3><p>Owner-operated and based right here. You'll talk to the same team from first call to final walkthrough.</p></div>
+      </div>
+      <div class="promise">
+        <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z" fill="#1f6feb"/><path d="M8.5 12l2.5 2.5 4.5-5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p>The FlowRight Promise: if we're late beyond your arrival window, the diagnostic visit is on us.</p>
+        <a class="btn btn-orange" href="#quote">Book a visit</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="area section" id="area" aria-labelledby="area-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker on-dark">Where we work</p>
+          <h2 id="area-title">Proudly serving the Riverton metro</h2>
+          <p>Our trucks are stationed across the area, so help is never far away.</p>
+        </div>
+      </div>
+      <div class="area-grid">
+        <svg viewBox="0 0 420 320" role="img" aria-labelledby="area-map-title" style="width:100%;height:auto">
+          <title id="area-map-title">Stylized service area map: a 25-mile radius centered on Riverton, covering eight surrounding communities</title>
+          <rect width="420" height="320" rx="16" fill="#12305a"/>
+          <path d="M0 210c60-30 110 20 170-10s110-60 170-30 80 20 80 20v140H0z" fill="#1f6feb" opacity=".25"/>
+          <path d="M30 0c30 80 10 140 70 200s40 120 40 120" stroke="#7fb2ff" stroke-width="10" fill="none" opacity=".5" stroke-linecap="round"/>
+          <circle cx="210" cy="160" r="130" fill="#ff7a1a" fill-opacity=".12" stroke="#ff7a1a" stroke-width="3" stroke-dasharray="8 8"/>
+          <circle cx="210" cy="160" r="70" fill="#ff7a1a" fill-opacity=".14"/>
+          <g fill="#fff" font-family="system-ui, sans-serif" font-size="12" font-weight="700">
+            <circle cx="210" cy="160" r="9" fill="#ff7a1a" stroke="#fff" stroke-width="3"/>
+            <text x="224" y="165">Riverton</text>
+            <circle cx="140" cy="90" r="5"/><text x="105" y="80">Oak Hollow</text>
+            <circle cx="300" cy="100" r="5"/><text x="290" y="88">Cedar Point</text>
+            <circle cx="120" cy="200" r="5"/><text x="88" y="222">Millbrook</text>
+            <circle cx="310" cy="210" r="5"/><text x="292" y="232">Eastgate</text>
+            <circle cx="220" cy="60" r="5"/><text x="196" y="48">Northfield</text>
+            <circle cx="210" cy="260" r="5"/><text x="180" y="282">Southport</text>
+            <circle cx="95" cy="140" r="5"/><text x="50" y="132">Westbury</text>
+            <circle cx="330" cy="155" r="5"/><text x="342" y="160">Pinecrest</text>
+          </g>
+          <text x="20" y="300" fill="#cfdcf0" font-family="system-ui, sans-serif" font-size="11">Dashed ring: 25-mile service radius</text>
+        </svg>
+        <div>
+          <ul class="towns">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z" fill="#ff7a1a"/></svg>Riverton</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z" fill="#ff7a1a"/></svg>Oak Hollow</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z" fill="#ff7a1a"/></svg>Cedar Point</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z" fill="#ff7a1a"/></svg>Millbrook</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z" fill="#ff7a1a"/></svg>Eastgate</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z" fill="#ff7a1a"/></svg>Northfield</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z" fill="#ff7a1a"/></svg>Southport</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z" fill="#ff7a1a"/></svg>Westbury</li>
+          </ul>
+          <p class="area-note"><strong>Just outside the ring?</strong> Call us anyway. We regularly travel a little further for scheduled work, and we'll tell you upfront if there's a trip fee.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="quote" aria-labelledby="quote-title">
+    <div class="wrap quote-grid">
+      <div class="quote-aside">
+        <p class="kicker">Free, no-obligation</p>
+        <h2 id="quote-title">Request a quote</h2>
+        <p style="color:var(--muted)">Tell us what's going on and we'll get back to you with next steps and a price range, usually within one business hour.</p>
+        <ul class="what-next">
+          <li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#0b1f3a"/><text x="12" y="16.5" font-size="12" font-weight="800" fill="#fff" text-anchor="middle" font-family="system-ui, sans-serif">1</text></svg><span><b>We call you back</b> to ask a few quick questions.</span></li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#0b1f3a"/><text x="12" y="16.5" font-size="12" font-weight="800" fill="#fff" text-anchor="middle" font-family="system-ui, sans-serif">2</text></svg><span><b>We schedule a visit</b> in a 2-hour window that suits you.</span></li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#0b1f3a"/><text x="12" y="16.5" font-size="12" font-weight="800" fill="#fff" text-anchor="middle" font-family="system-ui, sans-serif">3</text></svg><span><b>You approve a flat price</b> before any work starts.</span></li>
+        </ul>
+        <div class="call-card">
+          <strong>Water on the floor right now?</strong>
+          <a class="big" href="tel:+15550104477">(555) 010-4477</a>
+          <p style="margin:0">Skip the form and call. Our emergency line is answered 24 hours a day, 7 days a week.</p>
+        </div>
+      </div>
+
+      <form class="quote" action="#" method="post" aria-describedby="form-demo-note">
+        <div class="row">
+          <div class="field">
+            <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="email">Email <span class="hint">(optional)</span></label>
+            <input id="email" name="email" type="email" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="zip">ZIP code <span class="req" aria-hidden="true">*</span></label>
+            <input id="zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" maxlength="5" aria-describedby="zip-hint" required>
+            <span id="zip-hint" class="hint">5 digits, so we can confirm you're in our service area.</span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="service">What do you need help with? <span class="req" aria-hidden="true">*</span></label>
+          <select id="service" name="service" required>
+            <option value="">Choose a service</option>
+            <option>Leak detection &amp; repair</option>
+            <option>Drain cleaning / clog</option>
+            <option>Water heater</option>
+            <option>Fixture install or repair</option>
+            <option>Repiping or remodel</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <fieldset>
+          <legend>How urgent is it?</legend>
+          <div class="urgency">
+            <label><input type="radio" name="urgency" value="emergency"><span>Emergency<small>Today, ASAP</small></span></label>
+            <label><input type="radio" name="urgency" value="soon" checked><span>This week<small>Within a few days</small></span></label>
+            <label><input type="radio" name="urgency" value="planning"><span>Planning<small>Just getting quotes</small></span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="details">Describe the problem</label>
+          <textarea id="details" name="details" aria-describedby="details-hint"></textarea>
+          <span id="details-hint" class="hint">For example: "Kitchen sink drains slowly and gurgles when the dishwasher runs."</span>
+        </div>
+        <label class="check"><input type="checkbox" name="text_ok" value="yes"> Text me appointment updates (standard rates apply)</label>
+        <button class="btn btn-orange" type="submit">Send my quote request</button>
+        <p class="form-note" id="form-demo-note">Concept demo: this form doesn't send anything. Required fields are marked with <span class="req">*</span>.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:1rem">
+          <svg width="36" height="36" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="10" fill="#ff7a1a"/><path d="M24 9c-6 8-11 14-11 20a11 11 0 0 0 22 0c0-6-5-12-11-20z" fill="#0b1f3a"/><path d="M18 30a6 6 0 0 0 6 6" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
+          <span class="brand-name">Flow<span>Right</span> Plumbing</span>
+        </a>
+        <p>Honest, local plumbing for homes and small businesses across the Riverton metro.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+15550104477">(555) 010-4477</a> (24/7)</li>
+          <li><a href="mailto:service@flowright.example">service@flowright.example</a></li>
+          <li>Office: Mon to Fri, 7am to 6pm</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Quick links</h3>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#area">Service area</a></li>
+          <li><a href="#quote">Request a quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">FlowRight Plumbing is a fictional business created as a design concept. Phone number, license details, locations and service commitments are placeholders. License #: PL-000000 (placeholder).</p>
+  </div>
+</footer>
+
+<a class="concept-badge" href="../../index.html">
+  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z" fill="#ff7a1a" stroke="#0b1f3a" stroke-width="1.5" stroke-linejoin="round"/></svg>
+  Concept site by E.M — fictional business
+</a>
+</body>
+</html>

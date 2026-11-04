@@ -1,0 +1,488 @@
+<!doctype html>
+<!--
+  ================================================================
+  E.M: QUICK EDIT GUIDE
+  ================================================================
+  Things you are most likely to change are in plain text here,
+  with no build step. Use find-and-replace in your editor:
+
+  - Business name:  "E.M"   (title, meta, header, footer)
+  - Email:          "elsharuf107s@gmail.com"  (contact section and mailto links)
+  - Prices:         search for data-edit="price" ($299 Starter, $699 Business,
+                    $1,199 Growth, $29/mo Care plan). Prices also appear in the
+                    contact form dropdown and the "priceRange" line in <head>,
+                    so a find-and-replace on "$299", "$699", "$1,199", "$29"
+                    catches every copy.
+  - Site URL:       "https://elsharuf107s-ux.github.io/em-webdev/" in the canonical
+                    and Open Graph tags. Replace it with your GitHub Pages URL.
+  - Contact form:   search for "YOUR_FORM_ID" (see the comment above the form).
+
+  Every editable value is tagged data-edit="..." so you can find it quickly.
+  ================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E.M | Affordable Websites for Local Businesses</title>
+  <meta name="description" content="E.M builds fast, mobile-friendly websites for restaurants, salons, trades, gyms and local shops. Clear fixed prices from $299. Founding client discount available.">
+  <meta name="theme-color" content="#312e81">
+  <link rel="canonical" href="https://elsharuf107s-ux.github.io/em-webdev/">
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="E.M">
+  <meta property="og:title" content="E.M | Websites for Local Businesses">
+  <meta property="og:description" content="Fast, mobile-friendly websites for small local businesses. Fixed prices from $299, no surprises.">
+  <meta property="og:url" content="https://elsharuf107s-ux.github.io/em-webdev/">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="E.M | Websites for Local Businesses">
+  <meta name="twitter:description" content="Fast, mobile-friendly websites for small local businesses. Fixed prices from $299.">
+
+  <!-- Inline SVG favicon: no image files needed -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234338ca'/%3E%3Cpath d='M16 6c4 3 6 7 6 11l-3 3h-6l-3-3c0-4 2-8 6-11z' fill='%23fff'/%3E%3Ccircle cx='16' cy='14' r='2' fill='%234338ca'/%3E%3Cpath d='M13 22l3 4 3-4z' fill='%23fb923c'/%3E%3C/svg%3E">
+
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "E.M",
+    "email": "elsharuf107s@gmail.com",
+    "url": "https://elsharuf107s-ux.github.io/em-webdev/",
+    "description": "Website design and development for small local businesses.",
+    "priceRange": "$299 - $1,199"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Inline SVG icon sprite (decorative, referenced with <use>) -->
+  <svg width="0" height="0" class="sr-only" aria-hidden="true" focusable="false">
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9-.1zM12 15l-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22.4 22.4 0 0 1-4 2zM9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11 18h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M8 2v4M16 2v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="m5 12 5 5L20 7"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 7 9 6 9-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="E.M, back to top">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M16 6c4 3 6 7 6 11l-3 3h-6l-3-3c0-4 2-8 6-11z" fill="#fff"/><circle cx="16" cy="14" r="2" fill="currentColor"/><path d="M13 22l3 4 3-4z" fill="#fb923c"/></svg>
+        <span data-edit="business-name">E.M</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a class="btn btn-small" href="#contact">Get a quote</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="top" class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pill">Launch offer</span> Founding client discount for our first local businesses</p>
+          <h1 id="hero-title">A professional website for your local business, live in about two weeks.</h1>
+          <p class="lead">We build fast, mobile-friendly websites for restaurants, salons, trades, gyms and shops. Fixed prices from <strong data-edit="price">$299</strong>, plain-English help, and no surprise bills.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Get a free quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-ghost" href="#pricing">See pricing</a>
+          </div>
+          <ul class="hero-points" aria-label="What is included">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Looks great on phones</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> You own your site</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> No long contracts</li>
+          </ul>
+        </div>
+
+        <!-- Decorative illustration: a phone showing a mock local business site -->
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 320 380" focusable="false">
+            <defs>
+              <linearGradient id="g-screen" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#eef2ff"/><stop offset="1" stop-color="#fff"/>
+              </linearGradient>
+            </defs>
+            <rect x="30" y="40" width="200" height="320" rx="28" fill="#1e1b4b"/>
+            <rect x="42" y="56" width="176" height="288" rx="18" fill="url(#g-screen)"/>
+            <rect x="56" y="72" width="70" height="10" rx="5" fill="#4338ca"/>
+            <rect x="170" y="72" width="34" height="10" rx="5" fill="#c7d2fe"/>
+            <rect x="56" y="98" width="148" height="80" rx="10" fill="#4338ca"/>
+            <path d="M70 160l24-28 18 18 14-12 24 22z" fill="#818cf8"/>
+            <circle cx="178" cy="118" r="10" fill="#fb923c"/>
+            <rect x="56" y="192" width="120" height="10" rx="5" fill="#1e1b4b"/>
+            <rect x="56" y="210" width="148" height="7" rx="3.5" fill="#c7d2fe"/>
+            <rect x="56" y="224" width="130" height="7" rx="3.5" fill="#c7d2fe"/>
+            <rect x="56" y="246" width="70" height="26" rx="13" fill="#ea580c"/>
+            <rect x="56" y="288" width="68" height="40" rx="8" fill="#e0e7ff"/>
+            <rect x="136" y="288" width="68" height="40" rx="8" fill="#e0e7ff"/>
+            <g transform="translate(196 150)">
+              <rect width="110" height="64" rx="14" fill="#fff" stroke="#e0e7ff" stroke-width="2"/>
+              <rect x="14" y="14" width="22" height="22" rx="6" fill="#fff7ed"/>
+              <path d="M19 25l4 4 8-8" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="44" y="16" width="52" height="7" rx="3.5" fill="#1e1b4b"/>
+              <rect x="44" y="28" width="38" height="6" rx="3" fill="#c7d2fe"/>
+              <rect x="14" y="44" width="82" height="6" rx="3" fill="#e0e7ff"/>
+            </g>
+            <g transform="translate(232 54)">
+              <circle r="26" cx="26" cy="26" fill="#fff7ed"/>
+              <path d="M26 12c6 4 9 10 9 16l-4 4h-10l-4-4c0-6 3-12 9-16z" fill="#ea580c"/>
+              <circle cx="26" cy="24" r="3" fill="#fff7ed"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM / SOLUTION -->
+    <section class="section section-alt" aria-labelledby="problem-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Why it matters</p>
+          <h2 id="problem-title">Most customers look you up online before they visit</h2>
+          <p>If they can't find you, or your site is hard to use on a phone, they often pick someone else. We fix that without the agency price tag.</p>
+        </div>
+        <div class="compare">
+          <div class="compare-card compare-problem">
+            <h3>The problem</h3>
+            <ul class="icon-list">
+              <li><svg class="icon icon-bad" aria-hidden="true"><use href="#i-x"/></svg> No website, or only a social media page</li>
+              <li><svg class="icon icon-bad" aria-hidden="true"><use href="#i-x"/></svg> An old site that is slow or broken on phones</li>
+              <li><svg class="icon icon-bad" aria-hidden="true"><use href="#i-x"/></svg> Hours, menu or prices that are out of date</li>
+              <li><svg class="icon icon-bad" aria-hidden="true"><use href="#i-x"/></svg> Hard to find on Google Search and Maps</li>
+              <li><svg class="icon icon-bad" aria-hidden="true"><use href="#i-x"/></svg> Agency quotes that are too high for a small business</li>
+            </ul>
+          </div>
+          <div class="compare-card compare-solution">
+            <h3>How we help</h3>
+            <ul class="icon-list">
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> A clean, modern site built for your business</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Fast loading and easy to use on any phone</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Tap-to-call, maps and clear contact details</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Basic search setup so locals can find you</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Fixed, published prices with no hidden fees</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Services</p>
+          <h2 id="services-title">Everything a local business website needs</h2>
+          <p>Built for restaurants, salons, trades, gyms and independent shops.</p>
+        </div>
+        <ul class="card-grid" role="list">
+          <li class="card">
+            <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg></span>
+            <h3>Website design</h3>
+            <p>A custom-looking design that fits your brand, with your photos, colors and voice.</p>
+          </li>
+          <li class="card">
+            <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+            <h3>Mobile-first build</h3>
+            <p>Designed for phones first, then tablets and desktops, with tap-to-call and directions.</p>
+          </li>
+          <li class="card">
+            <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span>
+            <h3>Local search setup</h3>
+            <p>Page titles, descriptions and Google Business Profile guidance so nearby customers can find you.</p>
+          </li>
+          <li class="card">
+            <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+            <h3>Bookings and enquiries</h3>
+            <p>Contact forms, quote requests or links to your booking tool so customers can reach you any time.</p>
+          </li>
+          <li class="card">
+            <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg></span>
+            <h3>Website refresh</h3>
+            <p>Already have a site? We can rebuild an outdated one so it is faster and easier to use.</p>
+          </li>
+          <li class="card">
+            <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-wrench"/></svg></span>
+            <h3>Care and updates</h3>
+            <p>Optional monthly plan for content changes, checks and help when you need it.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="section section-alt" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Pricing</p>
+          <h2 id="pricing-title">Simple, fixed prices</h2>
+          <p>One-time build fee. No contracts. <strong>Founding client discount:</strong> ask about launch pricing for our first clients.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="plan" aria-labelledby="plan-starter">
+            <h3 id="plan-starter">Starter</h3>
+            <p class="plan-desc">A one-page site that gets you online fast.</p>
+            <p class="price"><span data-edit="price">$299</span> <span class="price-note">one-time</span></p>
+            <ul class="icon-list">
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> 1 page with clear sections</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Mobile-friendly design</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Contact details, map and hours</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Basic page titles and descriptions</li>
+            </ul>
+            <a class="btn btn-ghost btn-block" href="#contact" data-plan="Starter">Choose Starter</a>
+          </article>
+
+          <article class="plan plan-featured" aria-labelledby="plan-business">
+            <p class="plan-badge">Best fit for most businesses</p>
+            <h3 id="plan-business">Business</h3>
+            <p class="plan-desc">A full small-business site, up to 5 pages.</p>
+            <p class="price"><span data-edit="price">$699</span> <span class="price-note">one-time</span></p>
+            <ul class="icon-list">
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Up to 5 pages (e.g. Home, About, Services, Gallery, Contact)</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Contact or quote request form</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Menu, services or price list</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> On-page search basics for every page</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="#contact" data-plan="Business">Choose Business</a>
+          </article>
+
+          <article class="plan" aria-labelledby="plan-growth">
+            <h3 id="plan-growth">Growth</h3>
+            <p class="plan-desc">5+ pages with bookings and search setup.</p>
+            <p class="price"><span data-edit="price">$1,199</span> <span class="price-note">one-time</span></p>
+            <ul class="icon-list">
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> More than 5 pages</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Online booking setup</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Local SEO setup and Google Business Profile help</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Basic visitor analytics</li>
+            </ul>
+            <a class="btn btn-ghost btn-block" href="#contact" data-plan="Growth">Choose Growth</a>
+          </article>
+        </div>
+
+        <aside class="care-plan" aria-labelledby="care-title">
+          <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <div>
+            <h3 id="care-title">Optional care plan: <span data-edit="price">$29/mo</span></h3>
+            <p>Small text and photo updates, regular checks that your site is working, and help by email. Cancel any time.</p>
+          </div>
+        </aside>
+        <p class="fine-print">Prices are in USD. Third-party costs like a custom domain name (often around $10 to $20 a year) or paid booking software are separate, and we'll tell you about them up front.</p>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="section" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">How it works</p>
+          <h2 id="process-title">From first chat to launch in 4 steps</h2>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3>Free chat</h3>
+            <p>Tell us about your business, your customers and what you need. We'll recommend a package.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3>Plan and content</h3>
+            <p>We agree on pages and collect your text, photos and logo. We can help write the words.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3>Design and build</h3>
+            <p>We build your site and share a preview link. You get rounds of changes before launch.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">4</span>
+            <h3>Launch</h3>
+            <p>We put it live, connect your domain and show you how everything works.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="work" class="section section-alt" aria-labelledby="work-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Concept projects</p>
+          <h2 id="work-title">Sample work</h2>
+          <p>We're a new studio, so these are <strong>concept projects</strong>: example sites we designed for fictional businesses to show our style. They are not client work.</p>
+        </div>
+        <div class="work-grid">
+          <a class="work-card" href="./portfolio/bakery/index.html">
+            <div class="work-thumb work-thumb-bakery" aria-hidden="true">
+              <svg viewBox="0 0 200 120" focusable="false">
+                <rect width="200" height="120" fill="#fff7ed"/>
+                <rect x="14" y="12" width="50" height="8" rx="4" fill="#9a3412"/>
+                <rect x="14" y="32" width="90" height="12" rx="6" fill="#431407"/>
+                <rect x="14" y="50" width="70" height="7" rx="3.5" fill="#fdba74"/>
+                <rect x="14" y="68" width="46" height="18" rx="9" fill="#c2410c"/>
+                <ellipse cx="150" cy="78" rx="36" ry="18" fill="#fb923c"/>
+                <path d="M120 74c10-8 50-8 60 0" stroke="#fff7ed" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M128 66c8-6 36-6 44 0" stroke="#fff7ed" stroke-width="3" fill="none" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="work-body">
+              <p class="work-tag">Concept project</p>
+              <h3>Neighborhood bakery</h3>
+              <p>Menu, opening hours, order enquiries and a location map.</p>
+              <span class="work-link">View concept <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+          </a>
+          <a class="work-card" href="./portfolio/plumber/index.html">
+            <div class="work-thumb work-thumb-plumber" aria-hidden="true">
+              <svg viewBox="0 0 200 120" focusable="false">
+                <rect width="200" height="120" fill="#eff6ff"/>
+                <rect x="14" y="12" width="50" height="8" rx="4" fill="#1e40af"/>
+                <rect x="14" y="32" width="96" height="12" rx="6" fill="#172554"/>
+                <rect x="14" y="50" width="74" height="7" rx="3.5" fill="#93c5fd"/>
+                <rect x="14" y="68" width="56" height="18" rx="9" fill="#1d4ed8"/>
+                <path d="M130 40h30v20h14v30" stroke="#2563eb" stroke-width="10" fill="none" stroke-linejoin="round"/>
+                <path d="M174 98c-4 6-4 10 0 12 4-2 4-6 0-12z" fill="#60a5fa"/>
+              </svg>
+            </div>
+            <div class="work-body">
+              <p class="work-tag">Concept project</p>
+              <h3>Local plumbing service</h3>
+              <p>Tap-to-call, service list, service area and a quote request form.</p>
+              <span class="work-link">View concept <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section" aria-labelledby="faq-title">
+      <div class="container container-narrow">
+        <div class="section-head">
+          <p class="kicker">FAQ</p>
+          <h2 id="faq-title">Common questions</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>How long does it take?</summary>
+            <p>Most Starter and Business sites go live in about one to three weeks. The biggest factor is how quickly we can gather your text and photos. Growth sites can take a bit longer.</p>
+          </details>
+          <details>
+            <summary>Do I need to pay for hosting?</summary>
+            <p>For most simple sites, no. We can host on free, reliable static hosting. If you want your own domain name (like yourbusiness.com), you pay the registrar directly, usually a small yearly fee.</p>
+          </details>
+          <details>
+            <summary>Do I own my website?</summary>
+            <p>Yes. Once the build is paid for, the site and its content are yours. We'll hand over all the files if you ever want to move.</p>
+          </details>
+          <details>
+            <summary>What do I need to provide?</summary>
+            <p>Your logo (if you have one), photos of your work or premises, and basic details like services, prices and hours. Don't have good photos or text? We'll help you with that.</p>
+          </details>
+          <details>
+            <summary>Can I update the site myself?</summary>
+            <p>You can, and we'll show you how. Or join the optional <span data-edit="price">$29/mo</span> care plan and send us your changes by email.</p>
+          </details>
+          <details>
+            <summary>What is the founding client discount?</summary>
+            <p>E.M is new. Our first clients get a launch discount in exchange for honest feedback and permission to show the finished site in our portfolio. Ask us for details when you get in touch.</p>
+          </details>
+          <details>
+            <summary>How do payments work?</summary>
+            <p>Typically half up front to start and half at launch. The care plan is billed monthly and you can cancel any time.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section-dark" aria-labelledby="contact-title">
+      <div class="container contact-inner">
+        <div class="contact-copy">
+          <p class="kicker kicker-light">Contact</p>
+          <h2 id="contact-title">Get a free, no-pressure quote</h2>
+          <p>Tell us a little about your business and we'll reply within one business day with a recommendation and a fixed price.</p>
+          <p class="contact-email">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+            <a href="mailto:elsharuf107s@gmail.com?subject=Website%20quote%20request" data-edit="email">elsharuf107s@gmail.com</a>
+          </p>
+          <p class="contact-note">Prefer email? Just click the address above. No form needed.</p>
+        </div>
+
+        <!--
+          CONTACT FORM SETUP (free):
+          This form posts to Formspree, which has a free tier for small sites.
+          1. Create a free account at https://formspree.io
+          2. Create a new form and copy its ID (looks like "xyzabcd").
+          3. Replace YOUR_FORM_ID below with that ID.
+          Until you do this, the form won't send. The mailto link above works right away.
+        -->
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="business">Business name</label>
+            <input id="business" name="business" type="text" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="package">Package you're interested in</label>
+            <select id="package" name="package">
+              <option value="Not sure yet">Not sure yet</option>
+              <option value="Starter">Starter ($299)</option>
+              <option value="Business">Business ($699)</option>
+              <option value="Growth">Growth ($1,199)</option>
+            </select>
+          </div>
+          <div class="field field-full">
+            <label for="message">Tell us about your business</label>
+            <textarea id="message" name="message" rows="5" required aria-describedby="message-hint"></textarea>
+            <p id="message-hint" class="hint">For example: what you do, where you're based, and whether you have a website now.</p>
+          </div>
+          <input type="hidden" name="_subject" value="New website enquiry from E.M site">
+          <button class="btn btn-accent btn-block field-full" type="submit">Send enquiry</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong data-edit="business-name">E.M</strong>: websites for local businesses.</p>
+      <p><a href="mailto:elsharuf107s@gmail.com" data-edit="email">elsharuf107s@gmail.com</a></p>
+      <p class="footer-small">&copy; <span id="year">2026</span> E.M. Portfolio items are concept projects.</p>
+    </div>
+  </footer>
+</body>
+</html>
