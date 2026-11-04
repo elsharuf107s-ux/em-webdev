@@ -32,20 +32,30 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Until a Formspree ID is set, send the form through the visitor's email app instead of a broken endpoint
+  // Until a Formspree ID is set, send the form through the visitor's email app
+  // instead of a broken endpoint. Values are URL-encoded, so nothing typed in
+  // the form can add extra mail headers.
   var form = document.querySelector('.contact-form');
   if (form && form.action.indexOf('YOUR_FORM_ID') !== -1) {
+    var status = form.querySelector('.form-status');
+    var to = 'elsharuf107s@gmail.com';
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var lines = [];
       Array.prototype.forEach.call(form.elements, function (el) {
         if (!el.name || el.type === 'hidden' || el.name.charAt(0) === '_' || el.type === 'submit') return;
         if ((el.type === 'checkbox' || el.type === 'radio') && !el.checked) return;
+        var value = el.value.trim();
+        if (!value) return;
         var label = form.querySelector('label[for="' + el.id + '"]');
-        lines.push((label ? label.textContent.trim() : el.name) + ': ' + el.value);
+        lines.push((label ? label.textContent.trim() : el.name) + ': ' + value);
       });
-      window.location.href = 'mailto:elsharuf107s@gmail.com?subject=' +
+      window.location.href = 'mailto:' + to + '?subject=' +
         encodeURIComponent('Website quote request') + '&body=' + encodeURIComponent(lines.join('\n'));
+      if (status) {
+        status.textContent = 'Thanks! Your email app should now open with your message ready to send. ' +
+          'If nothing happens, email ' + to + ' directly.';
+      }
     });
   }
 

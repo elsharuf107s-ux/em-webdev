@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-/+fvtjnojq2UV1cir8ghpJaDSV1J9X2Hk89Qj/hHico='; style-src 'unsafe-inline'; img-src data:; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Concept site for a fictional business: keep it out of search results so its placeholder phone, towns and license number are never shown as real -->
+<meta name="robots" content="noindex, follow">
 <title>FlowRight Plumbing | Local Plumbers, 24/7 Emergency Service (Concept Site)</title>
 <meta name="description" content="FlowRight Plumbing: licensed local plumbers for leaks, drains, water heaters and emergencies. Upfront pricing. A concept site by E.M for a fictional business.">
 <meta name="theme-color" content="#0b1f3a">
@@ -89,9 +93,36 @@
   .nav ul { display: flex; gap: 1.6rem; list-style: none; margin: 0; padding: 0; }
   .nav ul a { color: #cfdcf0; text-decoration: none; font-weight: 700; font-size: .95rem; }
   .nav ul a:hover { color: #fff; }
-  .nav .btn { padding: .75rem 1.1rem; font-size: .92rem; box-shadow: 0 4px 0 var(--orange-dark); }
-  @media (max-width: 880px) { .nav ul { display: none; } }
+  .nav .btn { padding: .75rem 1.1rem; font-size: .92rem; box-shadow: 0 4px 0 var(--orange-dark); white-space: nowrap; }
+  /* Small screens: the links move to their own row under the logo (no JS needed) */
+  @media (max-width: 880px) {
+    .nav { flex-wrap: wrap; row-gap: .4rem; padding-bottom: .35rem; }
+    .nav ul { order: 3; width: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 0 1.75rem; border-top: 1px solid rgba(255,255,255,.12); padding-top: .2rem; }
+    .nav ul .nav-dup { display: none; } /* "Get a free quote" is already the header button */
+    .nav ul a { display: inline-block; padding: .55rem 0; font-size: .92rem; }
+    section { scroll-margin-top: 130px; }
+  }
+  @media (max-width: 420px) {
+    .brand-name { font-size: 1.15rem; }
+    .brand svg { width: 34px; height: 34px; }
+    .nav .btn { padding: .65rem .85rem; font-size: .86rem; }
+  }
 
+  @media (max-width: 480px) { .nav ul { justify-content: space-between; gap: 0 1rem; } }
+  @media (max-width: 400px) {
+    .wrap { width: calc(100% - 2rem); }
+    .nav { column-gap: .6rem; }
+    .brand { gap: .45rem; }
+    .brand-name { font-size: 1.02rem; }
+    .brand svg { width: 30px; height: 30px; }
+    .nav .btn { padding: .6rem .7rem; font-size: .8rem; }
+    .nav ul { gap: 0 .75rem; }
+    .nav ul a { font-size: .85rem; }
+  }
+  @media (max-width: 340px) {
+    .brand svg { display: none; }
+    .nav ul a { font-size: .8rem; }
+  }
   /* Hero */
   .hero {
     background:
@@ -114,7 +145,7 @@
   .hero-art { justify-self: center; width: 100%; max-width: 440px; }
   .drip { animation: drip 2.2s ease-in infinite; transform-origin: center; }
   @keyframes drip { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 80% { transform: translateY(70px); opacity: 1; } 100% { transform: translateY(78px); opacity: 0; } }
-  @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; } .hero-art { max-width: 320px; order: -1; } }
+  @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; gap: 1.5rem; } .hero-art { max-width: 230px; order: -1; } }
 
   /* Trust strip */
   .strip { background: var(--orange); color: var(--navy); }
@@ -218,6 +249,8 @@
   .check input:focus-visible { outline: 3px solid var(--navy); outline-offset: 2px; }
   form.quote .btn { width: 100%; font-size: 1.05rem; }
   .form-note { font-size: .85rem; color: var(--muted); margin: .9rem 0 0; text-align: center; }
+  .form-status { margin: .6rem 0 0; text-align: center; font-weight: 700; color: var(--navy); }
+  .form-status:empty { display: none; }
 
   /* Footer */
   .site-footer { background: #06142a; color: #b6c4d9; padding-block: 3rem 2rem; }
@@ -272,7 +305,7 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#why">Why FlowRight</a></li>
       <li><a href="#area">Service area</a></li>
-      <li><a href="#quote">Free quote</a></li>
+      <li class="nav-dup"><a href="#quote">Free quote</a></li>
     </ul>
     <a class="btn btn-orange" href="#quote">Get a free quote</a>
   </nav>
@@ -537,6 +570,7 @@
         <label class="check"><input type="checkbox" name="text_ok" value="yes"> Text me appointment updates (standard rates apply)</label>
         <button class="btn btn-orange" type="submit">Send my quote request</button>
         <p class="form-note" id="form-demo-note">Concept demo: this form doesn't send anything. Required fields are marked with <span class="req">*</span>.</p>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
@@ -577,5 +611,9 @@
   <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z" fill="#ff7a1a" stroke="#0b1f3a" stroke-width="1.5" stroke-linejoin="round"/></svg>
   Concept site by E.M — fictional business
 </a>
+<script>document.querySelector('form.quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('form-status').textContent = 'Concept demo: nothing was sent. In a live build, this request would go straight to the business by email.';
+});</script>
 </body>
 </html>

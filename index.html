@@ -7,15 +7,28 @@
   with no build step. Use find-and-replace in your editor:
 
   - Business name:  "E.M"   (title, meta, header, footer)
-  - Email:          "elsharuf107s@gmail.com"  (contact section and mailto links)
+  - Email:          "elsharuf107s@gmail.com"  (contact section, mailto links,
+                    JSON-LD in <head>, and script.js for the form fallback)
   - Prices:         search for data-edit="price" ($299 Starter, $699 Business,
                     $1,199 Growth, $29/mo Care plan). Prices also appear in the
-                    contact form dropdown and the "priceRange" line in <head>,
-                    so a find-and-replace on "$299", "$699", "$1,199", "$29"
+                    contact form dropdown, the FAQ, the meta description and the
+                    JSON-LD block in <head>, so a find-and-replace on "$299",
+                    "$699", "$1,199", "$29" (and "299", "699", "1199" in JSON-LD)
                     catches every copy.
-  - Site URL:       "https://elsharuf107s-ux.github.io/em-webdev/" in the canonical
-                    and Open Graph tags. Replace it with your GitHub Pages URL.
+  - Founding offer: search for data-edit="founding-offer". When the 3rd client
+                    signs, delete those elements, the founding FAQ item (and its
+                    copy in the JSON-LD FAQ), and the last sentence of the meta
+                    description in the same edit.
+  - FAQ:            the visible FAQ and the "FAQPage" part of the JSON-LD must use
+                    exactly the same wording. Change both together.
+  - Site URL:       "https://elsharuf107s-ux.github.io/em-webdev/" in the canonical,
+                    Open Graph tags, JSON-LD and sitemap.xml.
   - Contact form:   search for "YOUR_FORM_ID" (see the comment above the form).
+  - Security note:  the "Content-Security-Policy" line below only allows scripts
+                    from this site. If you add analytics or another outside
+                    script later, it will be blocked until you add its address
+                    there. If you change the one-line inline script in <head>,
+                    its sha256 hash in that line must be updated too.
 
   Every editable value is tagged data-edit="..." so you can find it quickly.
   ================================================================
@@ -24,21 +37,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>E.M | Affordable Websites for Local Businesses</title>
-  <meta name="description" content="E.M builds fast, mobile-friendly websites for restaurants, salons, trades, gyms and local shops. Clear fixed prices from $299. Founding client discount available.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; form-action https://formspree.io; base-uri 'none'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Small Business Websites from $299 | E.M Web Design</title>
+  <meta name="description" content="Fast-loading, mobile-friendly websites for small businesses anywhere, from a one-person studio based in Ohio. Fixed prices from $299. First 3 clients get 30% off.">
+  <meta name="author" content="Ervin Mosley">
   <meta name="theme-color" content="#312e81">
   <link rel="canonical" href="https://elsharuf107s-ux.github.io/em-webdev/">
 
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="E.M">
-  <meta property="og:title" content="E.M | Websites for Local Businesses">
-  <meta property="og:description" content="Fast, mobile-friendly websites for small local businesses. Fixed prices from $299, no surprises.">
+  <meta property="og:title" content="E.M | Websites for Small Businesses, from $299">
+  <meta property="og:description" content="Fast-loading, mobile-friendly websites for small businesses. Fixed, published prices from $299. Based in Ohio, working with clients anywhere.">
   <meta property="og:url" content="https://elsharuf107s-ux.github.io/em-webdev/">
   <meta property="og:locale" content="en_US">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="E.M | Websites for Local Businesses">
-  <meta name="twitter:description" content="Fast, mobile-friendly websites for small local businesses. Fixed prices from $299.">
+  <meta property="og:image" content="https://elsharuf107s-ux.github.io/em-webdev/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="E.M: websites for small businesses, fixed prices from $299">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="E.M | Websites for Small Businesses, from $299">
+  <meta name="twitter:description" content="Fast-loading, mobile-friendly websites for small businesses. Fixed prices from $299.">
+  <meta name="twitter:image" content="https://elsharuf107s-ux.github.io/em-webdev/og-image.png">
+  <meta name="twitter:image:alt" content="E.M: websites for small businesses, fixed prices from $299">
 
   <!-- Inline SVG favicon: no image files needed -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234338ca'/%3E%3Cpath d='M16 6c4 3 6 7 6 11l-3 3h-6l-3-3c0-4 2-8 6-11z' fill='%23fff'/%3E%3Ccircle cx='16' cy='14' r='2' fill='%234338ca'/%3E%3Cpath d='M13 22l3 4 3-4z' fill='%23fb923c'/%3E%3C/svg%3E">
@@ -50,12 +72,236 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "E.M",
-    "email": "elsharuf107s@gmail.com",
-    "url": "https://elsharuf107s-ux.github.io/em-webdev/",
-    "description": "Website design and development for small local businesses.",
-    "priceRange": "$299 - $1,199"
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://elsharuf107s-ux.github.io/em-webdev/#business",
+        "name": "E.M",
+        "description": "One-person web design studio based in Ohio, building fast-loading, mobile-friendly websites for small businesses anywhere.",
+        "url": "https://elsharuf107s-ux.github.io/em-webdev/",
+        "email": "elsharuf107s@gmail.com",
+        "image": "https://elsharuf107s-ux.github.io/em-webdev/og-image.png",
+        "founder": {
+          "@type": "Person",
+          "@id": "https://elsharuf107s-ux.github.io/em-webdev/#ervin-mosley",
+          "name": "Ervin Mosley",
+          "jobTitle": "Web designer"
+        },
+        "foundingLocation": {
+          "@type": "Place",
+          "name": "Ohio, United States"
+        },
+        "areaServed": "Worldwide (remote)",
+        "knowsAbout": [
+          "Web design",
+          "Responsive web design",
+          "Small business websites",
+          "Search engine optimization basics",
+          "Google Business Profile"
+        ],
+        "priceRange": "$299 - $1,199",
+        "currenciesAccepted": "USD",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Website packages",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Starter website",
+              "priceCurrency": "USD",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Starter website",
+                "description": "One-page, mobile-friendly website with contact details, map, hours and basic page titles and descriptions."
+              },
+              "price": "299"
+            },
+            {
+              "@type": "Offer",
+              "name": "Business website",
+              "priceCurrency": "USD",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Business website",
+                "description": "Website of up to 5 pages with a contact or quote request form, a menu, services or price list, and on-page search basics."
+              },
+              "price": "699"
+            },
+            {
+              "@type": "Offer",
+              "name": "Growth website",
+              "priceCurrency": "USD",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Growth website",
+                "description": "Website of 6 to 10 pages with booking or ordering integration, SEO setup, Google Business Profile help and basic analytics."
+              },
+              "price": "1199"
+            },
+            {
+              "@type": "Offer",
+              "name": "Website care plan",
+              "priceCurrency": "USD",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Website care plan",
+                "description": "Hosting checks, updates and up to 30 minutes of small edits each month. Cancel any time."
+              },
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "29",
+                "priceCurrency": "USD",
+                "unitText": "MONTH"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Additional website work",
+              "priceCurrency": "USD",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Additional website work",
+                "description": "Website work outside a package or the care plan, estimated before it starts."
+              },
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "50",
+                "priceCurrency": "USD",
+                "unitText": "HOUR"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://elsharuf107s-ux.github.io/em-webdev/#website",
+        "url": "https://elsharuf107s-ux.github.io/em-webdev/",
+        "name": "E.M",
+        "publisher": {
+          "@id": "https://elsharuf107s-ux.github.io/em-webdev/#business"
+        },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://elsharuf107s-ux.github.io/em-webdev/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does a website cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Starter (1 page) is $299, Business (up to 5 pages) is $699 and Growth (6 to 10 pages, with booking or ordering integration, SEO setup and analytics) is $1,199. These are one-time build fees. The optional care plan is $29 a month."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does it take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most sites go live 7 to 10 business days after I receive your content: your text, photos and logo. The sooner I have those, the sooner you're live."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you only work with businesses in Ohio?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. I'm based in Ohio and work remotely with small businesses anywhere. Everything can be done by email, or by video call if you'd like to talk it through."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do payments work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A 50% deposit to start and 50% at launch. If you cancel in writing within 2 business days of signing, before work starts, you get the full deposit back. The care plan is billed monthly and you can cancel any time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's included in the $29/month care plan?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hosting checks, updates and up to 30 minutes of small text or photo edits each month. You can cancel any time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I need changes the care plan doesn't cover?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Extra work is $50 an hour. I'll tell you the estimate before I start, and nothing begins until you say yes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can my site take online bookings?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Any package can include a simple \"Book now\" button that links to the booking page you already use. Setting up booking or ordering inside your site is part of the Growth package."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to pay for hosting?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For most simple sites, no. I can host your site on free, reliable static hosting. If you want your own domain name (like yourbusiness.com), you pay the registrar directly, usually a small yearly fee."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I own my website?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Once the build is paid for, the site and its content are yours. I'll hand over all the files if you ever want to move."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What do I need to provide?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your logo (if you have one), photos of your work or premises, and basic details like services, prices and hours. Don't have good photos or text? I'll help you with that."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I update the site myself?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can, and I'll show you how. Or join the optional $29/mo care plan and send me your changes by email."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the founding client discount?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "E.M is new, so my first 3 clients get 30% off the build fee: Starter $209, Business $489, Growth $839. I'll ask for an honest testimonial, but it's optional and the discount stays either way. I never offer discounts or anything else in exchange for Google reviews."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are the bakery and plumber sites real clients?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Golden Crumb Bakery and FlowRight Plumbing are concept projects for fictional businesses, made to show my design and build quality. E.M is new, and real client work will be labeled as such."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will my site show up on Google?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every site is set up so Google can read it: page titles, descriptions, a mobile-friendly layout and a link to your Google Business Profile. I can't promise rankings, and nobody honestly can, but I'll make sure the basics are done right."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -76,6 +322,7 @@
     <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   </svg>
 
   <header class="site-header">
@@ -84,18 +331,22 @@
         <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M16 6c4 3 6 7 6 11l-3 3h-6l-3-3c0-4 2-8 6-11z" fill="#fff"/><circle cx="16" cy="14" r="2" fill="currentColor"/><path d="M13 22l3 4 3-4z" fill="#fb923c"/></svg>
         <span data-edit="business-name">E.M</span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-        <span class="sr-only">Menu</span>
-      </button>
+      <div class="header-actions">
+        <a class="btn btn-small header-cta" href="#contact">Get a quote</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="sr-only">Menu</span>
+        </button>
+      </div>
       <nav id="site-nav" class="site-nav" aria-label="Main">
         <ul>
           <li><a href="#services">Services</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a class="btn btn-small" href="#contact">Get a quote</a></li>
+          <li class="nav-cta"><a class="btn btn-small" href="#contact">Get a quote</a></li>
         </ul>
       </nav>
     </div>
@@ -106,9 +357,9 @@
     <section id="top" class="hero" aria-labelledby="hero-title">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="pill">Launch offer</span> Founding client discount for our first local businesses</p>
-          <h1 id="hero-title">A professional website for your local business, live in about two weeks.</h1>
-          <p class="lead">We build fast, mobile-friendly websites for restaurants, salons, trades, gyms and shops. Fixed prices from <strong data-edit="price">$299</strong>, plain-English help, and no surprise bills.</p>
+          <p class="eyebrow" data-edit="founding-offer"><span class="pill">Founding offer</span> 30% off for my first 3 clients</p>
+          <h1 id="hero-title">Websites for small businesses, from <span data-edit="price">$299</span></h1>
+          <p class="lead">I build fast-loading, mobile-friendly websites for restaurants, salons, trades, gyms and shops. Your site is usually live 7 to 10 business days after I have your content. Fixed prices, plain-English help, and no surprise bills.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Get a free quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <a class="btn btn-ghost" href="#pricing">See pricing</a>
@@ -118,6 +369,7 @@
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> You own your site</li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> No long contracts</li>
           </ul>
+          <p class="hero-location"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Based in Ohio, working remotely with small businesses anywhere.</p>
         </div>
 
         <!-- Decorative illustration: a phone showing a mock local business site -->
@@ -141,18 +393,22 @@
             <rect x="56" y="246" width="70" height="26" rx="13" fill="#ea580c"/>
             <rect x="56" y="288" width="68" height="40" rx="8" fill="#e0e7ff"/>
             <rect x="136" y="288" width="68" height="40" rx="8" fill="#e0e7ff"/>
-            <g transform="translate(196 150)">
-              <rect width="110" height="64" rx="14" fill="#fff" stroke="#e0e7ff" stroke-width="2"/>
-              <rect x="14" y="14" width="22" height="22" rx="6" fill="#fff7ed"/>
-              <path d="M19 25l4 4 8-8" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="44" y="16" width="52" height="7" rx="3.5" fill="#1e1b4b"/>
-              <rect x="44" y="28" width="38" height="6" rx="3" fill="#c7d2fe"/>
-              <rect x="14" y="44" width="82" height="6" rx="3" fill="#e0e7ff"/>
+            <g class="float-card">
+              <g transform="translate(196 150)">
+                <rect width="110" height="64" rx="14" fill="#fff" stroke="#e0e7ff" stroke-width="2"/>
+                <rect x="14" y="14" width="22" height="22" rx="6" fill="#fff7ed"/>
+                <path d="M19 25l4 4 8-8" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="44" y="16" width="52" height="7" rx="3.5" fill="#1e1b4b"/>
+                <rect x="44" y="28" width="38" height="6" rx="3" fill="#c7d2fe"/>
+                <rect x="14" y="44" width="82" height="6" rx="3" fill="#e0e7ff"/>
+              </g>
             </g>
-            <g transform="translate(232 54)">
-              <circle r="26" cx="26" cy="26" fill="#fff7ed"/>
-              <path d="M26 12c6 4 9 10 9 16l-4 4h-10l-4-4c0-6 3-12 9-16z" fill="#ea580c"/>
-              <circle cx="26" cy="24" r="3" fill="#fff7ed"/>
+            <g class="float-rocket">
+              <g transform="translate(232 54)">
+                <circle r="26" cx="26" cy="26" fill="#fff7ed"/>
+                <path d="M26 12c6 4 9 10 9 16l-4 4h-10l-4-4c0-6 3-12 9-16z" fill="#ea580c"/>
+                <circle cx="26" cy="24" r="3" fill="#fff7ed"/>
+              </g>
             </g>
           </svg>
         </div>
@@ -165,7 +421,7 @@
         <div class="section-head">
           <p class="kicker">Why it matters</p>
           <h2 id="problem-title">Most customers look you up online before they visit</h2>
-          <p>If they can't find you, or your site is hard to use on a phone, they often pick someone else. We fix that without the agency price tag.</p>
+          <p>If they can't find you, or your site is hard to use on a phone, they often pick someone else. I fix that without the agency price tag.</p>
         </div>
         <div class="compare">
           <div class="compare-card compare-problem">
@@ -179,12 +435,12 @@
             </ul>
           </div>
           <div class="compare-card compare-solution">
-            <h3>How we help</h3>
+            <h3>How I help</h3>
             <ul class="icon-list">
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> A clean, modern site built for your business</li>
-              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Fast loading and easy to use on any phone</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Fast-loading and easy to use on any phone</li>
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Tap-to-call, maps and clear contact details</li>
-              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Basic search setup so locals can find you</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Search basics set up so customers can find you</li>
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Fixed, published prices with no hidden fees</li>
             </ul>
           </div>
@@ -197,8 +453,8 @@
       <div class="container">
         <div class="section-head">
           <p class="kicker">Services</p>
-          <h2 id="services-title">Everything a local business website needs</h2>
-          <p>Built for restaurants, salons, trades, gyms and independent shops.</p>
+          <h2 id="services-title">Web design services for small businesses</h2>
+          <p>Built for plumbers, electricians and other trades, bakeries, cafes and restaurants, salons and barbers, gyms and independent shops.</p>
         </div>
         <ul class="card-grid" role="list">
           <li class="card">
@@ -213,23 +469,23 @@
           </li>
           <li class="card">
             <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span>
-            <h3>Local search setup</h3>
+            <h3>Search basics</h3>
             <p>Page titles, descriptions and Google Business Profile guidance so nearby customers can find you.</p>
           </li>
           <li class="card">
             <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
             <h3>Bookings and enquiries</h3>
-            <p>Contact forms, quote requests or links to your booking tool so customers can reach you any time.</p>
+            <p>Contact forms, quote requests, or a "Book now" button that links to the booking page you already use.</p>
           </li>
           <li class="card">
             <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg></span>
             <h3>Website refresh</h3>
-            <p>Already have a site? We can rebuild an outdated one so it is faster and easier to use.</p>
+            <p>Already have a site? I can rebuild an outdated one so it is faster and easier to use.</p>
           </li>
           <li class="card">
             <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-wrench"/></svg></span>
             <h3>Care and updates</h3>
-            <p>Optional monthly plan for content changes, checks and help when you need it.</p>
+            <p>An optional <span data-edit="price">$29/mo</span> plan for hosting checks, updates and small edits.</p>
           </li>
         </ul>
       </div>
@@ -240,8 +496,12 @@
       <div class="container">
         <div class="section-head">
           <p class="kicker">Pricing</p>
-          <h2 id="pricing-title">Simple, fixed prices</h2>
-          <p>One-time build fee, with a short, plain-English agreement. <strong>Founding client discount:</strong> our first 3 clients get 30% off.</p>
+          <h2 id="pricing-title">Small business website prices: fixed and public</h2>
+          <p>A one-time build fee and a short, plain-English agreement. 50% deposit to start, 50% at launch.</p>
+        </div>
+
+        <div class="founding-offer" data-edit="founding-offer">
+          <p><span class="pill">Founding offer</span> <strong>My first 3 clients get 30% off</strong> (Starter $209, Business $489, Growth $839). I'll ask for an honest testimonial, but the discount stays even if you'd rather not write one.</p>
         </div>
 
         <div class="pricing-grid">
@@ -249,6 +509,7 @@
             <h3 id="plan-starter">Starter</h3>
             <p class="plan-desc">A one-page site that gets you online fast.</p>
             <p class="price"><span data-edit="price">$299</span> <span class="price-note">one-time</span></p>
+            <p class="plan-founding" data-edit="founding-offer">Founding price: $209</p>
             <ul class="icon-list">
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> 1 page with clear sections</li>
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Mobile-friendly design</li>
@@ -263,6 +524,7 @@
             <h3 id="plan-business">Business</h3>
             <p class="plan-desc">A full small-business site, up to 5 pages.</p>
             <p class="price"><span data-edit="price">$699</span> <span class="price-note">one-time</span></p>
+            <p class="plan-founding" data-edit="founding-offer">Founding price: $489</p>
             <ul class="icon-list">
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Up to 5 pages (e.g. Home, About, Services, Gallery, Contact)</li>
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Contact or quote request form</li>
@@ -274,12 +536,13 @@
 
           <article class="plan" aria-labelledby="plan-growth">
             <h3 id="plan-growth">Growth</h3>
-            <p class="plan-desc">Up to 10 pages with bookings and search setup.</p>
+            <p class="plan-desc">6 to 10 pages, with bookings, SEO setup and analytics.</p>
             <p class="price"><span data-edit="price">$1,199</span> <span class="price-note">one-time</span></p>
+            <p class="plan-founding" data-edit="founding-offer">Founding price: $839</p>
             <ul class="icon-list">
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> 6 to 10 pages (more quoted separately)</li>
-              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Online booking setup</li>
-              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Local SEO setup and Google Business Profile help</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Online booking or ordering integration</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> SEO setup and Google Business Profile help</li>
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Basic visitor analytics</li>
             </ul>
             <a class="btn btn-ghost btn-block" href="#contact" data-plan="Growth">Choose Growth</a>
@@ -290,10 +553,10 @@
           <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
           <div>
             <h3 id="care-title">Optional care plan: <span data-edit="price">$29/mo</span></h3>
-            <p>Small text and photo updates, regular checks that your site is working, and help by email. Cancel any time.</p>
+            <p>Hosting checks, updates and up to 30 minutes of small text or photo edits each month, plus help by email. Cancel any time. Extra work outside the plan is <span data-edit="price">$50/hour</span>, and I'll tell you the estimate before I start.</p>
           </div>
         </aside>
-        <p class="fine-print">Prices are in USD. Third-party costs like a custom domain name (often around $10 to $20 a year) or paid booking software are separate, and we'll tell you about them up front.</p>
+        <p class="fine-print">Prices are in USD. Any package can include a simple "Book now" button that links to your existing booking page. Third-party costs like a custom domain name (often around $10 to $20 a year) or paid booking software are separate, and I'll tell you about them up front.</p>
       </div>
     </section>
 
@@ -308,34 +571,49 @@
           <li class="step">
             <span class="step-num" aria-hidden="true">1</span>
             <h3>Free chat</h3>
-            <p>Tell us about your business, your customers and what you need. We'll recommend a package.</p>
+            <p>Tell me about your business, your customers and what you need. I'll recommend a package and give you a fixed price.</p>
           </li>
           <li class="step">
             <span class="step-num" aria-hidden="true">2</span>
             <h3>Plan and content</h3>
-            <p>We agree on pages and collect your text, photos and logo. We can help write the words.</p>
+            <p>We agree on the pages, you pay the 50% deposit, and you send your text, photos and logo. I can help write the words.</p>
           </li>
           <li class="step">
             <span class="step-num" aria-hidden="true">3</span>
             <h3>Design and build</h3>
-            <p>We build your site and share a preview link. You get rounds of changes before launch.</p>
+            <p>I build your site, usually within 7 to 10 business days of getting your content, and share a preview link for your changes.</p>
           </li>
           <li class="step">
             <span class="step-num" aria-hidden="true">4</span>
             <h3>Launch</h3>
-            <p>We put it live, connect your domain and show you how everything works.</p>
+            <p>You pay the other 50%, I put the site live, connect your domain and show you how everything works.</p>
           </li>
         </ol>
       </div>
     </section>
 
+    <!-- ABOUT -->
+    <section id="about" class="section section-alt" aria-labelledby="about-title">
+      <div class="container container-narrow">
+        <div class="about">
+          <span class="about-mark" aria-hidden="true">EM</span>
+          <div>
+            <p class="kicker">Who you'll work with</p>
+            <h2 id="about-title">About E.M</h2>
+            <p>Hi, I'm Ervin Mosley. E.M is my one-person web design studio. I'm based in Ohio and work remotely with small businesses anywhere. I build simple, fast-loading websites that answer what customers want to know first: what you do, how much it costs, when you're open, and how to reach you.</p>
+            <p>E.M is new, so you won't find client logos or reviews here yet. What you will find: public prices, two clearly labeled concept projects so you can judge my work, and a preview of your site before you pay the balance. When you get in touch, you deal with me, the person building your site.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PORTFOLIO -->
-    <section id="work" class="section section-alt" aria-labelledby="work-title">
+    <section id="work" class="section" aria-labelledby="work-title">
       <div class="container">
         <div class="section-head">
-          <p class="kicker">Concept projects</p>
-          <h2 id="work-title">Sample work</h2>
-          <p>We're a new studio, so these are <strong>concept projects</strong>: example sites we designed for fictional businesses to show our style. They are not client work.</p>
+          <p class="kicker">Work</p>
+          <h2 id="work-title">Concept projects: bakery and plumber website examples</h2>
+          <p>E.M is new, so these are <strong>concept projects</strong>: example sites I designed and built for fictional businesses to show my style. They are not client work.</p>
         </div>
         <div class="work-grid">
           <a class="work-card" href="./portfolio/bakery/index.html">
@@ -352,10 +630,10 @@
               </svg>
             </div>
             <div class="work-body">
-              <p class="work-tag">Concept project</p>
+              <p class="work-tag">Concept project, fictional business</p>
               <h3>Neighborhood bakery</h3>
               <p>Menu, opening hours, order enquiries and a location map.</p>
-              <span class="work-link">View concept <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              <span class="work-link">View the bakery concept site <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
             </div>
           </a>
           <a class="work-card" href="./portfolio/plumber/index.html">
@@ -371,51 +649,79 @@
               </svg>
             </div>
             <div class="work-body">
-              <p class="work-tag">Concept project</p>
+              <p class="work-tag">Concept project, fictional business</p>
               <h3>Local plumbing service</h3>
               <p>Tap-to-call, service list, service area and a quote request form.</p>
-              <span class="work-link">View concept <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              <span class="work-link">View the plumbing concept site <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
             </div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section" aria-labelledby="faq-title">
+    <!-- FAQ (keep wording identical to the FAQPage JSON-LD in <head>) -->
+    <section id="faq" class="section section-alt" aria-labelledby="faq-title">
       <div class="container container-narrow">
         <div class="section-head">
           <p class="kicker">FAQ</p>
-          <h2 id="faq-title">Common questions</h2>
+          <h2 id="faq-title">Questions about getting a small business website</h2>
         </div>
         <div class="faq">
           <details>
+            <summary>How much does a website cost?</summary>
+            <p>Starter (1 page) is <span data-edit="price">$299</span>, Business (up to 5 pages) is <span data-edit="price">$699</span> and Growth (6 to 10 pages, with booking or ordering integration, SEO setup and analytics) is <span data-edit="price">$1,199</span>. These are one-time build fees. The optional care plan is <span data-edit="price">$29</span> a month.</p>
+          </details>
+          <details>
             <summary>How long does it take?</summary>
-            <p>Most Starter and Business sites go live in about one to three weeks. The biggest factor is how quickly we can gather your text and photos. Growth sites can take a bit longer.</p>
+            <p>Most sites go live 7 to 10 business days after I receive your content: your text, photos and logo. The sooner I have those, the sooner you're live.</p>
           </details>
           <details>
-            <summary>Do I need to pay for hosting?</summary>
-            <p>For most simple sites, no. We can host on free, reliable static hosting. If you want your own domain name (like yourbusiness.com), you pay the registrar directly, usually a small yearly fee.</p>
-          </details>
-          <details>
-            <summary>Do I own my website?</summary>
-            <p>Yes. Once the build is paid for, the site and its content are yours. We'll hand over all the files if you ever want to move.</p>
-          </details>
-          <details>
-            <summary>What do I need to provide?</summary>
-            <p>Your logo (if you have one), photos of your work or premises, and basic details like services, prices and hours. Don't have good photos or text? We'll help you with that.</p>
-          </details>
-          <details>
-            <summary>Can I update the site myself?</summary>
-            <p>You can, and we'll show you how. Or join the optional <span data-edit="price">$29/mo</span> care plan and send us your changes by email.</p>
-          </details>
-          <details>
-            <summary>What is the founding client discount?</summary>
-            <p>E.M is new. Our first clients get a 30% launch discount. We'll ask for honest feedback and whether we can show the finished site in our portfolio, but that's optional. Ask us for details when you get in touch.</p>
+            <summary>Do you only work with businesses in Ohio?</summary>
+            <p>No. I'm based in Ohio and work remotely with small businesses anywhere. Everything can be done by email, or by video call if you'd like to talk it through.</p>
           </details>
           <details>
             <summary>How do payments work?</summary>
-            <p>Half up front to start and half at launch. If you cancel in writing within 2 business days of signing, before work starts, you get the deposit back. The care plan is billed monthly and you can cancel any time.</p>
+            <p>A 50% deposit to start and 50% at launch. If you cancel in writing within 2 business days of signing, before work starts, you get the full deposit back. The care plan is billed monthly and you can cancel any time.</p>
+          </details>
+          <details>
+            <summary>What's included in the $29/month care plan?</summary>
+            <p>Hosting checks, updates and up to 30 minutes of small text or photo edits each month. You can cancel any time.</p>
+          </details>
+          <details>
+            <summary>What if I need changes the care plan doesn't cover?</summary>
+            <p>Extra work is <span data-edit="price">$50</span> an hour. I'll tell you the estimate before I start, and nothing begins until you say yes.</p>
+          </details>
+          <details>
+            <summary>Can my site take online bookings?</summary>
+            <p>Yes. Any package can include a simple "Book now" button that links to the booking page you already use. Setting up booking or ordering inside your site is part of the Growth package.</p>
+          </details>
+          <details>
+            <summary>Do I need to pay for hosting?</summary>
+            <p>For most simple sites, no. I can host your site on free, reliable static hosting. If you want your own domain name (like yourbusiness.com), you pay the registrar directly, usually a small yearly fee.</p>
+          </details>
+          <details>
+            <summary>Do I own my website?</summary>
+            <p>Yes. Once the build is paid for, the site and its content are yours. I'll hand over all the files if you ever want to move.</p>
+          </details>
+          <details>
+            <summary>What do I need to provide?</summary>
+            <p>Your logo (if you have one), photos of your work or premises, and basic details like services, prices and hours. Don't have good photos or text? I'll help you with that.</p>
+          </details>
+          <details>
+            <summary>Can I update the site myself?</summary>
+            <p>You can, and I'll show you how. Or join the optional <span data-edit="price">$29/mo</span> care plan and send me your changes by email.</p>
+          </details>
+          <details data-edit="founding-offer">
+            <summary>What is the founding client discount?</summary>
+            <p>E.M is new, so my first 3 clients get 30% off the build fee: Starter $209, Business $489, Growth $839. I'll ask for an honest testimonial, but it's optional and the discount stays either way. I never offer discounts or anything else in exchange for Google reviews.</p>
+          </details>
+          <details>
+            <summary>Are the bakery and plumber sites real clients?</summary>
+            <p>No. Golden Crumb Bakery and FlowRight Plumbing are concept projects for fictional businesses, made to show my design and build quality. E.M is new, and real client work will be labeled as such.</p>
+          </details>
+          <details>
+            <summary>Will my site show up on Google?</summary>
+            <p>Every site is set up so Google can read it: page titles, descriptions, a mobile-friendly layout and a link to your Google Business Profile. I can't promise rankings, and nobody honestly can, but I'll make sure the basics are done right.</p>
           </details>
         </div>
       </div>
@@ -427,7 +733,12 @@
         <div class="contact-copy">
           <p class="kicker kicker-light">Contact</p>
           <h2 id="contact-title">Get a free, no-pressure quote</h2>
-          <p>Tell us a little about your business and we'll reply within one business day with a recommendation and a fixed price.</p>
+          <p>Tell me a little about your business and I'll reply within one business day with a recommendation and a fixed price.</p>
+          <ul class="contact-points">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Fixed price before any work starts</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> 50% deposit, 50% at launch</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Live 7 to 10 business days after I have your content</li>
+          </ul>
           <p class="contact-email">
             <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
             <a href="mailto:elsharuf107s@gmail.com?subject=Website%20quote%20request" data-edit="email">elsharuf107s@gmail.com</a>
@@ -441,20 +752,21 @@
           1. Create a free account at https://formspree.io
           2. Create a new form and copy its ID (looks like "xyzabcd").
           3. Replace YOUR_FORM_ID below with that ID.
-          Until you do this, the form won't send. The mailto link above works right away.
+          Until you do this, script.js opens the visitor's email app with the
+          form details filled in, addressed to elsharuf107s@gmail.com.
         -->
         <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="field">
             <label for="name">Your name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required>
+            <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required>
           </div>
           <div class="field">
-            <label for="business">Business name</label>
-            <input id="business" name="business" type="text" autocomplete="organization">
+            <label for="business">Business name (optional)</label>
+            <input id="business" name="business" type="text" autocomplete="organization" maxlength="120">
           </div>
           <div class="field">
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required>
+            <input id="email" name="email" type="email" autocomplete="email" maxlength="200" required>
           </div>
           <div class="field">
             <label for="package">Package you're interested in</label>
@@ -466,12 +778,26 @@
             </select>
           </div>
           <div class="field field-full">
-            <label for="message">Tell us about your business</label>
-            <textarea id="message" name="message" rows="5" required aria-describedby="message-hint"></textarea>
+            <label for="message">Tell me about your business</label>
+            <textarea id="message" name="message" rows="5" maxlength="2000" required aria-describedby="message-hint"></textarea>
             <p id="message-hint" class="hint">For example: what you do, where you're based, and whether you have a website now.</p>
+          </div>
+          <div class="field field-full">
+            <label for="source">How did you hear about E.M? (optional)</label>
+            <select id="source" name="source">
+              <option value="">Choose one</option>
+              <option>Google search or Maps</option>
+              <option>Facebook</option>
+              <option>Instagram</option>
+              <option>LinkedIn</option>
+              <option>Email or message from E.M</option>
+              <option>Friend or referral</option>
+              <option>Other</option>
+            </select>
           </div>
           <input type="hidden" name="_subject" value="New website enquiry from E.M site">
           <button class="btn btn-accent btn-block field-full" type="submit">Send enquiry</button>
+          <p class="form-status field-full" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -479,9 +805,9 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p><strong data-edit="business-name">E.M</strong>: websites for local businesses.</p>
+      <p><strong data-edit="business-name">E.M</strong>: web design for small businesses. Based in Ohio, working remotely with clients anywhere.</p>
       <p><a href="mailto:elsharuf107s@gmail.com" data-edit="email">elsharuf107s@gmail.com</a></p>
-      <p class="footer-small">&copy; <span id="year">2026</span> E.M. Portfolio items are concept projects. <a href="privacy.html">Privacy</a></p>
+      <p class="footer-small">&copy; <span id="year">2026</span> E.M, run by Ervin Mosley. Portfolio items are concept projects for fictional businesses. <a href="privacy.html">Privacy</a></p>
     </div>
   </footer>
 </body>
