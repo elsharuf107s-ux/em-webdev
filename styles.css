@@ -356,6 +356,13 @@ svg { display: block; }
 /* ---------- Portfolio ---------- */
 .work-grid { display: grid; gap: var(--s-6); }
 @media (min-width: 768px) { .work-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .work-grid { grid-template-columns: repeat(3, 1fr); } }
+/* Tablet: an odd last card spans the row as a horizontal card instead of leaving a hole */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .work-grid > .work-card:last-child:nth-child(odd) { grid-column: 1 / -1; display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; }
+  .work-grid > .work-card:last-child:nth-child(odd) .work-media { aspect-ratio: auto; height: 100%; min-height: 260px; min-width: 0; border-bottom: 0; border-right: 1px solid var(--c-line); }
+  .work-grid > .work-card:last-child:nth-child(odd) > * { min-width: 0; }
+}
 .work-card {
   display: block; overflow: hidden; border-radius: var(--radius-lg);
   background: #fff; border: 1px solid var(--c-line); box-shadow: var(--shadow-sm);
@@ -617,6 +624,7 @@ svg { display: block; }
 }
 .work-media-bakery { background: radial-gradient(120% 90% at 0% 0%, #ffedd5, #fff7ed 50%, #fde68a33), #fff7ed; }
 .work-media-plumber { background: radial-gradient(120% 90% at 0% 0%, #dbeafe, #eff6ff 50%, #c7d2fe55), #eff6ff; }
+.work-media-masonry { background: radial-gradient(120% 90% at 0% 0%, #f1e3d6, #f4f1ea 50%, #c8a57a44), #f4f1ea; }
 .media-browser {
   position: relative; border-radius: 10px 10px 0 0; overflow: hidden; background: #17153f;
   box-shadow: 0 30px 50px -24px rgb(30 27 75 / 0.55), 0 0 0 1px rgb(30 27 75 / 0.08);
