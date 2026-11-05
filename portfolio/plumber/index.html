@@ -76,7 +76,8 @@
     color: var(--navy); font-weight: 800;
   }
   .emergency .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .4rem 1rem; padding-block: .6rem; text-align: center; }
-  .emergency .pulse { width: 10px; height: 10px; border-radius: 50%; background: #b91c1c; box-shadow: 0 0 0 0 rgba(185,28,28,.7); animation: pulse 1.6s infinite; flex: none; }
+  .emergency .pulse { width: 10px; height: 10px; border-radius: 50%; background: #b91c1c; box-shadow: 0 0 0 0 rgba(185,28,28,.7); flex: none; }
+  .motion .emergency .pulse { animation: pulse 1.6s infinite; }
   @keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(185,28,28,0); } 100% { box-shadow: 0 0 0 0 rgba(185,28,28,0); } }
   .emergency a {
     display: inline-flex; align-items: center; gap: .45rem; background: var(--navy); color: #fff;
@@ -230,10 +231,10 @@
   .hint { font-size: .85rem; color: var(--muted); font-weight: 400; }
   input[type=text], input[type=tel], input[type=email], select, textarea {
     width: 100%; font: inherit; color: var(--ink); background: var(--off);
-    border: 2px solid var(--line); border-radius: 8px; padding: .75rem .85rem;
+    border: 2px solid #64748b; border-radius: 8px; padding: .75rem .85rem;
     transition: border-color .15s, background .15s;
   }
-  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--blue); background: #fff; box-shadow: 0 0 0 4px rgba(31,111,235,.2); }
+  input:focus, select:focus, textarea:focus { outline: 3px solid var(--navy); outline-offset: 2px; border-color: var(--blue); background: #fff; }
   textarea { min-height: 120px; resize: vertical; }
   fieldset { border: 0; padding: 0; margin: 0 0 1.2rem; }
   .urgency { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin-top: .45rem; }
@@ -321,6 +322,7 @@
   .motion-toggle .i-play, .motion-toggle[aria-pressed="true"] .i-pause { display: none; }
   .motion-toggle[aria-pressed="true"] .i-play { display: inline; }
   @media (max-width: 880px) { .motion-toggle { right: .75rem; bottom: .75rem; } }
+  html { scroll-padding: 120px 0 5rem; }
   .motion-paused *, .motion-paused *::before, .motion-paused *::after { animation-play-state: paused !important; }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; translate: none !important; } }
 </style>

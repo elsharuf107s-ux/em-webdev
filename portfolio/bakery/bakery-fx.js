@@ -152,7 +152,6 @@ function setPaused(p) {
   try { localStorage.setItem(STORE_KEY, p ? 'paused' : 'on'); } catch (e) { /* ignore */ }
   document.querySelectorAll('.motion-toggle').forEach((b) => {
     b.setAttribute('aria-pressed', String(p));
-    b.querySelector('span').textContent = p ? 'Play animations' : 'Pause animations';
   });
   if (p) loops.forEach((l) => l.stop()); else resumers.forEach((f) => f());
 }
@@ -265,7 +264,7 @@ void main(){
       vec3 q=p; q.xz=rot(uYaw)*q.xz; vec3 nq=n; nq.xz=rot(uYaw)*nq.xz;
       float g=grooves(q), top=smoothstep(-.02,.22,q.y);
       float inG=(1.-smoothstep(.03,.075,g))*top;
-      float ear=exp(-pow((g-.08)/.02,2.))*top;
+      float ear=exp(-((g-.08)/.02)*((g-.08)/.02))*top;
       float blot=fbm(q.xz*5.+q.y*3.);
       vec3 crust=mix(vec3(.74,.47,.21),vec3(.40,.19,.07),clamp(smoothstep(-.15,.6,q.y)*.75+(blot-.5)*.5,0.,1.));
       crust=mix(crust,vec3(.30,.13,.04),ear*.6);
@@ -312,7 +311,7 @@ function setupBakeryGL() {
   art.prepend(c2);
   let shown = false;
   const loaf = mount(c2, LOAF, {
-    scaleCap: small() ? 1.5 : 2, t0: 0,
+    scaleCap: small() ? 1 : 2, t0: 0,
     uniforms: (r, s, t) => {
       ptr.x += (ptr.tx - ptr.x) * 0.05; ptr.y += (ptr.ty - ptr.y) * 0.05;
       // capture: one full turn per 9 s video loop, so the loop is seamless

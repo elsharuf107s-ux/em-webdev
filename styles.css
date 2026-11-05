@@ -66,6 +66,7 @@ a:hover { color: var(--c-brand-dark); }
 ul, ol { margin: 0; padding: 0; }
 svg { display: block; }
 [id] { scroll-margin-top: 80px; }
+html { scroll-padding-top: 80px; }
 
 :focus-visible {
   outline: 3px solid var(--c-brand-dark); /* amber (--c-focus) is only 2.1:1 on light backgrounds */
@@ -429,12 +430,12 @@ svg { display: block; }
 .field input, .field select, .field textarea {
   width: 100%; min-height: 48px; padding: var(--s-3);
   font: inherit; color: var(--c-ink); background: #fff;
-  border: 1px solid #94a3b8; border-radius: 10px;
+  border: 1px solid #64748b; border-radius: 10px;
   transition: border-color var(--t-fast), box-shadow var(--t-fast);
 }
 .field textarea { resize: vertical; min-height: 120px; }
 .field input:focus, .field select:focus, .field textarea:focus {
-  outline: none; border-color: var(--c-brand); box-shadow: 0 0 0 3px rgb(67 56 202 / 0.3);
+  outline: 3px solid var(--c-brand-dark); outline-offset: 2px; border-color: var(--c-brand);
 }
 .hint { margin: var(--s-1) 0 0; font-size: var(--fs-sm); color: var(--c-ink-soft); }
 

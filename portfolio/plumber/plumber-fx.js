@@ -152,7 +152,6 @@ function setPaused(p) {
   try { localStorage.setItem(STORE_KEY, p ? 'paused' : 'on'); } catch (e) { /* ignore */ }
   document.querySelectorAll('.motion-toggle').forEach((b) => {
     b.setAttribute('aria-pressed', String(p));
-    b.querySelector('span').textContent = p ? 'Play animations' : 'Pause animations';
   });
   if (p) loops.forEach((l) => l.stop()); else resumers.forEach((f) => f());
 }
@@ -190,7 +189,7 @@ vec2 vor(vec2 p){
 }
 vec2 rip(vec2 p,vec4 R,float asp,inout float ring){
   vec2 d=p-vec2(R.x*asp,R.y); float r=length(d);
-  float w=exp(-pow((r-R.z*.5)/.05,2.))*exp(-R.z*1.3)*R.w;
+  float w=exp(-((r-R.z*.5)/.05)*((r-R.z*.5)/.05))*exp(-R.z*1.3)*R.w;
   ring+=w; return d/(r+1e-3)*w*.03;
 }
 void main(){

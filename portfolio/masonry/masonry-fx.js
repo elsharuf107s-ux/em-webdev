@@ -152,7 +152,6 @@ function setPaused(p) {
   try { localStorage.setItem(STORE_KEY, p ? 'paused' : 'on'); } catch (e) { /* ignore */ }
   document.querySelectorAll('.motion-toggle').forEach((b) => {
     b.setAttribute('aria-pressed', String(p));
-    b.querySelector('span').textContent = p ? 'Play animations' : 'Pause animations';
   });
   if (p) loops.forEach((l) => l.stop()); else resumers.forEach((f) => f());
 }
@@ -225,7 +224,7 @@ void main(){
   float spec=pow(max(dot(reflect(-L,n),vec3(0.,0.,1.)),0.),24.)*wet*(1.-m);
   col+=vec3(1.,.93,.82)*spec*.5;
   float sx=.68+(az-(3.1416-.42))*.9;
-  col*=.42+.85*exp(-pow((uv.x-sx)/.42,2.))*(.8+.2*uv.y);
+  col*=.42+.85*exp(-((uv.x-sx)/.42)*((uv.x-sx)/.42))*(.8+.2*uv.y);
   col*=.8+.2*smoothstep(1.3,.3,length((uv-vec2(.7,.5))*vec2(1.,1.3)));
   col=mix(vec3(.09,.086,.08),col,.15+.85*uIntro);
   col+=(hash(frag+fract(uTime*.37))-.5)/255.;
@@ -329,7 +328,7 @@ function setupWater() {
     const id = li.dataset.water; names[id] = li.querySelector('h3').textContent;
     const btn = document.createElement('button');
     btn.type = 'button'; btn.className = 'show-btn'; btn.setAttribute('aria-pressed', 'false');
-    btn.textContent = 'Show on the diagram';
+    btn.innerHTML = 'Show on the diagram<span class="vh">: ' + names[id] + '</span>';
     btn.addEventListener('click', () => select(id));
     li.appendChild(btn);
     li.addEventListener('pointerenter', () => { if (fine) select(id); });
@@ -457,7 +456,9 @@ function setupBar() {
   const vis = new Map();
   const io = new IntersectionObserver((es) => {
     es.forEach((e) => vis.set(e.target, e.isIntersecting));
-    bar.classList.toggle('is-hidden', [...vis.values()].some(Boolean));
+    const barHidden = [...vis.values()].some(Boolean);
+    bar.classList.toggle('is-hidden', barHidden);
+    bar.inert = barHidden;
   }, { threshold: 0.15 });
   ['.hero', '#estimate'].forEach((s) => { const el = document.querySelector(s); if (el) io.observe(el); });
 }

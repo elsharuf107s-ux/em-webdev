@@ -141,7 +141,8 @@
   .hero-facts strong { display: block; font: 700 1.5rem/1.1 var(--serif); color: var(--crust-dark); }
   .hero-art { position: relative; aspect-ratio: 1; max-width: 480px; justify-self: center; width: 100%; }
   .hero-art svg { width: 100%; height: auto; filter: drop-shadow(0 24px 30px rgba(74,36,16,.22)); }
-  .steam path { stroke-dasharray: 6 10; animation: steam 3.5s linear infinite; }
+  .steam path { stroke-dasharray: 6 10; }
+  .motion .steam path { animation: steam 3.5s linear infinite; }
   .steam path:nth-child(2) { animation-delay: -1.2s; }
   .steam path:nth-child(3) { animation-delay: -2.4s; }
   @keyframes steam { to { stroke-dashoffset: -64; } }
@@ -416,6 +417,7 @@
   .motion-toggle .i-play, .motion-toggle[aria-pressed="true"] .i-pause { display: none; }
   .motion-toggle[aria-pressed="true"] .i-play { display: inline; }
   @media (max-width: 860px) { .motion-toggle { right: .75rem; bottom: .75rem; } }
+  html { scroll-padding: 120px 0 5rem; }
   .motion-paused *, .motion-paused *::before, .motion-paused *::after { animation-play-state: paused !important; }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; translate: none !important; } .menu-card:hover { transform: none; } }
 </style>

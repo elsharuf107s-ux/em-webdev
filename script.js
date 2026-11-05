@@ -48,13 +48,13 @@ document.addEventListener('DOMContentLoaded', function () {
         var value = el.value.trim();
         if (!value) return;
         var label = form.querySelector('label[for="' + el.id + '"]');
-        lines.push((label ? label.textContent.trim() : el.name) + ': ' + value);
+        lines.push((label ? label.textContent.replace(/\s*\(optional\)/i, '').trim() : el.name) + ': ' + value);
       });
       window.location.href = 'mailto:' + to + '?subject=' +
-        encodeURIComponent('Website quote request') + '&body=' + encodeURIComponent(lines.join('\n'));
+        encodeURIComponent('Website quote request') + '&body=' + encodeURIComponent(lines.join('\r\n'));
       if (status) {
-        status.textContent = 'Thanks! Your email app should now open with your message ready to send. ' +
-          'If nothing happens, email ' + to + ' directly.';
+        status.textContent = 'Your email app should open with your message ready to send. ' +
+          'If it doesn\'t, email ' + to + ' directly.';
       }
     });
   }

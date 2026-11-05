@@ -117,9 +117,9 @@ async function setupGL() {
     window.__emfx.contact = fx.stats;
     return fx;
   };
-  let dots = null;
+  let dots = null, tried = false;
   whenVisible(contact, () => {
-    if (!dots) dots = make();
+    if (!dots && !tried) { tried = true; dots = make(); }
     if (!dots) return;
     if (!animate(dots) || paused) dots.still(); else dots.start();
   }, () => dots && dots.stop(), '200px');
@@ -211,7 +211,6 @@ function setPaused(p) {
   try { localStorage.setItem('em-motion', p ? 'paused' : 'on'); } catch (e) { /* ignore */ }
   document.querySelectorAll('.motion-toggle').forEach((b) => {
     b.setAttribute('aria-pressed', String(p));
-    b.querySelector('span').textContent = p ? 'Play animations' : 'Pause animations';
   });
   if (p) {
     loops.forEach((l) => l.stop());
