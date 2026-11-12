@@ -17,6 +17,7 @@ uniform float uDpr;     // device px per CSS px
 uniform vec2 uPointer;  // 0..1, y up
 uniform vec4 uMask;     // text block to keep dark: x0,y0,x1,y1 in device px, y up
 uniform float uIntro;   // 0 -> 1 fade in
+uniform float uProg;    // scroll progress through a section, 0..1
 float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
 float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);
   return mix(mix(hash(i),hash(i+vec2(1.,0.)),u.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),u.x),u.y);}
@@ -112,6 +113,73 @@ void main(){
   gl_FragColor=vec4(c*a,a);
 }`;
 
+// Build story: a blueprint grid that gets drawn, then warms into the brand's
+// flowing field as the site is built, and rings out once at launch.
+// uPointer = centre of the device stage (0..1, y up); uProg = story progress.
+export const BUILD = COMMON + `
+void main(){
+  vec2 frag=gl_FragCoord.xy, uv=frag/uRes;
+  float asp=uRes.x/uRes.y;
+  vec2 p=vec2(uv.x*asp,uv.y);
+  vec2 sc=vec2(uPointer.x*asp,uPointer.y);
+  float pr=uProg, t=uTime*.03;
+  float wire=1.-smoothstep(.18,.42,pr);
+  float warm=smoothstep(.16,.55,pr);
+  float launch=smoothstep(.76,.97,pr);
+
+  vec3 base=vec3(.047,.043,.157), indigo=vec3(.192,.180,.506), brand=vec3(.263,.220,.792);
+  vec3 lilac=vec3(.647,.706,.988), orange=vec3(.984,.573,.235);
+  float sd=length((p-sc)*vec2(.75,1.));
+  float near=exp(-sd*sd*1.6);
+  vec3 col=base;
+
+  // blueprint: 28px minor / 140px major grid, drawn outward from the stage as you scroll in
+  vec2 g1=frag/(uDpr*28.), g2=frag/(uDpr*140.);
+  vec2 d1=abs(fract(g1-.5)-.5)/max(fwidth(g1),vec2(1e-4));
+  vec2 d2=abs(fract(g2-.5)-.5)/max(fwidth(g2),vec2(1e-4));
+  float minor=1.-min(min(d1.x,d1.y),1.), major=1.-min(min(d2.x,d2.y),1.);
+  float drawn=smoothstep(sd-.25,sd,.35+pr*3.2);
+  // little crosshair ticks at major intersections
+  vec2 cf=abs(fract(g2)-.5)*140.*uDpr; vec2 ci=abs(fract(g2+.5)-.5)*140.*uDpr;
+  float tick=step(ci.x,1.2*uDpr)*step(ci.y,7.*uDpr)+step(ci.y,1.2*uDpr)*step(ci.x,7.*uDpr);
+  float bp=(minor*.05+major*.13+min(tick,1.)*.28)*drawn*(.35+.65*near);
+  col+=lilac*bp*(.3+.7*wire);
+
+  // the brand field arrives with color: domain-warped flow, contour lines, one orange seam
+  vec2 q=vec2(fbm(p*1.2+vec2(0.,t*2.)),fbm(p*1.2+vec2(5.2,1.3)-t));
+  float f=fbm(p*1.1+2.2*q+vec2(t,-t*.6));
+  float fieldMask=warm*smoothstep(1.6,.2,sd);
+  col=mix(col,indigo,smoothstep(.3,.8,f)*.75*fieldMask);
+  col=mix(col,brand,smoothstep(.55,.95,f)*.45*fieldMask);
+  float c=f*14.; float fw=max(fwidth(c),1e-4); float dd=abs(fract(c)-.5);
+  float line=1.-smoothstep(0.,fw*1.3,dd);
+  col+=lilac*line*.22*fieldMask*smoothstep(.25,.7,f);
+  float seam=(1.-step(.5,abs(floor(c)-7.)))*line;
+  col=mix(col,orange,clamp(seam*fieldMask*.8,0.,1.));
+
+  // the scanner: a vertical light that sweeps across with each build step
+  float sx=fract(pr*4.6)*1.3-.15;
+  float sdx=(uv.x-sx)*28.; // squared by hand: pow() is undefined for a negative base
+  float scan=exp(-sdx*sdx)*(1.-launch)*smoothstep(.0,.04,pr);
+  col+=lilac*scan*.16*(.4+.6*near);
+
+  // launch: one ring rolls out from the stage, then a warm light stays behind it
+  float rr=launch*1.9;
+  float rd=(sd-rr)*9.;
+  float ring=exp(-rd*rd)*launch*(1.-launch)*4.;
+  col+=orange*ring*.35+lilac*ring*.12;
+  col+=brand*.35*near*(.4+.6*warm)+orange*.10*near*launch;
+
+  // keep the copy column dark for contrast
+  float k=maskK(frag,150.*uDpr);
+  col=mix(base*1.05+col*.15,col,k);
+  float vig=smoothstep(1.4,.2,length((uv-vec2(.6,.5))*vec2(1.,1.25)));
+  col*=.8+.2*vig;
+  col=mix(base,col,uIntro);
+  col+=(hash(frag+fract(uTime*.37))-.5)/255.;
+  gl_FragColor=vec4(col,1.);
+}`;
+
 /**
  * mount(canvas, frag, opts) -> controller | null
  * opts: { scaleCap, octaves, alpha, uniforms(state) -> {pointer:[x,y], mask:[...]} }
@@ -142,7 +210,7 @@ export function mount(canvas, frag, opts = {}) {
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
   const loc = gl.getAttribLocation(prog, 'a');
   gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-  const U = {}; ['uRes', 'uTime', 'uDpr', 'uPointer', 'uMask', 'uIntro'].forEach(n => U[n] = gl.getUniformLocation(prog, n));
+  const U = {}; ['uRes', 'uTime', 'uDpr', 'uPointer', 'uMask', 'uIntro', 'uProg'].forEach(n => U[n] = gl.getUniformLocation(prog, n));
 
   let scale = Math.min(window.devicePixelRatio || 1, opts.scaleCap || 1.5);
   let running = false, raf = 0, last = 0, time = opts.t0 || 0, intro = 0, lost = false;
@@ -168,6 +236,7 @@ export function mount(canvas, frag, opts = {}) {
     const m = s.mask || [-9, -9, -9, -9];
     gl.uniform4f(U.uMask, m[0], m[1], m[2], m[3]);
     gl.uniform1f(U.uIntro, intro);
+    gl.uniform1f(U.uProg, s.prog || 0);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
   }
   function frame(now) {

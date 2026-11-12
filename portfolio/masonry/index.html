@@ -8,7 +8,7 @@
 <!-- Concept site for a fictional business: kept out of search results so its placeholder phone, towns and prices are never shown as real -->
 <meta name="robots" content="noindex, follow">
 <title>Header &amp; Stretcher Masonry | Brick, Stone &amp; Chimney Repair (Concept Site)</title>
-<meta name="description" content="Crumbling mortar or flaking brick? Header &amp; Stretcher repoints with mortar matched to your brick. Starting prices, photo estimates, 5-yr warranty. A concept site by E.M for a fictional business.">
+<meta name="description" content="Header &amp; Stretcher repoints brick, repairs chimneys and builds retaining walls around Kilnbury, Ohio. Starting prices and photo estimates on the page. A concept site by E.M for a fictional business.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#24211F">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='6' fill='%23A23E2A'/%3E%3Crect x='7' y='13' width='9' height='14' rx='1.2' fill='%23F4F1EA'/%3E%3Crect x='19' y='13' width='14' height='14' rx='1.2' fill='none' stroke='%23F4F1EA' stroke-width='2.4'/%3E%3C/svg%3E">
@@ -52,21 +52,24 @@
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
   body { margin: 0; background: var(--bg); color: var(--text); font: 400 1.0625rem/1.6 var(--sans); padding-bottom: 4.5rem; -webkit-font-smoothing: antialiased; }
   img, svg { display: block; max-width: 100%; }
-  a { color: var(--link); text-underline-offset: 3px; }
+  a { color: var(--link); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  a[href^="tel:"] { white-space: nowrap; }
+  ::selection { background: var(--sandstone); color: var(--charcoal); }
+  input, textarea { caret-color: var(--brick); }
   :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
   .hero :focus-visible, .site-footer :focus-visible, .mbar :focus-visible { outline-color: var(--sandstone); }
-  h1, h2, h3 { font-family: var(--display); line-height: 1.12; margin: 0 0 .5em; letter-spacing: -.01em; font-weight: 700; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.12; margin: 0 0 .5em; letter-spacing: -.01em; font-weight: 700; text-wrap: balance; }
   h1 { font-size: clamp(2.2rem, 1.2rem + 3.8vw, 3.9rem); }
   h2 { font-size: clamp(1.75rem, 1.2rem + 2vw, 2.6rem); }
   h3 { font-size: 1.25rem; }
   .h3-like { font-size: 1.5rem; }
   p { margin: 0 0 1em; }
-  .wrap { width: min(1180px, 100% - 2.5rem); margin-inline: auto; }
-  .narrow { width: min(820px, 100% - 2.5rem); }
+  .wrap { max-width: calc(1180px + 2.5rem); padding-inline: 1.25rem; margin-inline: auto; }
+  .narrow { max-width: calc(820px + 2.5rem); }
   .vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .skip { position: absolute; left: 1rem; top: -100px; z-index: 200; background: var(--charcoal); color: #fff; padding: .7rem 1rem; border-radius: 6px; }
   .skip:focus { top: 1rem; color: #fff; }
-  .kicker { font: 700 .78rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--link); margin-bottom: .9rem; }
   .fine { font-size: .9rem; color: var(--text-soft); }
   .tag { white-space: nowrap; font-weight: 600; }
   .hint { font-size: .86rem; color: var(--text-soft); font-weight: 400; }
@@ -76,9 +79,9 @@
     font: 700 1rem/1.1 var(--sans); text-decoration: none; border: 2px solid transparent; cursor: pointer; position: relative; overflow: hidden;
     transition: background-color .18s ease, transform .18s ease, box-shadow .18s ease; }
   .btn svg { width: 1.1em; height: 1.1em; flex: none; }
-  .btn-brick { background: var(--brick); color: #fff; box-shadow: inset 0 -3px 0 var(--fired); }
+  .btn-brick { background: var(--brick); color: #fff; }
   .btn-brick:hover { background: var(--fired); color: #fff; }
-  .btn-brick:active { transform: translateY(1px); box-shadow: inset 0 -1px 0 var(--fired); }
+  .btn-brick:active { transform: translateY(1px); }
   .btn-ghost { background: rgba(244,241,234,.06); color: var(--limewash); border-color: rgba(244,241,234,.55); }
   .btn-ghost:hover { background: var(--limewash); color: var(--charcoal); }
   .btn-sm { min-height: 44px; padding: .55rem 1rem; font-size: .92rem; }
@@ -121,7 +124,6 @@
   @media (min-width: 1000px) { .hero::before { background: linear-gradient(90deg, rgba(23,22,21,.96) 0%, rgba(23,22,21,.93) 48%, rgba(23,22,21,.5) 66%, rgba(23,22,21,.08) 88%); } }
   .hero-inner { position: relative; z-index: 2; padding-block: clamp(4rem, 9vw, 7.5rem); }
   .hero-copy { max-width: 620px; }
-  .hero-tag { font: italic 700 1.2rem/1.2 var(--display); color: #DCC29E; margin-bottom: 1rem; }
   .hero h1 { color: #fff; }
   .hero-sub { font-size: 1.18rem; color: #E7E2D8; max-width: 52ch; }
   .hero-ctas { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1.8rem 0 1.6rem; }
@@ -136,22 +138,18 @@
   }
 
   /* Sections: horizontal "courses" with a thin brick-course divider */
-  .section { padding-block: clamp(3.5rem, 7vw, 5.75rem); position: relative; }
+  .section { padding: 3.5rem 1.25rem; position: relative; }
+  .section > .wrap { padding-inline: 0; max-width: 1180px; }
+  .section > .narrow { max-width: 820px; }
+  @media (min-width: 900px) { .section { padding-block: 5.5rem; } }
   .section.alt { background: var(--bg-alt); }
-  .section + .section::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 13px; opacity: .55; pointer-events: none;
-    background:
-      linear-gradient(var(--rule), var(--rule)) 0 0 / 100% 1px no-repeat,
-      linear-gradient(var(--rule), var(--rule)) 0 6px / 100% 1px no-repeat,
-      linear-gradient(var(--rule), var(--rule)) 0 12px / 100% 1px no-repeat,
-      linear-gradient(90deg, var(--rule) 1px, transparent 1px) 0 0 / 48px 6px repeat-x,
-      linear-gradient(90deg, var(--rule) 1px, transparent 1px) 24px 6px / 48px 6px repeat-x; }
   .section-head { max-width: 760px; margin-bottom: 2.4rem; }
-  .section-head p:last-child { color: var(--text-soft); font-size: 1.08rem; }
+  .section-head p:last-child { color: var(--text-soft); font-size: 1.08rem; max-width: 62ch; }
   .sub-head { font-size: 1.6rem; margin: 3.5rem 0 1.4rem; }
 
   /* Water diagnostic */
   .water-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 2.5rem; align-items: start; }
-  .water-figure { position: relative; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--d-sky); }
+  .water-figure { position: relative; border-radius: var(--radius); overflow: hidden; }
   .water-svg { width: 100%; height: auto; }
   .water-svg .mk circle { fill: var(--brick); stroke: #fff; stroke-width: 3; }
   .water-svg .mk text { fill: #fff; }
@@ -173,21 +171,17 @@
   .sym { position: relative; padding: 1.1rem 1.2rem 1.1rem 3.6rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); transition: border-color .2s ease, box-shadow .2s ease; }
   .sym h3 { margin-bottom: .35rem; font-size: 1.15rem; }
   .sym p { margin: 0 0 .45rem; font-size: .96rem; color: var(--text-soft); }
-  .sym p strong { color: var(--text); }
   .sym-num { position: absolute; left: 1rem; top: 1.05rem; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--brick); color: #fff; font-weight: 700; }
   .sym-price { color: var(--text-soft); font-size: .92rem; }
   .sym.is-on { border-color: var(--water); box-shadow: 0 0 0 2px var(--water) inset; }
-  .sym .show-btn { margin-top: .5rem; display: inline-flex; align-items: center; min-height: 44px; padding: 0 .9rem; border-radius: var(--radius); border: 1px solid var(--line); background: transparent; color: var(--text); font: 600 .9rem var(--sans); cursor: pointer; }
+  .sym .show-btn { margin-top: .5rem; display: flex; width: fit-content; align-items: center; min-height: 44px; padding: 0 .9rem; border-radius: var(--radius); border: 1px solid var(--line); background: transparent; color: var(--text); font: 600 .9rem var(--sans); cursor: pointer; }
   .sym .show-btn[aria-pressed="true"] { border-color: var(--water); color: var(--text); }
   @media (max-width: 900px) { .water-grid { grid-template-columns: 1fr; } }
 
   /* Services */
   .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
-  .svc { position: relative; display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--brick); border-radius: var(--radius); padding: 1.4rem; overflow: hidden; }
-  .svc::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s ease;
-    background: linear-gradient(115deg, transparent 30%, rgba(255,217,176,.16) 50%, transparent 70%) var(--sx, 0) 0 / 220% 100% no-repeat; }
-  .svc:hover::after { opacity: 1; }
-  .svc-icon { width: 40px; height: 40px; color: var(--brick); margin-bottom: .8rem; }
+  .svc { position: relative; display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem 1.5rem 1.1rem; }
+  .svc-icon { width: 36px; height: 36px; color: var(--brick); margin-bottom: 1rem; }
   .svc h3 { margin-bottom: .35rem; }
   .svc > p { color: var(--text-soft); font-size: .97rem; }
   .svc details { margin: .2rem 0 1rem; border-top: 1px solid var(--line); }
@@ -201,17 +195,19 @@
   .svc-cta { margin-top: auto; display: inline-flex; align-items: center; gap: .4rem; font-weight: 700; color: var(--link); min-height: 44px; }
   .svc-cta svg { width: 18px; height: 18px; transition: transform .18s ease; }
   .svc-cta:hover svg { transform: translateX(3px); }
-  .svc-commercial { grid-column: 1 / -1; border-top-color: var(--charcoal); }
-  .tuck-note { margin-top: 1.8rem; max-width: 820px; padding: 1rem 1.2rem; border-left: 4px solid var(--sandstone); background: var(--card); border-radius: 0 var(--radius) var(--radius) 0; color: var(--text-soft); }
-  .tuck-note strong { color: var(--text); }
+  .svc-commercial { grid-column: 1 / -1; background: transparent; border-style: dashed; border-color: var(--rule); }
+  .svc-commercial > p { max-width: 70ch; }
+  .tuck-note { margin: 2.2rem 0 0; max-width: 68ch; padding-top: 1.1rem; border-top: 1px solid var(--rule); color: var(--text-soft); }
+  .tuck-note b { display: block; margin-bottom: .3rem; color: var(--text); font-family: var(--display); font-size: 1.2rem; }
   @media (max-width: 980px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 620px) { .svc-grid { grid-template-columns: 1fr; } }
 
   /* Price table */
-  .price-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+  .price-wrap { overflow-x: auto; }
   .prices { width: 100%; border-collapse: collapse; font-size: .98rem; }
   .prices th, .prices td { padding: .7rem 1rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
-  .prices thead th { background: var(--charcoal); color: var(--limewash); font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; }
+  .prices thead th { font-size: .9rem; color: var(--text-soft); border-bottom: 2px solid var(--text); padding-bottom: .5rem; }
+  .prices tbody th, .prices thead th:first-child { padding-left: 0; } .prices .num { padding-right: 0; }
   .prices tbody th { font-family: var(--display); font-size: 1.05rem; width: 32%; }
   .prices tbody th a { color: var(--text); text-decoration-color: var(--rule); }
   .prices .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
@@ -219,7 +215,7 @@
   @media (max-width: 620px) {
     .prices, .prices tbody, .prices tr, .prices th, .prices td { display: block; width: 100%; }
     .prices thead { display: none; }
-    .prices tr { padding: .6rem .9rem; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .2rem 1rem; }
+    .prices tr { padding: .7rem 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .2rem 1rem; }
     .prices th, .prices td { padding: 0; border: 0; }
     .prices tbody th { grid-column: 1 / -1; width: auto; margin-top: .3rem; }
     .prices td.num { text-align: right; white-space: normal; }
@@ -245,7 +241,7 @@
   /* Before / after: side by side without JS, an accessible slider with JS */
   .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
   .ba { margin: 0; }
-  .ba-frame { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; border-radius: var(--radius); overflow: hidden; background: var(--charcoal); }
+  .ba-frame { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; border-radius: var(--radius); overflow: hidden; }
   .ba-pane { position: relative; }
   .ba-pane img { width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: cover; }
   .ba-label { position: absolute; top: .6rem; left: .6rem; padding: .2rem .55rem; border-radius: 4px; background: rgba(23,22,21,.82); color: var(--limewash); font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
@@ -266,8 +262,8 @@
   .swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
   .swatch figure { margin: 0; }
   .swatch .sw-img { position: relative; border-radius: var(--radius); overflow: hidden; }
-  .swatch img { width: 100%; height: auto; aspect-ratio: 1; border-radius: var(--radius); border: 1px solid var(--line); transition: transform .5s ease, filter .5s ease; }
-  .swatch figure:hover img { transform: scale(1.03); filter: brightness(1.06) contrast(1.04); }
+  .swatch img { width: 100%; height: auto; aspect-ratio: 1; border-radius: var(--radius); border: 1px solid var(--line); transition: transform .5s ease; }
+  .swatch figure:hover img { transform: scale(1.03); }
   .swatch figcaption { margin-top: .55rem; font-size: .88rem; color: var(--text-soft); line-height: 1.45; }
   .swatch figcaption strong { display: block; color: var(--text); font-size: .98rem; }
   .sw-use { display: block; font-weight: 600; color: var(--link); margin-bottom: .2rem; }
@@ -277,9 +273,9 @@
 
   /* Process laid out as courses of brick (running bond offset) */
   .courses { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; counter-reset: c; }
-  .course { grid-column: span 2; position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 1.2rem 1.2rem 1.2rem 1.2rem; box-shadow: inset 0 -4px 0 var(--sandstone); }
+  .course { grid-column: span 2; position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 3px; padding: 1.25rem 1.35rem 1.4rem; }
   .course:nth-child(4) { grid-column: 2 / span 2; } .course:nth-child(5) { grid-column: 4 / span 2; } .course:nth-child(6) { grid-column: 2 / span 4; }
-  .course-n { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 4px; background: var(--brick); color: #fff; font: 700 1rem var(--display); margin-bottom: .6rem; }
+  .course-n { display: block; color: var(--link); font: italic 700 1.5rem/1 var(--display); margin-bottom: .55rem; }
   .course h3 { font-size: 1.12rem; margin-bottom: .3rem; }
   .course p { margin: 0; color: var(--text-soft); font-size: .95rem; }
   @media (max-width: 900px) { .courses { grid-template-columns: 1fr 1fr; } .course, .course:nth-child(n) { grid-column: auto; } }
@@ -287,9 +283,9 @@
 
   /* Warranty + trust */
   .warranty-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
-  .warranty { background: var(--charcoal); color: var(--limewash); border-radius: var(--radius); padding: 2rem; border-top: 6px solid var(--brick); }
+  .warranty { background: var(--charcoal); color: var(--limewash); border-radius: var(--radius); padding: 2rem 1.5rem; }
+  @media (min-width: 600px) { .warranty { padding: 2.4rem; } }
   .warranty h2 { color: #fff; }
-  .warranty .kicker { color: var(--sandstone); }
   .concept-tag { font: 600 .9rem var(--sans); color: var(--mortar-light); }
   .war-terms { margin: 0 0 1rem; padding-left: 1.1rem; }
   .war-terms li { margin-bottom: .5rem; }
@@ -297,11 +293,10 @@
   .warranty summary { cursor: pointer; font-weight: 700; color: var(--sandstone); min-height: 44px; display: flex; align-items: center; }
   .warranty .fine { color: var(--mortar-light); margin: 1rem 0 0; }
   .warranty :focus-visible { outline-color: var(--sandstone); }
-  .trust { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; }
+  .trust { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; max-width: 60ch; }
   .trust li { display: flex; gap: .6rem; align-items: flex-start; color: var(--text-soft); }
-  .trust li strong { color: var(--text); }
   .trust svg { width: 20px; height: 20px; flex: none; color: var(--brick); margin-top: .2rem; }
-  .no-reviews { margin-top: 1.2rem; padding: .8rem 1rem; border: 1px dashed var(--rule); border-radius: var(--radius); }
+  .no-reviews { margin-top: 1.4rem; padding: .9rem 1.1rem; border: 1px dashed var(--rule); border-radius: var(--radius); }
   @media (max-width: 860px) { .warranty-grid { grid-template-columns: 1fr; } }
 
   /* Area */
@@ -312,7 +307,7 @@
   .zip-check label { display: block; font-weight: 700; margin-bottom: .35rem; }
   .zip-row { display: flex; gap: .5rem; max-width: 320px; }
   .zip-out { font-weight: 700; margin: .5rem 0 0; min-height: 1.6em; }
-  .map-wrap { border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
+  .map-wrap { border-radius: var(--radius); overflow: hidden; }
   .map-svg { width: 100%; height: auto; }
   @media (max-width: 860px) { .area-grid { grid-template-columns: 1fr; } }
 
@@ -323,12 +318,12 @@
   .faq summary::-webkit-details-marker { display: none; }
   .faq summary::after { content: "+"; font: 700 1.4rem/1 var(--display); color: var(--brick); transition: transform .2s ease; }
   .faq details[open] summary::after { transform: rotate(45deg); }
-  .faq details p { margin: 0; padding: 0 1.2rem 1.1rem; color: var(--text-soft); }
+  .faq details p { margin: 0; padding: 0 1.2rem 1.2rem; color: var(--text-soft); max-width: 68ch; }
 
   /* Estimate form */
   .est-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 2.5rem; align-items: start; }
   .est-points { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: .35rem; color: var(--text-soft); }
-  form.est { background: var(--card); border: 1px solid var(--line); border-top: 5px solid var(--brick); border-radius: var(--radius); padding: clamp(1.2rem, 3vw, 2rem); }
+  form.est { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 2.25rem); }
   .field { display: grid; gap: .35rem; margin: 0 0 1.05rem; border: 0; padding: 0; min-width: 0; align-content: start; }
   .field label, .field legend { font-weight: 700; font-size: .95rem; padding: 0; }
   .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -446,7 +441,7 @@
  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" fill="currentColor"/><circle cx="12" cy="9.5" r="2.6" fill="#fff"/></symbol>
 </svg>
-<aside class="season" aria-label="Seasonal note"><div class="wrap"><p id="season-text">Booking spring tuckpointing now. Chimney emergencies still answered all winter.</p></div></aside>
+<aside class="season" aria-label="Seasonal note"><div class="wrap"><p id="season-text">Booking spring tuckpointing now. We still answer chimney emergencies all winter.</p></div></aside>
 
 <header class="site-header">
   <div class="wrap nav">
@@ -467,9 +462,8 @@
   <section class="hero" id="top" aria-labelledby="hero-title">
     <div class="wrap hero-inner">
       <div class="hero-copy">
-        <p class="hero-tag">Built course by course.</p>
-        <h1 id="hero-title">Tuckpointing, chimney &amp; brick repair that outlasts Ohio winters.</h1>
-        <p class="hero-sub">Brick, block and stone work for homes and commercial buildings across the Kilnbury area. We start by finding where the water's getting in.</p>
+        <h1 id="hero-title">Tuckpointing, chimney and brick repair that holds up to Ohio winters</h1>
+        <p class="hero-sub">We work on brick, block and stone, for houses and commercial buildings around Kilnbury. Every job starts with finding out where the water is getting in.</p>
         <div class="hero-ctas">
           <a class="btn btn-brick" href="#estimate">Get a free estimate <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
           <a class="btn btn-ghost" href="sms:+15550107426"><svg aria-hidden="true" focusable="false"><use href="#i-camera"/></svg>Text us photos</a>
@@ -478,19 +472,18 @@
           <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Insured</li>
           <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Written, itemized estimates</li>
           <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>5-year workmanship warranty</li>
-          <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Homes &amp; commercial</li>
+          <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Homes and commercial</li>
         </ul>
       </div>
     </div>
-    <p class="hero-note">Hero wall: rendered live from code, not a photo.</p>
+    <p class="hero-note">The wall behind this text is drawn live in code.</p>
   </section>
 
   <section class="section water" id="water" aria-labelledby="water-title">
     <div class="wrap">
       <div class="section-head">
-        <p class="kicker">Start with the cause</p>
         <h2 id="water-title">Where's the water getting in?</h2>
-        <p>Almost every masonry failure starts with water. Here are the four signs we see most on Calder River valley homes, and what each one usually means.</p>
+        <p>Most of the brick damage we get called out for comes back to water. These are the four signs we see most often on Calder River valley houses. Pick one to see where the water goes.</p>
       </div>
       <div class="water-grid">
         <div class="water-figure">
@@ -553,30 +546,30 @@
           <li class="sym" id="sym-joints" data-water="joints">
             <span class="sym-num" aria-hidden="true">1</span>
             <h3>Crumbling joints</h3>
-            <p><strong>What it means:</strong> Rain soaks into eroded mortar and gets behind the brick face. Sandy joints you can scrape with a key are due.</p>
-            <p><strong>What we do:</strong> Rake out to sound mortar and repoint with a mix softer than your brick.</p>
-            <a href="#svc-tuckpointing">Tuckpointing &amp; Repointing</a> <span class="sym-price">· from $8/sq ft</span>
+            <p>Rain soaks into worn mortar and gets in behind the brick. If you can scrape a joint out with a key, it's due.</p>
+            <p>We rake the joints back to sound mortar and repoint with a mix softer than your brick.</p>
+            <a href="#svc-tuckpointing">Tuckpointing and repointing</a> <span class="sym-price">· from $8/sq ft</span>
           </li>
           <li class="sym" id="sym-spall" data-water="spall">
             <span class="sym-num" aria-hidden="true">2</span>
             <h3>Flaking brick</h3>
-            <p><strong>What it means:</strong> Water in the brick freezes, expands about 9% and pops the face off (spalling). Hard mortar and sealers make it worse.</p>
-            <p><strong>What we do:</strong> Find the water source, replace the spalled units with matched brick, repoint around them.</p>
-            <a href="#svc-brick-repair">Brick Repair &amp; Replacement</a> <span class="sym-price">· from $750</span>
+            <p>Water in the brick freezes, expands about 9% and pops the face off. Masons call it spalling. Hard mortar and sealers make it worse.</p>
+            <p>We find where the water comes from, swap the damaged bricks for matched ones and repoint around them.</p>
+            <a href="#svc-brick-repair">Brick repair and replacement</a> <span class="sym-price">· from $750</span>
           </li>
           <li class="sym" id="sym-efflo" data-water="efflo">
             <span class="sym-num" aria-hidden="true">3</span>
             <h3>White powder</h3>
-            <p><strong>What it means:</strong> Efflorescence: salts left behind as water moves through the wall and dries at the surface. Often a sign of blocked weeps or missing flashing.</p>
-            <p><strong>What we do:</strong> Trace and stop the water first (weeps, flashing, gutters), then clean. Otherwise it comes back.</p>
-            <a href="#svc-brick-repair">Brick Repair &amp; Replacement</a> <span class="sym-price">· water source first</span>
+            <p>That's efflorescence, salt left on the face as water works through the wall and dries. Blocked weep holes or missing flashing are the usual cause.</p>
+            <p>We stop the water first (weeps, flashing, gutters) and clean the wall after, or the white comes right back.</p>
+            <a href="#svc-brick-repair">Brick repair and replacement</a> <span class="sym-price">· priced after we find the leak</span>
           </li>
           <li class="sym" id="sym-crown" data-water="crown">
             <span class="sym-num" aria-hidden="true">4</span>
             <h3>Cracked crown</h3>
-            <p><strong>What it means:</strong> The chimney&#x27;s concrete crown cracks, and water runs straight down into the stack and the ceiling below.</p>
-            <p><strong>What we do:</strong> Seal or rebuild the crown with an overhang and drip edge, check the flashing, fit a cap.</p>
-            <a href="#svc-chimney">Chimney Repair &amp; Rebuilds</a> <span class="sym-price">· from $350</span>
+            <p>Once the concrete crown on top of the chimney cracks, water runs down inside the stack and shows up on the ceiling below.</p>
+            <p>We seal the crown or rebuild it with an overhang and drip edge, check the flashing and put a cap on.</p>
+            <a href="#svc-chimney">Chimney repair and rebuilds</a> <span class="sym-price">· from $350</span>
           </li>
         </ol>
       </div>
@@ -586,169 +579,167 @@
   <section class="section alt" id="services" aria-labelledby="services-title">
     <div class="wrap">
       <div class="section-head">
-        <p class="kicker">Services</p>
-        <h2 id="services-title">Brick, block and stone repair, built to shed water</h2>
-        <p>Open any card for the signs to look for, how we do the work, and where pricing starts. <a href="#tuck-vs-repoint">Tuckpointing or repointing?</a></p>
+        <h2 id="services-title">What we fix and build</h2>
+        <p>Open a service to see the warning signs, how we do the job and the starting price. Not sure if you need tuckpointing or repointing? <a href="#tuck-vs-repoint">Here's the difference.</a></p>
       </div>
       <div class="svc-grid">
         <article class="svc" id="svc-tuckpointing" aria-labelledby="svc-tuckpointing-t">
           <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-bond"/></svg>
-          <h3 id="svc-tuckpointing-t">Tuckpointing &amp; Repointing</h3>
-          <p>Crumbling joints raked out and refilled with mortar matched to your brick.</p>
+          <h3 id="svc-tuckpointing-t">Tuckpointing and repointing</h3>
+          <p>We rake out crumbling joints and refill them with mortar matched to your brick.</p>
           <details>
-            <summary>Signs you need this, what we do, starting price</summary>
+            <summary>Warning signs and starting price</summary>
             <dl>
               <dt>Signs you need this</dt><dd>Sandy or recessed joints, gaps you can fit a key in, mortar on the ground, damp interior walls.</dd>
-              <dt>What we do</dt><dd>We rake out failed mortar to a sound depth (typically 2 to 2½ times the joint width) by hand or with careful tools, match the mortar&#x27;s hardness and color to the brick (soft lime-rich mixes for older homes), pack it in layers, and tool the joint to match the original profile.</dd>
+              <dt>What we do</dt><dd>We rake out the failed mortar to sound material, usually 2 to 2½ times as deep as the joint is wide. The new mortar is matched to the brick for hardness and color, which on older houses means a soft lime-rich mix. We pack it in layers and tool the joint to the original profile.</dd>
               <dt>Starting at</dt><dd><ul class="svc-prices"><li><span>Small repair visit</span><strong>$450</strong></li><li><span>Wall sections</span><strong>from $8/sq ft</strong></li></ul></dd>
             </dl>
           </details>
-          <a class="svc-cta" href="#estimate" data-service="Tuckpointing">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Tuckpointing &amp; Repointing)</span></a>
+          <a class="svc-cta" href="#estimate" data-service="Tuckpointing">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Tuckpointing and repointing)</span></a>
         </article>
         <article class="svc" id="svc-brick-repair" aria-labelledby="svc-brick-repair-t">
           <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-flemish"/></svg>
-          <h3 id="svc-brick-repair-t">Brick Repair &amp; Replacement</h3>
-          <p>Flaking, cracked or popped bricks cut out and replaced with a matched unit.</p>
+          <h3 id="svc-brick-repair-t">Brick repair and replacement</h3>
+          <p>Flaking, cracked or loose bricks cut out and replaced with matching ones.</p>
           <details>
-            <summary>Signs you need this, what we do, starting price</summary>
+            <summary>Warning signs and starting price</summary>
             <dl>
               <dt>Signs you need this</dt><dd>Brick faces peeling or flaking (spalling), stair-step cracks, loose bricks, bulging areas.</dd>
-              <dt>What we do</dt><dd>We find the moisture source first, remove damaged units, source salvaged or matched brick, then re-lay and repoint around them.</dd>
+              <dt>What we do</dt><dd>First we find where the moisture is coming from. Then we cut out the damaged bricks, find salvaged or matching replacements, lay them in and repoint around them.</dd>
               <dt>Starting at</dt><dd><ul class="svc-prices"><li><span>Brick replacement</span><strong>$750</strong></li></ul></dd>
             </dl>
           </details>
-          <a class="svc-cta" href="#estimate" data-service="Brick repair">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Brick Repair &amp; Replacement)</span></a>
+          <a class="svc-cta" href="#estimate" data-service="Brick repair">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Brick repair and replacement)</span></a>
         </article>
         <article class="svc" id="svc-chimney" aria-labelledby="svc-chimney-t">
           <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-arch"/></svg>
-          <h3 id="svc-chimney-t">Chimney Repair &amp; Rebuilds</h3>
-          <p>Crowns, caps, flashing and rebuilt stacks above the roofline.</p>
+          <h3 id="svc-chimney-t">Chimney repair and rebuilds</h3>
+          <p>Crowns, caps and flashing, up to rebuilding the stack above the roofline.</p>
           <details>
-            <summary>Signs you need this, what we do, starting price</summary>
+            <summary>Warning signs and starting price</summary>
             <dl>
               <dt>Signs you need this</dt><dd>A cracked or crumbling crown, a leaning stack, white staining, water spots on the ceiling near the chimney, bricks or tile in the firebox.</dd>
-              <dt>What we do</dt><dd>We seal or rebuild the crown with an overhang and drip edge, repoint or rebuild the stack, coordinate step and counter flashing, and fit a cap with a screen.</dd>
+              <dt>What we do</dt><dd>We seal the crown or rebuild it with an overhang and drip edge, repoint or rebuild the stack, set step and counter flashing, and fit a screened cap.</dd>
               <dt>Starting at</dt><dd><ul class="svc-prices"><li><span>Crown repair</span><strong>$350</strong></li><li><span>Crown rebuild</span><strong>$1,800</strong></li><li><span>Partial rebuild</span><strong>$2,500</strong></li><li><span>Flashing</span><strong>Quoted after inspection</strong></li></ul></dd>
             </dl>
           </details>
-          <a class="svc-cta" href="#estimate" data-service="Chimney">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Chimney Repair &amp; Rebuilds)</span></a>
+          <a class="svc-cta" href="#estimate" data-service="Chimney">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Chimney repair and rebuilds)</span></a>
         </article>
         <article class="svc" id="svc-retaining-walls" aria-labelledby="svc-retaining-walls-t">
           <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-steps"/></svg>
-          <h3 id="svc-retaining-walls-t">Retaining Walls</h3>
-          <p>Segmental block and natural stone walls built on a real base, with drainage behind them.</p>
+          <h3 id="svc-retaining-walls-t">Retaining walls</h3>
+          <p>Block and natural stone walls, built on a compacted base with drainage behind them.</p>
           <details>
-            <summary>Signs you need this, what we do, starting price</summary>
+            <summary>Warning signs and starting price</summary>
             <dl>
               <dt>Signs you need this</dt><dd>A leaning or bulging wall, soil washing through, cracked caps.</dd>
-              <dt>What we do</dt><dd>We excavate, build a compacted aggregate base, add a 12&quot; drainage-stone zone and a perforated drain behind the wall, and use geogrid on taller walls. Walls 4 ft and up get engineering and permits.</dd>
+              <dt>What we do</dt><dd>We dig out, build a compacted gravel base and put 12&quot; of drainage stone and a perforated pipe behind the wall. Taller walls get geogrid. Anything 4 ft or higher gets an engineered design and a permit.</dd>
               <dt>Starting at</dt><dd><ul class="svc-prices"><li><span>Wall face</span><strong>from $30/sq ft</strong></li><li><span>Walls over 4 ft</span><strong>Engineered, quoted per project</strong></li></ul></dd>
             </dl>
           </details>
-          <a class="svc-cta" href="#estimate" data-service="Retaining wall">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Retaining Walls)</span></a>
+          <a class="svc-cta" href="#estimate" data-service="Retaining wall">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Retaining walls)</span></a>
         </article>
         <article class="svc" id="svc-patios" aria-labelledby="svc-patios-t">
           <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-pavers"/></svg>
-          <h3 id="svc-patios-t">Patios, Walkways &amp; Hardscape</h3>
-          <p>Paver and natural stone patios, walks, steps, fire pits and seat walls.</p>
+          <h3 id="svc-patios-t">Patios, walkways and hardscape</h3>
+          <p>Paver and stone patios, walks, steps, fire pits and seat walls.</p>
           <details>
-            <summary>Signs you need this, what we do, starting price</summary>
+            <summary>Warning signs and starting price</summary>
             <dl>
               <dt>Signs you need this</dt><dd>Sinking or rocking pavers, weeds pushing through, water pooling against the house.</dd>
-              <dt>What we do</dt><dd>Proper excavation, a compacted base and bedding, edge restraint and joint sand, with a slope away from the house.</dd>
+              <dt>What we do</dt><dd>We dig deep enough for a compacted base and bedding layer, hold the edges with restraint, sweep in joint sand and pitch the whole thing away from the house.</dd>
               <dt>Starting at</dt><dd><ul class="svc-prices"><li><span>Pavers</span><strong>from $15/sq ft</strong></li><li><span>Natural stone</span><strong>Quoted per project</strong></li></ul></dd>
             </dl>
           </details>
-          <a class="svc-cta" href="#estimate" data-service="Patio/walkway">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Patios, Walkways &amp; Hardscape)</span></a>
+          <a class="svc-cta" href="#estimate" data-service="Patio/walkway">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Patios, walkways and hardscape)</span></a>
         </article>
         <article class="svc" id="svc-steps" aria-labelledby="svc-steps-t">
           <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-soldier"/></svg>
-          <h3 id="svc-steps-t">Concrete Steps &amp; Stoops</h3>
-          <p>Crumbling front steps patched or replaced, poured or precast.</p>
+          <h3 id="svc-steps-t">Concrete steps and stoops</h3>
+          <p>We patch crumbling front steps or replace them, poured in place or precast.</p>
           <details>
-            <summary>Signs you need this, what we do, starting price</summary>
+            <summary>Warning signs and starting price</summary>
             <dl>
               <dt>Signs you need this</dt><dd>Chipped noses, cracks, settling away from the house, rust stains from rebar.</dd>
-              <dt>What we do</dt><dd>We repair sound steps and replace failing ones, poured in place or precast, set on a proper base and pitched to shed water.</dd>
+              <dt>What we do</dt><dd>Steps that are still sound get repaired. Failing ones get replaced, set on a compacted base and pitched so water runs off.</dd>
               <dt>Starting at</dt><dd><ul class="svc-prices"><li><span>Step repair</span><strong>$500</strong></li><li><span>Replacement</span><strong>$2,500</strong></li></ul></dd>
             </dl>
           </details>
-          <a class="svc-cta" href="#estimate" data-service="Steps">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Concrete Steps &amp; Stoops)</span></a>
+          <a class="svc-cta" href="#estimate" data-service="Steps">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Concrete steps and stoops)</span></a>
         </article>
         <article class="svc" id="svc-foundation" aria-labelledby="svc-foundation-t">
           <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-block"/></svg>
-          <h3 id="svc-foundation-t">Foundation &amp; Block Wall Repair</h3>
-          <p>Cracks sealed, block walls repointed, and damaged block rebuilt.</p>
+          <h3 id="svc-foundation-t">Foundation and block wall repair</h3>
+          <p>Sealing cracks, repointing block walls and rebuilding damaged block.</p>
           <details>
-            <summary>Signs you need this, what we do, starting price</summary>
+            <summary>Warning signs and starting price</summary>
             <dl>
               <dt>Signs you need this</dt><dd>Cracks in block or poured walls, crumbling mortar in the basement, damp patches after rain.</dd>
-              <dt>What we do</dt><dd>We repoint and replace block and seal cracks. Bowing or actively moving walls get a structural assessment, and we bring in an engineer when needed.</dd>
+              <dt>What we do</dt><dd>We repoint, replace block and seal cracks. If a wall is bowing or still moving, it gets a structural assessment first, and we bring in an engineer when it needs one.</dd>
               <dt>Starting at</dt><dd><ul class="svc-prices"><li><span>Crack repair</span><strong>$400</strong></li><li><span>Bowing walls</span><strong>Assessed on site</strong></li></ul></dd>
             </dl>
           </details>
-          <a class="svc-cta" href="#estimate" data-service="Foundation">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Foundation &amp; Block Wall Repair)</span></a>
+          <a class="svc-cta" href="#estimate" data-service="Foundation">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Foundation and block wall repair)</span></a>
         </article>
         <article class="svc" id="svc-veneer" aria-labelledby="svc-veneer-t">
           <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-ashlar"/></svg>
-          <h3 id="svc-veneer-t">Stone Veneer &amp; New Masonry</h3>
-          <p>Natural and manufactured stone, brick and block walls, columns, mailboxes, fireplaces.</p>
+          <h3 id="svc-veneer-t">Stone veneer and new masonry</h3>
+          <p>Natural and manufactured stone, new brick and block walls, columns, mailboxes and fireplaces.</p>
           <details>
-            <summary>Signs you need this, what we do, starting price</summary>
+            <summary>Warning signs and starting price</summary>
             <dl>
               <dt>Signs you need this</dt><dd>Loose or cracked veneer stones, staining below the veneer, a weep screed buried by soil or paving.</dd>
-              <dt>What we do</dt><dd>For veneer we install a proper water-resistive barrier, a drainage gap and a weep screed set off grade, not just stone stuck to a wall.</dd>
+              <dt>What we do</dt><dd>Behind veneer we put a water-resistive barrier and a drainage gap, and we set the weep screed above grade so water that gets behind the stone has a way out.</dd>
               <dt>Starting at</dt><dd><ul class="svc-prices"><li><span>Manufactured stone</span><strong>from $16/sq ft</strong></li><li><span>Natural stone</span><strong>from $25/sq ft</strong></li><li><span>New walls</span><strong>Quoted per project</strong></li></ul></dd>
             </dl>
           </details>
-          <a class="svc-cta" href="#estimate" data-service="Stone veneer">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Stone Veneer &amp; New Masonry)</span></a>
+          <a class="svc-cta" href="#estimate" data-service="Stone veneer">Estimate this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Stone veneer and new masonry)</span></a>
         </article>
         <article class="svc svc-commercial" id="svc-commercial" aria-labelledby="svc-commercial-t">
           <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-arch"/></svg>
-          <h3 id="svc-commercial-t">Commercial Masonry</h3>
-          <p>Parapets, lintels, facades, storefront brick and ADA-friendly steps. Insurance certificates on request, permit handling, and scheduling around tenants. Quoted per project.</p>
+          <h3 id="svc-commercial-t">Commercial masonry</h3>
+          <p>Parapets, lintels, facades, storefront brick and ADA-friendly steps. We send insurance certificates on request, pull the permits and schedule around your tenants. Every commercial job is quoted on its own.</p>
           <a class="svc-cta" href="#estimate" data-service="Something else" data-commercial="1">Estimate a commercial job <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
         </article>
       </div>
-      <p class="tuck-note" id="tuck-vs-repoint"><strong>A quick word on "tuckpointing".</strong> Most people say tuckpointing when they mean repointing: raking out failed mortar and replacing it. True tuckpointing is a decorative finish with a thin contrasting line "tucked" into colored mortar. We do both, and we'll know what you mean either way.</p>
+      <p class="tuck-note" id="tuck-vs-repoint"><b>Tuckpointing or repointing?</b>Most people say tuckpointing when they mean repointing, which is raking out bad mortar and packing in new. Real tuckpointing is a decorative finish: mortar colored to match the brick with a thin contrasting line tucked into it. We do both, so call it whatever you like.</p>
     </div>
   </section>
 
   <section class="section" id="pricing" aria-labelledby="pricing-title">
     <div class="wrap">
       <div class="section-head">
-        <p class="kicker">Starting prices</p>
-        <h2 id="pricing-title">What masonry repair costs, before you call</h2>
-        <p>Typical starting points for straightforward work. We'll give you a written number before any work starts.</p>
+        <h2 id="pricing-title">Starting prices</h2>
+        <p>Here's where straightforward jobs usually start, so you have a number in mind before you call. You get a written price from us before any work begins.</p>
       </div>
       <div class="price-wrap">
         <table class="prices">
           <caption class="vh">Starting prices by service (concept placeholders)</caption>
           <thead><tr><th scope="col">Service</th><th scope="col">Work</th><th scope="col" class="num">Starting at</th></tr></thead>
           <tbody>
-<tr><th scope="row" rowspan="2"><a href="#svc-tuckpointing">Tuckpointing &amp; Repointing</a></th><td>Small repair visit</td><td class="num">$450</td></tr>
+<tr><th scope="row" rowspan="2"><a href="#svc-tuckpointing">Tuckpointing and repointing</a></th><td>Small repair visit</td><td class="num">$450</td></tr>
 <tr><td>Wall sections</td><td class="num">from $8/sq ft</td></tr>
-<tr><th scope="row" rowspan="1"><a href="#svc-brick-repair">Brick Repair &amp; Replacement</a></th><td>Brick replacement</td><td class="num">$750</td></tr>
-<tr><th scope="row" rowspan="4"><a href="#svc-chimney">Chimney Repair &amp; Rebuilds</a></th><td>Crown repair</td><td class="num">$350</td></tr>
+<tr><th scope="row" rowspan="1"><a href="#svc-brick-repair">Brick repair and replacement</a></th><td>Brick replacement</td><td class="num">$750</td></tr>
+<tr><th scope="row" rowspan="4"><a href="#svc-chimney">Chimney repair and rebuilds</a></th><td>Crown repair</td><td class="num">$350</td></tr>
 <tr><td>Crown rebuild</td><td class="num">$1,800</td></tr>
 <tr><td>Partial rebuild</td><td class="num">$2,500</td></tr>
 <tr><td>Flashing</td><td class="num">Quoted after inspection</td></tr>
-<tr><th scope="row" rowspan="2"><a href="#svc-retaining-walls">Retaining Walls</a></th><td>Wall face</td><td class="num">from $30/sq ft</td></tr>
+<tr><th scope="row" rowspan="2"><a href="#svc-retaining-walls">Retaining walls</a></th><td>Wall face</td><td class="num">from $30/sq ft</td></tr>
 <tr><td>Walls over 4 ft</td><td class="num">Engineered, quoted per project</td></tr>
-<tr><th scope="row" rowspan="2"><a href="#svc-patios">Patios, Walkways &amp; Hardscape</a></th><td>Pavers</td><td class="num">from $15/sq ft</td></tr>
+<tr><th scope="row" rowspan="2"><a href="#svc-patios">Patios, walkways and hardscape</a></th><td>Pavers</td><td class="num">from $15/sq ft</td></tr>
 <tr><td>Natural stone</td><td class="num">Quoted per project</td></tr>
-<tr><th scope="row" rowspan="2"><a href="#svc-steps">Concrete Steps &amp; Stoops</a></th><td>Step repair</td><td class="num">$500</td></tr>
+<tr><th scope="row" rowspan="2"><a href="#svc-steps">Concrete steps and stoops</a></th><td>Step repair</td><td class="num">$500</td></tr>
 <tr><td>Replacement</td><td class="num">$2,500</td></tr>
-<tr><th scope="row" rowspan="2"><a href="#svc-foundation">Foundation &amp; Block Wall Repair</a></th><td>Crack repair</td><td class="num">$400</td></tr>
+<tr><th scope="row" rowspan="2"><a href="#svc-foundation">Foundation and block wall repair</a></th><td>Crack repair</td><td class="num">$400</td></tr>
 <tr><td>Bowing walls</td><td class="num">Assessed on site</td></tr>
-<tr><th scope="row" rowspan="3"><a href="#svc-veneer">Stone Veneer &amp; New Masonry</a></th><td>Manufactured stone</td><td class="num">from $16/sq ft</td></tr>
+<tr><th scope="row" rowspan="3"><a href="#svc-veneer">Stone veneer and new masonry</a></th><td>Manufactured stone</td><td class="num">from $16/sq ft</td></tr>
 <tr><td>Natural stone</td><td class="num">from $25/sq ft</td></tr>
 <tr><td>New walls</td><td class="num">Quoted per project</td></tr>
 <tr><th scope="row"><a href="#svc-commercial">Commercial masonry</a></th><td>Parapets, lintels, facades, storefront brick, ADA-friendly steps</td><td class="num">Quoted per project</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="fine">Starting prices are typical minimums for straightforward work at ground level. Height, access, materials and hidden damage change the price. They sit near the low end of typical ranges reported by national cost guides and are concept placeholders, not quotes.</p>
+      <p class="fine">These are minimums for simple work at ground level. Height, access, materials and damage we find once the old mortar comes out all change the price. The numbers are concept placeholders set near the low end of national cost guides, so treat them as examples and not as quotes.</p>
       <a class="btn btn-brick" href="#estimate">Get your number</a>
     </div>
   </section>
@@ -756,9 +747,8 @@
   <section class="section alt" id="work" aria-labelledby="work-title">
     <div class="wrap">
       <div class="section-head">
-        <p class="kicker">Work</p>
-        <h2 id="work-title">Project gallery by type</h2>
-        <p><strong>Every image on this page is a concept illustration rendered from code.</strong> Header &amp; Stretcher is a fictional business, so there are no real jobs to show. A real client site would show its own photos here.</p>
+        <h2 id="work-title">Work by type</h2>
+        <p><strong>Every image on this page is a concept illustration rendered from code.</strong> Header &amp; Stretcher is a fictional business with no real jobs to show. A real contractor would put their own job photos here.</p>
       </div>
       <div class="filters" role="group" aria-label="Filter projects" hidden>
         <button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="chimney" aria-pressed="false">Chimney</button><button type="button" data-filter="tuckpointing" aria-pressed="false">Tuckpointing</button><button type="button" data-filter="walls" aria-pressed="false">Retaining walls</button><button type="button" data-filter="patios" aria-pressed="false">Patios</button><button type="button" data-filter="steps" aria-pressed="false">Steps</button><button type="button" data-filter="veneer" aria-pressed="false">Stone veneer</button>
@@ -814,7 +804,7 @@
             <figcaption><strong>Tight-joint stone veneer</strong> · Quarry Bend · <span class="tag">Concept illustration</span></figcaption>
           </figure></li>
       </ul>
-      <p class="gal-empty" hidden>Nothing here yet. Like a wall waiting for its next course.</p>
+      <p class="gal-empty" hidden>No projects in this category yet.</p>
 
       <h3 class="sub-head">Before and after</h3>
       <div class="ba-grid">
@@ -822,48 +812,48 @@
           <div class="ba-frame">
             <div class="ba-pane ba-before"><img src="ba-brick-before.webp" width="960" height="600" alt="Before, concept illustration: a brick wall with flaking brick faces, deeply eroded sandy joints and white salt staining" loading="lazy" decoding="async"><span class="ba-label">Before</span></div>
             <div class="ba-pane ba-after"><img src="ba-brick-after.webp" width="960" height="600" alt="After, concept illustration: the same wall with spalled bricks replaced by matched units and every joint repointed and tooled" loading="lazy" decoding="async"><span class="ba-label">After</span></div>
-            <input class="ba-range" type="range" min="0" max="100" value="50" step="1" aria-label="Reveal after image: Spalled brick, eroded joints, repointed." hidden>
+            <input class="ba-range" type="range" min="0" max="100" value="50" step="1" aria-label="Reveal after image: spalled brick and worn joints" hidden>
             <span class="ba-handle" aria-hidden="true"></span>
           </div>
-          <figcaption><strong>Spalled brick, eroded joints, repointed.</strong> Spalled units cut out and replaced with matched brick, joints raked out and repointed with a softer mix. <span class="tag">Concept illustration, rendered from code</span></figcaption>
+          <figcaption><strong>Spalled brick and worn joints.</strong> We cut out the flaking bricks, replaced them with matched brick, and raked out and repointed the joints with a softer mix. <span class="tag">Concept illustration, rendered from code</span></figcaption>
         </figure>
 
         <figure class="ba" data-ba>
           <div class="ba-frame">
             <div class="ba-pane ba-before"><img src="ba-chimney-before.webp" width="960" height="600" alt="Before, concept illustration: a chimney with a cracked, broken concrete crown, no cap on the flue, a missing brick and water staining" loading="lazy" decoding="async"><span class="ba-label">Before</span></div>
             <div class="ba-pane ba-after"><img src="ba-chimney-after.webp" width="960" height="600" alt="After, concept illustration: the same chimney with a rebuilt crown with overhang and drip edge, a metal cap with screen, and repointed brick" loading="lazy" decoding="async"><span class="ba-label">After</span></div>
-            <input class="ba-range" type="range" min="0" max="100" value="50" step="1" aria-label="Reveal after image: Cracked crown, rebuilt and capped." hidden>
+            <input class="ba-range" type="range" min="0" max="100" value="50" step="1" aria-label="Reveal after image: cracked chimney crown" hidden>
             <span class="ba-handle" aria-hidden="true"></span>
           </div>
-          <figcaption><strong>Cracked crown, rebuilt and capped.</strong> Crown rebuilt with an overhang and drip edge, flue capped and screened, top courses repointed. <span class="tag">Concept illustration, rendered from code</span></figcaption>
+          <figcaption><strong>Cracked chimney crown.</strong> We rebuilt the crown with an overhang and drip edge, capped and screened the flue, and repointed the top courses. <span class="tag">Concept illustration, rendered from code</span></figcaption>
         </figure>
       </div>
 
-      <h3 class="sub-head" id="materials">Materials, matched not guessed</h3>
+      <h3 class="sub-head" id="materials">Brick, stone and mortar we match</h3>
       <ul class="swatches">
           <li class="swatch"><figure>
             <img src="sw-red-brick.webp" width="320" height="320" alt="Rendered texture preview: red clay brick" loading="lazy" decoding="async">
-            <figcaption><strong>Red clay brick</strong><span class="sw-use">Face brick</span><span class="sw-note">The common face brick on Calder River valley homes (concept). We match size, color, texture and the joint profile.</span></figcaption>
+            <figcaption><strong>Red clay brick</strong><span class="sw-use">Face brick</span><span class="sw-note">What most Calder River valley houses are faced with (concept). We match the size, color and texture, and the shape of the joint.</span></figcaption>
           </figure></li>
           <li class="swatch"><figure>
             <img src="sw-flashed-brick.webp" width="320" height="320" alt="Rendered texture preview: flashed brick" loading="lazy" decoding="async">
-            <figcaption><strong>Flashed brick</strong><span class="sw-use">Face brick</span><span class="sw-note">Darker, kiln-flashed faces mixed through older walls. Replacement units are blended so patches disappear.</span></figcaption>
+            <figcaption><strong>Flashed brick</strong><span class="sw-use">Face brick</span><span class="sw-note">The darker kiln-flashed bricks scattered through older walls. We blend replacements in so a patch doesn't stand out.</span></figcaption>
           </figure></li>
           <li class="swatch"><figure>
             <img src="sw-limestone.webp" width="320" height="320" alt="Rendered texture preview: limestone" loading="lazy" decoding="async">
-            <figcaption><strong>Limestone</strong><span class="sw-use">Sills, lintels, caps</span><span class="sw-note">Smooth, pale stone for sills, caps and trim. Pointed with mortar softer than the stone.</span></figcaption>
+            <figcaption><strong>Limestone</strong><span class="sw-use">Sills, lintels, caps</span><span class="sw-note">Smooth, pale stone for sills, caps and trim. We point it with mortar softer than the stone.</span></figcaption>
           </figure></li>
           <li class="swatch"><figure>
             <img src="sw-sandstone.webp" width="320" height="320" alt="Rendered texture preview: sandstone" loading="lazy" decoding="async">
-            <figcaption><strong>Sandstone</strong><span class="sw-use">Veneer, steps</span><span class="sw-note">Warm, layered stone. Laid on its natural bed so the layers do not peel off in frost.</span></figcaption>
+            <figcaption><strong>Sandstone</strong><span class="sw-use">Veneer, steps</span><span class="sw-note">Layered stone in warm colors. We lay it on its natural bed so frost can't peel the layers apart.</span></figcaption>
           </figure></li>
           <li class="swatch"><figure>
             <img src="sw-lime-mortar.webp" width="320" height="320" alt="Rendered texture preview: lime-rich mortar" loading="lazy" decoding="async">
-            <figcaption><strong>Lime-rich mortar</strong><span class="sw-use">Older &amp; historic brick</span><span class="sw-note">Soft and breathable. Used on pre-1940s brick so the joint, not the brick, takes the wear.</span></figcaption>
+            <figcaption><strong>Lime-rich mortar</strong><span class="sw-use">Older &amp; historic brick</span><span class="sw-note">Soft and breathable. We use it on pre-1940s brick so the joint wears out before the brick does.</span></figcaption>
           </figure></li>
           <li class="swatch"><figure>
             <img src="sw-type-n-mortar.webp" width="320" height="320" alt="Rendered texture preview: type n mortar" loading="lazy" decoding="async">
-            <figcaption><strong>Type N mortar</strong><span class="sw-use">General above-grade work</span><span class="sw-note">The general-purpose above-grade mix (ASTM C270, 750 psi minimum). Stronger is not better for repairs.</span></figcaption>
+            <figcaption><strong>Type N mortar</strong><span class="sw-use">General above-grade work</span><span class="sw-note">Our everyday mix for work above ground (ASTM C270, 750 psi minimum). A stronger mix is worse for repairs, because it ends up harder than the brick.</span></figcaption>
           </figure></li>
       </ul>
       <p class="fine">Texture previews are rendered illustrations, not product samples.</p>
@@ -873,11 +863,10 @@
   <section class="section" id="process" aria-labelledby="process-title">
     <div class="wrap">
       <div class="section-head">
-        <p class="kicker">Process</p>
-        <h2 id="process-title">Six steps, laid one course at a time</h2>
+        <h2 id="process-title">How a job goes</h2>
       </div>
       <ol class="courses">
-        <li class="course"><span class="course-n" aria-hidden="true">1</span><h3>Send photos or book a visit</h3><p>Text or upload a wide shot and a close-up. We reply with a rough range within 1 business day (concept promise).</p></li><li class="course"><span class="course-n" aria-hidden="true">2</span><h3>On-site assessment</h3><p>We look for the cause, not just the symptom: gutters, downspouts, flashing, crown, grading, weeps. We note your mortar&#x27;s color, texture and hardness.</p></li><li class="course"><span class="course-n" aria-hidden="true">3</span><h3>Written, itemized estimate</h3><p>Line by line, with what&#x27;s included, what isn&#x27;t, and how we&#x27;ll protect your property. No pressure, no expiring “today only” pricing.</p></li><li class="course"><span class="course-n" aria-hidden="true">4</span><h3>Schedule around the weather</h3><p>Mortar needs air temperatures of 40°F and rising. We book spring through fall for exterior work, and protect fresh work from rain, sun and frost.</p></li><li class="course"><span class="course-n" aria-hidden="true">5</span><h3>Build and protect</h3><p>Tarps and plywood over landscaping, daily cleanup, and one crew lead as your single point of contact. Any change in scope is priced and approved in writing first.</p></li><li class="course"><span class="course-n" aria-hidden="true">6</span><h3>Walkthrough and warranty</h3><p>We walk the job with you, wash down, haul debris, and hand you a care sheet and your written warranty.</p></li>
+        <li class="course"><span class="course-n" aria-hidden="true">1</span><h3>Send photos or book a visit</h3><p>Text or upload a wide shot and a close-up. We reply with a rough range within 1 business day (a concept promise).</p></li><li class="course"><span class="course-n" aria-hidden="true">2</span><h3>On-site assessment</h3><p>We check where the water is coming from: gutters, downspouts, flashing, the crown, grading and weep holes. We also note your mortar&#x27;s color, texture and hardness.</p></li><li class="course"><span class="course-n" aria-hidden="true">3</span><h3>Written, itemized estimate</h3><p>Every line spelled out, including what we&#x27;re leaving out and how we&#x27;ll protect your yard. The price doesn&#x27;t expire when we leave your driveway.</p></li><li class="course"><span class="course-n" aria-hidden="true">4</span><h3>Schedule around the weather</h3><p>Mortar needs air at 40°F and rising, so outside work runs spring through fall. Fresh work gets covered against rain, hard sun and frost.</p></li><li class="course"><span class="course-n" aria-hidden="true">5</span><h3>Build and protect</h3><p>Tarps and plywood go over your plantings and we clean up every day. One crew lead is your contact for the whole job. If the scope changes, you get the price in writing and approve it before we do the work.</p></li><li class="course"><span class="course-n" aria-hidden="true">6</span><h3>Walkthrough and warranty</h3><p>We walk the finished job with you, wash down and haul off the debris, then hand you a care sheet and your written warranty.</p></li>
       </ol>
     </div>
   </section>
@@ -885,24 +874,23 @@
   <section class="section alt" id="warranty" aria-labelledby="warranty-title">
     <div class="wrap warranty-grid">
       <div class="warranty">
-        <p class="kicker">In writing</p>
-        <h2 id="warranty-title">The Header &amp; Stretcher Warranty <span class="concept-tag">(concept)</span></h2>
+        <h2 id="warranty-title">Our warranty <span class="concept-tag">(concept)</span></h2>
         <ul class="war-terms">
-          <li><strong>5 years</strong> workmanship on repairs: tuckpointing, brick replacement, crowns, step repairs.</li>
-          <li><strong>10 years</strong> workmanship on new construction: retaining walls, patios, new walls and veneer we build start to finish.</li>
-          <li>Materials carry the manufacturer's warranty, and we handle the claim for you.</li>
+          <li>5 years on our workmanship for repairs, like tuckpointing, brick replacement, crowns and step repairs.</li>
+          <li>10 years on our workmanship for anything we build new, like retaining walls, patios, new walls and veneer.</li>
+          <li>Materials carry the manufacturer's warranty, and we file that claim for you.</li>
         </ul>
         <details><summary>What it covers, and what it doesn't</summary>
-          <p><strong>Covers:</strong> defects in our workmanship, such as joints we pointed that crack or fall out, walls we built that lean, and pavers we laid that settle because of our base.</p>
-          <p><strong>Doesn't cover:</strong> damage from water sources we flagged in writing that weren't fixed (gutters, grading, roof leaks), new settlement of the house itself, impact or vehicle damage, de-icing salt misuse, and normal efflorescence on new work (it usually fades in the first year).</p>
-          <p><strong>How to claim:</strong> text a photo. We inspect within 10 business days.</p>
+          <p>It covers mistakes in our work. If joints we pointed crack or fall out, a wall we built starts to lean, or pavers settle because of the base we put down, we fix it.</p>
+          <p>It doesn't cover damage from a water problem we pointed out in writing that didn't get fixed, like gutters, grading or a roof leak. It also doesn't cover the house itself settling, impact or vehicle damage, too much de-icing salt, or the normal white bloom on new work, which usually fades in the first year.</p>
+          <p>To make a claim, text us a photo and we'll come look within 10 business days.</p>
         </details>
         <p class="fine">Concept wording, not legal advice.</p>
       </div>
       <div>
-        <h2 class="h3-like">Why you can trust the work</h2>
-        <ul class="trust"><li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span><strong>Insured.</strong> General liability &amp; workers&#x27; comp. Certificates available on request (concept placeholder).</span></li><li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span><strong>Registered locally.</strong> Ohio doesn&#x27;t license masons statewide, so we register with each city we work in and pull the permits your job needs (concept).</span></li><li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span><strong>Mortar matched, not guessed.</strong> Soft lime mixes for old brick, stronger mixes where code and exposure call for them.</span></li><li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span><strong>Written everything.</strong> Estimates, change orders and warranty, all in writing.</span></li><li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span><strong>One crew lead from start to finish.</strong> One person to call, from the first visit to the walkthrough.</span></li><li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span><strong>Clean sites.</strong> Ground protection, daily cleanup, debris hauled.</span></li><li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span><strong>We&#x27;ll tell you when not to hire us.</strong> If a few bricks are a DIY job or the problem is your gutters, we&#x27;ll say so.</span></li></ul>
-        <p class="fine no-reviews">As a concept business, Header &amp; Stretcher has no real reviews to show. A real client site would show verified reviews here.</p>
+        <h2 class="h3-like">What to expect from us</h2>
+        <ul class="trust"><li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>We carry general liability and workers&#x27; comp, and we&#x27;ll send the certificates if you ask (concept placeholder).</span></li><li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Ohio doesn&#x27;t license masons statewide, so we register with each city we work in and pull the permits your job needs (concept).</span></li><li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Old brick gets a soft lime mix. We only use stronger mortar where code or exposure calls for it.</span></li><li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Estimates, change orders and the warranty all come in writing.</span></li><li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>The same crew lead handles your job from the first visit to the walkthrough, so you always know who to call.</span></li><li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>We cover the ground, clean up at the end of each day and haul the debris away.</span></li><li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>If a few loose bricks are something you can fix yourself, or the real problem is your gutters, we&#x27;ll tell you.</span></li></ul>
+        <p class="fine no-reviews">Header &amp; Stretcher is a concept business, so there are no reviews to show. A real contractor's site would put verified reviews here.</p>
       </div>
     </div>
   </section>
@@ -910,9 +898,8 @@
   <section class="section" id="area" aria-labelledby="area-title">
     <div class="wrap area-grid">
       <div>
-        <p class="kicker">Service area</p>
-        <h2 id="area-title">Serving Kilnbury and the Calder River valley</h2>
-        <p>A stretch of old brick river towns and newer subdivisions about 30 miles across. Kilnbury, Ohio and every town here are fictional. Crews come to you; there's no shop to visit.</p>
+        <h2 id="area-title">Where we work</h2>
+        <p>Kilnbury and the Calder River valley: old brick river towns and newer subdivisions, about 30 miles across. Kilnbury, Ohio and every town listed here are fictional. Our crews come to you, and there's no shop to visit.</p>
         <ul class="towns"><li><svg aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Kilnbury</li><li><svg aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>North Kilnbury</li><li><svg aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Ashlar Springs</li><li><svg aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Quarry Bend</li><li><svg aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Fieldstone Township</li><li><svg aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Copperline</li><li><svg aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Millrace</li><li><svg aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Bricklow</li></ul>
         <form class="zip-check" hidden novalidate>
           <label for="zip-q">Check your ZIP</label>
@@ -924,7 +911,7 @@
       <div class="map-wrap">
         <svg class="map-svg" viewBox="0 0 520 360" role="img" aria-labelledby="map-t" focusable="false">
           <title id="map-t">Stylized, fictional map of the Calder River valley: Kilnbury in the middle of the river bend, with North Kilnbury, Ashlar Springs, Quarry Bend, Fieldstone Township, Copperline, Millrace and Bricklow around it</title>
-          <rect width="520" height="360" rx="14" fill="var(--map-land)"/>
+          <rect width="520" height="360" fill="var(--map-land)"/>
           <path d="M-10 300 C80 260 120 300 190 250 S300 140 360 170 S470 120 540 60" fill="none" stroke="var(--map-water)" stroke-width="22" stroke-linecap="round"/>
           <path d="M-10 300 C80 260 120 300 190 250 S300 140 360 170 S470 120 540 60" fill="none" stroke="var(--map-water-2)" stroke-width="8" stroke-linecap="round"/>
           <circle cx="260" cy="190" r="150" fill="var(--brick)" fill-opacity=".07" stroke="var(--brick)" stroke-width="2.5" stroke-dasharray="8 7"/>
@@ -938,7 +925,7 @@
             <circle cx="300" cy="300" r="5"/><text x="272" y="324">Millrace</text>
             <circle cx="200" cy="320" r="5"/><text x="150" y="344">Bricklow</text>
           </g>
-          <text x="500" y="348" text-anchor="end" font-family="system-ui, sans-serif" font-size="11" fill="var(--map-ink)">Fictional map. Dashed ring: about 30 miles across.</text>
+          <text x="508" y="22" text-anchor="end" font-family="system-ui, sans-serif" font-size="11" fill="var(--map-ink)">Fictional map. Dashed ring: about 30 miles across.</text>
         </svg></div>
     </div>
   </section>
@@ -946,19 +933,17 @@
   <section class="section alt" id="faq" aria-labelledby="faq-title">
     <div class="wrap narrow">
       <div class="section-head">
-        <p class="kicker">FAQ</p>
-        <h2 id="faq-title">Questions homeowners ask about masonry repair</h2>
+        <h2 id="faq-title">Questions we get a lot</h2>
       </div>
-      <div class="faq"><details><summary>How much does tuckpointing cost?</summary><p>National cost guides put it around $5-$25 per square foot. Ground-level walls land at the low end, and tall walls that need scaffolding at the high end. Small spot repairs often start around a few hundred dollars. We&#x27;ll give you a written number after seeing photos or the wall itself.</p></details><details><summary>What&#x27;s the difference between tuckpointing and repointing?</summary><p>Repointing means raking out failing mortar and replacing it, and that&#x27;s what most people need. Tuckpointing originally meant a decorative technique: mortar colored to match the brick, plus a thin contrasting line “tucked” into the joint to make it look finer. Most people (and most search engines) say “tuckpointing” for both, and that&#x27;s fine. We&#x27;ll know what you mean.</p></details><details><summary>How do I know if my mortar needs repointing?</summary><p>Look for joints that are recessed, sandy when you rub them, cracked, or missing. A common rule of thumb is that joints eroded about ¼ inch or more are due. Damp spots inside, or mortar dust at the base of the wall, are other clues.</p></details><details><summary>What&#x27;s the white powder on my brick?</summary><p>That&#x27;s usually efflorescence, salts carried to the surface by water and left behind when it evaporates. It&#x27;s normally cosmetic and brushes off when dry, but it tells you water is moving through the wall. We find and fix the water source first. Otherwise it comes back.</p></details><details><summary>Why is the face of my brick flaking off?</summary><p>That&#x27;s spalling. Water soaks into the brick, freezes, expands and pops the face off. It&#x27;s often made worse by hard cement mortar or non-breathable sealers that trap moisture. Damaged bricks get replaced, and we fix the moisture problem behind them.</p></details><details><summary>Should my chimney be repaired or rebuilt?</summary><p>Cracked crowns, worn joints and a few bad bricks can usually be repaired. A stack that leans, has widespread loose brick, or has fire damage often needs rebuilding above the roofline. We show you photos from the roof and explain both options with prices.</p></details><details><summary>Can you match my old mortar and brick?</summary><p>Usually, yes. We match color, texture and the joint profile, and just as important, the hardness. New mortar should be softer and more breathable than the brick so the joint takes the wear, not your brick. For older homes that often means a lime-rich mix, not straight Portland cement. For bricks, we source matched or salvaged units.</p></details><details><summary>Can masonry work be done in winter?</summary><p>Exterior mortar work needs air temperatures of about 40°F and rising, so we do most of it spring through fall. In winter we do inspections, estimates, emergency chimney stabilization and indoor fireplace work, and we book spring jobs. Winter is a good time to get on the list.</p></details><details><summary>Do I need a permit for a retaining wall?</summary><p>In many places, walls 4 feet or taller need a permit and an engineered design, often measured from the bottom of the footing. Some towns require permits for any wall. We check your town&#x27;s rules and handle the paperwork.</p></details><details><summary>Should I seal my brick?</summary><p>Usually not as a first step. Many sealers trap moisture and make freeze-thaw damage worse. If a wall needs extra protection after repairs, we use a breathable silane/siloxane water repellent, and only on clean, dry, sound brick.</p></details><details><summary>Pavers or stamped concrete?</summary><p>Visually similar designs cost about the same up front. Pavers can be lifted and relaid if something settles, while stamped concrete is one slab that can crack and is harder to patch invisibly. We&#x27;ll show you both.</p></details></div>
+      <div class="faq"><details><summary>How much does tuckpointing cost?</summary><p>National cost guides put it around $5-$25 per square foot. Ground-level walls land at the low end, and tall walls that need scaffolding at the high end. Small spot repairs often start around a few hundred dollars. We&#x27;ll give you a written number after seeing photos or the wall itself.</p></details><details><summary>What&#x27;s the difference between tuckpointing and repointing?</summary><p>Repointing means raking out failing mortar and replacing it, and that&#x27;s what most people need. Tuckpointing originally meant a decorative technique: mortar colored to match the brick, plus a thin contrasting line tucked into the joint to make it look finer. Most people (and most search engines) say tuckpointing for both, and that&#x27;s fine. We&#x27;ll know what you mean.</p></details><details><summary>How do I know if my mortar needs repointing?</summary><p>Look for joints that are recessed, sandy when you rub them, cracked, or missing. A common rule of thumb is that joints eroded about ¼ inch or more are due. Damp spots inside, or mortar dust at the base of the wall, are other clues.</p></details><details><summary>What&#x27;s the white powder on my brick?</summary><p>That&#x27;s usually efflorescence, salts carried to the surface by water and left behind when it evaporates. It&#x27;s normally cosmetic and brushes off when dry, but it tells you water is moving through the wall. We find and fix the water source first, or it comes back.</p></details><details><summary>Why is the face of my brick flaking off?</summary><p>That&#x27;s spalling. Water soaks into the brick, freezes, expands and pops the face off. It&#x27;s often made worse by hard cement mortar or non-breathable sealers that trap moisture. Damaged bricks get replaced, and we fix the moisture problem behind them.</p></details><details><summary>Should my chimney be repaired or rebuilt?</summary><p>Cracked crowns, worn joints and a few bad bricks can usually be repaired. A stack that leans, has widespread loose brick, or has fire damage often needs rebuilding above the roofline. We show you photos from the roof and explain both options with prices.</p></details><details><summary>Can you match my old mortar and brick?</summary><p>Usually, yes. We match color, texture and the joint profile, and just as important, the hardness. New mortar should be softer and more breathable than the brick so the joint wears instead of the brick. For older homes that often means a lime-rich mix, not straight Portland cement. For bricks, we source matched or salvaged units.</p></details><details><summary>Can masonry work be done in winter?</summary><p>Exterior mortar work needs air temperatures of about 40°F and rising, so we do most of it spring through fall. In winter we do inspections, estimates, emergency chimney stabilization and indoor fireplace work, and we book spring jobs. Calling in winter puts you near the top of the spring list.</p></details><details><summary>Do I need a permit for a retaining wall?</summary><p>In many places, walls 4 feet or taller need a permit and an engineered design, often measured from the bottom of the footing. Some towns require permits for any wall. We check your town&#x27;s rules and handle the paperwork.</p></details><details><summary>Should I seal my brick?</summary><p>Usually not as a first step. Many sealers trap moisture and make freeze-thaw damage worse. If a wall needs extra protection after repairs, we use a breathable silane/siloxane water repellent, and only on clean, dry, sound brick.</p></details><details><summary>Pavers or stamped concrete?</summary><p>Visually similar designs cost about the same up front. Pavers can be lifted and relaid if something settles, while stamped concrete is one slab that can crack and is harder to patch invisibly. We&#x27;ll show you both.</p></details></div>
     </div>
   </section>
 
   <section class="section" id="estimate" aria-labelledby="estimate-title">
     <div class="wrap est-grid">
       <div class="est-aside">
-        <p class="kicker">Free estimate</p>
-        <h2 id="estimate-title">Send us photos, get a range in 1 business day</h2>
-        <p>A wide shot plus a close-up is perfect. Blurry is fine. We've seen worse. Prefer to talk? Call <a href="tel:+15550107426">(555) 010-7426</a> or text photos to the same number.</p>
+        <h2 id="estimate-title">Send us photos for a free estimate</h2>
+        <p>We reply with a price range within 1 business day. One wide shot and one close-up is plenty, and blurry phone photos are fine. If you'd rather talk, call <a href="tel:+15550107426">(555) 010-7426</a> or text photos to the same number.</p>
         <ul class="est-points">
           <li>Mon-Fri 7am-5pm · Sat by appointment</li>
           <li>Chimney emergencies: call anytime (concept)</li>
@@ -985,7 +970,7 @@
         <div class="field photos">
           <label for="f-photos"><svg aria-hidden="true" focusable="false"><use href="#i-camera"/></svg> Photos <span class="hint">(optional, up to 5)</span></label>
           <input id="f-photos" name="photos" type="file" accept="image/*" multiple aria-describedby="f-photos-hint">
-          <span class="hint" id="f-photos-hint">Optional, but it helps. A wide shot plus a close-up works best. Photos stay on your device in this concept.</span>
+          <span class="hint" id="f-photos-hint">A wide shot and a close-up work best. In this concept, photos stay on your device.</span>
           <ul class="thumbs" aria-live="polite"></ul>
         </div>
         <label class="check"><input type="checkbox" id="f-commercial" name="commercial" value="yes"> This is a commercial property</label>
@@ -1013,7 +998,7 @@
       <ul><li>Mon-Fri 7am-5pm</li><li>Sat by appointment</li><li>Chimney emergencies: call anytime</li></ul>
     </div>
   </div>
-  <div class="wrap"><p class="fine-foot">Header &amp; Stretcher Masonry Co. is a fictional business created by E.M as a design concept. Phone numbers, email, towns, prices, warranty terms and policies are placeholders. Prices reflect public national ranges and are not quotes. All imagery is rendered from code. <a href="../../index.html">Back to the E.M portfolio</a></p></div>
+  <div class="wrap"><p class="fine-foot">Header &amp; Stretcher Masonry Co. is a fictional business that E.M made up as a design concept. The phone number, email, towns, prices, warranty and policies are all placeholders. Prices are based on public national ranges and are not quotes. Every image is rendered from code. <a href="../../index.html">Back to the E.M portfolio</a></p></div>
 </footer>
 
 <nav class="mbar" aria-label="Quick contact">
@@ -1021,6 +1006,6 @@
   <a href="sms:+15550107426"><svg aria-hidden="true" focusable="false"><use href="#i-camera"/></svg>Text photos</a>
   <a href="#estimate" class="mbar-primary">Estimate</a>
 </nav>
-<a class="concept-badge" href="../../index.html"><span class="dot" aria-hidden="true"></span>Concept site by E.M — fictional business</a>
+<a class="concept-badge" href="../../index.html"><span class="dot" aria-hidden="true"></span>Concept site by E.M · fictional business</a>
 </body>
 </html>

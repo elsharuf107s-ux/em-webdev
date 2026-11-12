@@ -1,4 +1,4 @@
-// Golden Crumb concept site: optional visual effects (WebGL hero, 3D loaf, reveals).
+// Golden Crumb concept site: optional visual effects (WebGL hero light, 3D loaf, reveals).
 // The page is complete without this file; it only adds motion on top.
 const STORE_KEY = 'gc-motion';
 /* ---------- Tiny WebGL engine (no libraries) ---------- */
@@ -321,40 +321,17 @@ function setupBakeryGL() {
       if (shown) return; shown = true;
       c2.classList.add('is-live'); art.classList.add('gl-on');
       const title = document.getElementById('hero-art-title');
-      if (title) title.textContent = 'Illustration of a round, scored sourdough loaf on a wooden board, still steaming from the oven';
+      if (title) title.textContent = 'Round, scored sourdough loaf on a wooden board, still steaming from the oven';
     },
     onLost: () => art.classList.remove('gl-on')
   });
   if (loaf) drive(art, loaf, '0px'); else c2.remove();
 }
 
-function setupBakeryMicro() {
-  if (reduce) return;
-  if (fine) {
-    // Gallery tiles lean toward the pointer
-    document.querySelectorAll('.tile').forEach((t) => {
-      t.addEventListener('pointermove', (e) => {
-        const r = t.getBoundingClientRect();
-        t.style.setProperty('--ry', (((e.clientX - r.left) / r.width - 0.5) * 8).toFixed(2) + 'deg');
-        t.style.setProperty('--rx', (-((e.clientY - r.top) / r.height - 0.5) * 8).toFixed(2) + 'deg');
-      }, { passive: true });
-      t.addEventListener('pointerleave', () => { t.style.setProperty('--rx', '0deg'); t.style.setProperty('--ry', '0deg'); });
-    });
-    // A warm glow follows the pointer across the order panel
-    const order = document.querySelector('.order');
-    if (order) order.addEventListener('pointermove', (e) => {
-      const r = order.getBoundingClientRect();
-      order.style.setProperty('--gx', (e.clientX - r.left).toFixed(0) + 'px');
-      order.style.setProperty('--gy', (e.clientY - r.top).toFixed(0) + 'px');
-    }, { passive: true });
-  }
-}
-
 function init() {
   root.classList.toggle('motion', !reduce);
   if (CAPTURE) root.classList.add('fx-capture');
   setupReveals('.section-head, .menu-card, .gallery-grid > li, .order, .visit-grid > .card');
-  setupBakeryMicro();
   addPauseControl(document.querySelector('.hero'));
   idle(setupBakeryGL, { timeout: 800 });
 }

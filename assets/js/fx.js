@@ -18,7 +18,8 @@ try { paused = localStorage.getItem('em-motion') === 'paused'; } catch (e) { /* 
 /* ---------- Scroll reveals ---------- */
 function setupReveals() {
   if (reduce || !hasIO) return;
-  const sel = '#main > section:not(.hero) .section-head, .compare-card, .card-grid > .card, .founding-offer, .plan, .care-plan, .step, .about, .work-card, .faq details, .contact-copy, .contact-form';
+  // Headings, the compare cards, plans, steps and work cards are scroll-scrubbed by scroll.js instead.
+  const sel = '#main > section:not(.hero) .section-head > p, .card-grid > .card, .founding-offer, .care-plan, .about, .faq details, .contact-copy, .contact-form';
   const els = [...document.querySelectorAll(sel)];
   // Only hide things that start below the fold, so nothing visible ever blinks.
   const fold = window.innerHeight;
@@ -221,7 +222,7 @@ function setPaused(p) {
 }
 function setupPauseControl() {
   if (reduce) return; // nothing moves, so nothing to pause
-  const spots = [document.querySelector('.hero-stage'), document.querySelector('#work .section-head')];
+  const spots = [document.querySelector('.hero-stage'), document.querySelector('#work .section-head'), document.querySelector('.build-stage')];
   spots.forEach((spot) => {
     if (!spot) return;
     const b = document.createElement('button');
@@ -229,7 +230,16 @@ function setupPauseControl() {
     b.className = 'motion-toggle';
     b.setAttribute('aria-pressed', 'false');
     b.innerHTML = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="i-pause" d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/><path class="i-play" d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg><span>Pause animations</span>';
-    b.addEventListener('click', () => setPaused(!paused));
+    b.addEventListener('click', () => {
+      // Pausing collapses the build story, which can move this button off screen
+      // (the stage drops below the steps on phones). Bring it back where it was.
+      const y0 = b.getBoundingClientRect().top;
+      setPaused(!paused);
+      requestAnimationFrame(() => {
+        const r = b.getBoundingClientRect();
+        if (r.top < 0 || r.bottom > window.innerHeight) window.scrollBy({ top: r.top - y0, behavior: 'instant' });
+      });
+    });
     spot.appendChild(b);
   });
   if (paused) setPaused(true);

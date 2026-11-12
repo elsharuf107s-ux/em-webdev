@@ -34,12 +34,15 @@
                     its sha256 hash in that line must be updated too.
                     "media-src 'self'" is what lets the demo videos play.
   - Visual effects: assets/js/fx.js (scroll reveals, 3D tilt, lazy videos,
-                    the "Pause animations" buttons) and assets/js/gl.js (the two
-                    WebGL backgrounds). Screenshots and videos of the concept
+                    the "Pause animations" buttons), assets/js/gl.js (the three
+                    WebGL backgrounds), assets/js/build.js (the "Watch a website
+                    come together" build story) and assets/js/scroll.js (the
+                    scroll-driven effects). Screenshots and videos of the concept
                     sites are in assets/media/; re-capture them if those sites
-                    change. To switch every effect off, delete the
-                    <script type="module" src="assets/js/fx.js"> line: the page
-                    still works and shows still images instead.
+                    change. To switch every effect off, delete the three
+                    module <script> lines (fx.js,
+                    build.js, scroll.js): the page still works and shows still
+                    images and the finished build story instead.
 
   Every editable value is tagged data-edit="..." so you can find it quickly.
   ================================================================
@@ -48,7 +51,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; form-action https://formspree.io; base-uri 'none'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Small Business Web Design from $299 | E.M, Ohio</title>
-  <meta name="description" content="Fast, mobile-friendly websites for US small businesses from an Ohio-based web designer. Fixed prices from $299. First 3 clients get 30% off.">
+  <meta name="description" content="Websites for US small businesses, built by one web designer in Ohio. Fixed prices from $299. My first 3 clients get 30% off.">
   <meta name="author" content="Ervin Mosley">
   <meta name="theme-color" content="#312e81">
   <link rel="canonical" href="https://elsharuf107s-ux.github.io/em-webdev/">
@@ -57,7 +60,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="E.M">
   <meta property="og:title" content="Small Business Web Design from $299 | E.M, Ohio">
-  <meta property="og:description" content="Fast-loading, mobile-friendly websites for small businesses. Fixed, published prices from $299. Based in Ohio, working with clients across the United States.">
+  <meta property="og:description" content="Websites for small businesses that load fast and work on phones. Prices are fixed and published, starting at $299. I'm in Ohio and work with clients anywhere in the US.">
   <meta property="og:url" content="https://elsharuf107s-ux.github.io/em-webdev/">
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://elsharuf107s-ux.github.io/em-webdev/og-image.png">
@@ -66,7 +69,7 @@
   <meta property="og:image:alt" content="E.M: websites for small businesses, fixed prices from $299">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Small Business Web Design from $299 | E.M, Ohio">
-  <meta name="twitter:description" content="Fast-loading, mobile-friendly websites for small businesses. Fixed prices from $299.">
+  <meta name="twitter:description" content="Websites for small businesses that load fast and work on phones. Fixed prices from $299.">
   <meta name="twitter:image" content="https://elsharuf107s-ux.github.io/em-webdev/og-image.png">
   <meta name="twitter:image:alt" content="E.M: websites for small businesses, fixed prices from $299">
 
@@ -77,6 +80,8 @@
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
   <script type="module" src="assets/js/fx.js"></script>
+  <script type="module" src="assets/js/build.js"></script>
+  <script type="module" src="assets/js/scroll.js"></script>
 
   <script type="application/ld+json">
   {
@@ -213,7 +218,7 @@
             "name": "How long does it take?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Most sites go live 7 to 10 business days after I receive your content: your text, photos and logo. The sooner I have those, the sooner you're live."
+              "text": "Most sites go live 7 to 10 business days after I have your text, photos and logo. The sooner you send them, the sooner the site is live."
             }
           },
           {
@@ -221,7 +226,7 @@
             "name": "Do you only work with businesses in Ohio?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. I'm based in Ohio and work remotely with small businesses across the United States. Everything can be done by email, or by video call if you'd like to talk it through."
+              "text": "No. I'm in Ohio, but I work remotely with small businesses anywhere in the US. We can do everything by email, or on a video call if you'd rather talk."
             }
           },
           {
@@ -229,7 +234,7 @@
             "name": "How do payments work?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "A 50% deposit to start and 50% at launch. If you cancel in writing within 2 business days of signing, before work starts, you get the full deposit back. The care plan is billed monthly and you can cancel any time."
+              "text": "The preview is free. You pay a 50% deposit after you approve the preview and sign. If you cancel in writing within 2 business days of signing, I refund the whole deposit. The other 50% is due at launch. The care plan is billed monthly, and you can cancel it any time."
             }
           },
           {
@@ -245,7 +250,7 @@
             "name": "What if I need changes the care plan doesn't cover?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Extra work is $50 an hour. I'll tell you the estimate before I start, and nothing begins until you say yes."
+              "text": "Extra work is $50 an hour. I'll give you an estimate first, and I don't start until you say yes."
             }
           },
           {
@@ -261,7 +266,7 @@
             "name": "Do I need to pay for hosting?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "For most simple sites, no. I can host your site on free, reliable static hosting. If you want your own domain name (like yourbusiness.com), you pay the registrar directly, usually a small yearly fee."
+              "text": "For most simple sites, no. I can put your site on free static hosting. If you want your own domain name (like yourbusiness.com), you pay the registrar for it directly, often $10 to $20 a year."
             }
           },
           {
@@ -269,7 +274,7 @@
             "name": "Do I own my website?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Once the build is paid for, the site and its content are yours. I'll hand over all the files if you ever want to move."
+              "text": "Yes. Once the build is paid for, the site and its content are yours, and I'll hand over all the files if you ever want to move."
             }
           },
           {
@@ -277,7 +282,7 @@
             "name": "What do I need to provide?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Your logo (if you have one), photos of your work or premises, and basic details like services, prices and hours. Don't have good photos or text? I'll help you with that."
+              "text": "Your logo if you have one, photos of your work or your premises, and the basics: services, prices and hours. If you're short on good photos or text, I'll help."
             }
           },
           {
@@ -285,7 +290,7 @@
             "name": "Can I update the site myself?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "You can, and I'll show you how. Or join the optional $29/mo care plan and send me your changes by email."
+              "text": "Yes, and I'll show you how. If you'd rather not, the optional $29/mo care plan lets you email me your changes instead."
             }
           },
           {
@@ -293,15 +298,15 @@
             "name": "What is the founding client discount?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "E.M is new, so my first 3 clients get 30% off the build fee: Starter $209, Business $489, Growth $839. I'll ask for an honest testimonial, but it's optional and the discount stays either way. I never offer discounts or anything else in exchange for Google reviews."
+              "text": "E.M is new, so my first 3 clients get 30% off the build fee: Starter $209, Business $489, Growth $839. I'll ask for an honest testimonial, but it's optional and you keep the discount either way. I don't give discounts or anything else in exchange for Google reviews."
             }
           },
           {
             "@type": "Question",
-            "name": "Are the bakery, plumber and masonry sites real clients?",
+            "name": "Are the barbershop, bakery, plumber and masonry sites real clients?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. Golden Crumb Bakery, FlowRight Plumbing and Header & Stretcher Masonry are concept projects for fictional businesses, made to show my design and build quality. E.M is new, and real client work will be labeled as such."
+              "text": "No. Hex & Hone Barber Co., Golden Crumb Bakery, FlowRight Plumbing and Header & Stretcher Masonry are fictional businesses. I made their sites to show the kind of work I do. When I have real client work, it will be labeled as client work."
             }
           },
           {
@@ -309,7 +314,7 @@
             "name": "Will my site show up on Google?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Every site is set up so Google can read it: page titles, descriptions, a mobile-friendly layout and a link to your Google Business Profile. I can't promise rankings, and nobody honestly can, but I'll make sure the basics are done right."
+              "text": "I set up every site so Google can read it, with page titles, descriptions, a layout that works on phones and a link to your Google Business Profile. I can't promise where you'll rank, and nobody else honestly can either, but the basics will be done right."
             }
           }
         ]
@@ -355,6 +360,7 @@
       <nav id="site-nav" class="site-nav" aria-label="Main">
         <ul>
           <li><a href="#services">Services</a></li>
+          <li><a href="#preview">Free preview</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#work">Work</a></li>
@@ -371,19 +377,16 @@
     <section id="top" class="hero" aria-labelledby="hero-title">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow" data-edit="founding-offer"><span class="pill">Founding offer</span> 30% off for my first 3 clients</p>
           <h1 id="hero-title">Websites for small businesses, from <span data-edit="price">$299</span></h1>
-          <p class="lead">I build fast-loading, mobile-friendly websites for restaurants, salons, trades, gyms and shops. Your site is usually live 7 to 10 business days after I have your content. Fixed prices, plain-English help, and no surprise bills.</p>
+          <p class="lead">I'm Ervin, and I build websites for restaurants, salons, trades, gyms and shops. They load fast and work properly on a phone. Most go live 7 to 10 business days after you send me your text and photos, and the price is fixed before I start.</p>
           <div class="hero-actions">
-            <a class="btn btn-accent btn-glow" href="#contact">Get a free quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-accent" href="#contact">Get a free quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <a class="btn btn-ghost" href="#pricing">See pricing</a>
           </div>
-          <ul class="hero-points" aria-label="What is included">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Looks great on phones</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> You own your site</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> No long contracts</li>
-          </ul>
-          <p class="hero-location"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Based in Ohio, working remotely with small businesses across the United States.</p>
+          <p class="hero-preview">Not ready to commit? I'll build <a href="#preview">a free preview of your site</a> first.</p>
+          <p class="hero-offer" data-edit="founding-offer"><span class="pill">Founding offer</span> My first 3 clients get 30% off.</p>
+          <p class="hero-location"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> I'm in Ohio and work remotely with businesses anywhere in the US. You own the site, and there's no long contract.</p>
+          <a class="scroll-cue" href="#build"><span class="scroll-cue-line" aria-hidden="true"></span>Watch a site get built</a>
         </div>
 
         <!-- Decorative: real screenshots of two of the concept sites in a 3D device rig.
@@ -405,11 +408,97 @@
             </div>
             <div class="device-chip">
               <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
-              <span>Built mobile-first</span>
+              <span>Built for phones first</span>
             </div>
           </div>
-          <figcaption class="stage-caption">Shown: my concept sites for fictional businesses</figcaption>
+          <figcaption class="stage-caption">Concept sites I made for fictional businesses</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <!-- BUILD STORY: a concept site assembles itself as you scroll.
+         Without JS, or with reduced motion, it shows the finished site and all
+         five steps as a normal list. The scrolling is added by assets/js/build.js. -->
+    <section id="build" class="build s0 s1 s2 s3 s4" aria-labelledby="build-title">
+      <div class="build-pin">
+        <div class="container build-inner">
+          <div class="build-copy">
+            <h2 id="build-title">Watch a website come together</h2>
+            <p class="build-lead">Golden Crumb is a fictional bakery. I made its site as a concept, and this is the order I built it in. Yours would go together the same way.</p>
+            <ol class="build-steps">
+              <li class="build-step" data-step="0">
+                <h3>A free chat and a sketch</h3>
+                <p>You tell me what you do and who your customers are. I sketch the pages they'll need and give you a fixed price.</p>
+              </li>
+              <li class="build-step" data-step="1">
+                <h3>Colors and type</h3>
+                <p>Your brand colors and lettering go in first. Everything after that is built around them.</p>
+              </li>
+              <li class="build-step" data-step="2">
+                <h3>Photos and words</h3>
+                <p>Then your photos, menu, prices and hours. If your photos or text need work, I'll help with that.</p>
+              </li>
+              <li class="build-step" data-step="3">
+                <h3>The phone version</h3>
+                <p>A lot of your customers will find you on a phone, so I lay that version out first, with tap-to-call and directions near the top.</p>
+              </li>
+              <li class="build-step" data-step="4">
+                <h3>Launch</h3>
+                <p>You look over a preview link and ask for changes. Then it goes live, usually 7 to 10 business days after I have your content, and the site belongs to you.</p>
+                <a class="btn btn-accent build-cta" href="#contact">Start your site <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </li>
+            </ol>
+            <span class="build-rail" aria-hidden="true"><span class="build-rail-fill"></span></span>
+          </div>
+
+          <figure class="build-stage">
+            <div class="bw-rig" aria-hidden="true">
+              <div class="bw-browser">
+                <div class="bw-bar">
+                  <span class="browser-dots"></span>
+                  <span class="bw-url">
+                    <svg class="bw-lock" viewBox="0 0 24 24" focusable="false"><rect x="5" y="11" width="14" height="10" rx="2" fill="currentColor"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+                    <span class="bw-url-text">yourbusiness.com</span>
+                  </span>
+                  <span class="bw-live">Live</span>
+                </div>
+                <div class="bw-screen">
+                  <div class="bk">
+                    <div class="bk-nav">
+                      <span class="bk-logo w" style="--i:0"></span>
+                      <span class="bk-name"><b class="w t" style="--i:1">Golden Crumb</b><small class="w c" style="--i:2">Bakery &amp; coffee</small></span>
+                      <span class="bk-links"><i class="w c" style="--i:2">Menu</i><i class="w c" style="--i:3">Gallery</i><i class="w c" style="--i:3">Order ahead</i><i class="w c" style="--i:4">Hours &amp; location</i></span>
+                      <span class="bk-btn bk-btn-fill w" style="--i:4"><span class="c">Order ahead</span></span>
+                    </div>
+                    <div class="bk-hero">
+                      <div class="bk-text">
+                        <p class="bk-eyebrow"><span class="w c" style="--i:3">Baked on Maple Street since dawn</span></p>
+                        <p class="bk-h"><span class="w t" style="--i:4">Warm bread, <em>flaky</em> pastry &amp; a seat for you.</span></p>
+                        <p class="bk-p"><span class="w c" style="--i:5">Golden Crumb is your neighborhood bakery: slow-fermented sourdough, butter-laminated pastries, and coffee pulled by people who know your name.</span></p>
+                        <p class="bk-actions">
+                          <span class="bk-btn bk-btn-fill w" style="--i:6"><span class="c">Order ahead for pickup</span></span>
+                          <span class="bk-btn bk-btn-line w" style="--i:7"><span class="c">See today's menu</span></span>
+                        </p>
+                        <p class="bk-stats">
+                          <span class="w" style="--i:7"><b class="c">6:30am</b><small class="c">Ovens open daily</small></span>
+                          <span class="w" style="--i:8"><b class="c">36 hrs</b><small class="c">Sourdough ferment</small></span>
+                          <span class="w" style="--i:8"><b class="c">0</b><small class="c">Shortcuts taken</small></span>
+                        </p>
+                      </div>
+                      <div class="bk-media w" style="--i:5"><span class="bk-photo"></span></div>
+                    </div>
+                  </div>
+                  <span class="bw-scan"></span>
+                </div>
+              </div>
+              <div class="bw-phone">
+                <div class="phone-screen"><img class="phone-pan" src="assets/media/bakery-mobile.webp" width="585" height="3300" alt="" loading="lazy" decoding="async"></div>
+              </div>
+              <svg class="bw-rocket" viewBox="0 0 24 24" focusable="false"><use href="#i-rocket"/></svg>
+            </div>
+            <figcaption class="stage-caption">Concept site for a fictional bakery, not a client</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -417,29 +506,28 @@
     <section class="section section-alt" aria-labelledby="problem-title">
       <div class="container">
         <div class="section-head">
-          <p class="kicker">Why it matters</p>
-          <h2 id="problem-title">Most customers look you up online before they visit</h2>
-          <p>If they can't find you, or your site is hard to use on a phone, they often pick someone else. I fix that without the agency price tag.</p>
+                    <h2 id="problem-title">Most customers look you up online before they visit</h2>
+          <p>If they can't find you, or your site is a pain to use on a phone, a lot of them go somewhere else. I build sites that fix that, for a lot less than an agency charges.</p>
         </div>
         <div class="compare">
           <div class="compare-card compare-problem">
-            <h3>The problem</h3>
+            <h3>What I usually see</h3>
             <ul class="icon-list">
               <li><svg class="icon icon-bad" aria-hidden="true"><use href="#i-x"/></svg> No website, or only a social media page</li>
               <li><svg class="icon icon-bad" aria-hidden="true"><use href="#i-x"/></svg> An old site that is slow or broken on phones</li>
               <li><svg class="icon icon-bad" aria-hidden="true"><use href="#i-x"/></svg> Hours, menu or prices that are out of date</li>
               <li><svg class="icon icon-bad" aria-hidden="true"><use href="#i-x"/></svg> Hard to find on Google Search and Maps</li>
-              <li><svg class="icon icon-bad" aria-hidden="true"><use href="#i-x"/></svg> Agency quotes that are too high for a small business</li>
+              <li><svg class="icon icon-bad" aria-hidden="true"><use href="#i-x"/></svg> Agency quotes a small business can't justify</li>
             </ul>
           </div>
           <div class="compare-card compare-solution">
             <h3>How I help</h3>
             <ul class="icon-list">
-              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> A clean, modern site built for your business</li>
-              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Fast-loading and easy to use on any phone</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> A site designed around your business and your photos</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Loads fast and is easy to use on a phone</li>
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Tap-to-call, maps and clear contact details</li>
-              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Search basics set up so customers can find you</li>
-              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Fixed, published prices with no hidden fees</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Search basics done, so people nearby can find you</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Prices published on this page and fixed before I start</li>
             </ul>
           </div>
         </div>
@@ -450,38 +538,31 @@
     <section id="services" class="section" aria-labelledby="services-title">
       <div class="container">
         <div class="section-head">
-          <p class="kicker">Services</p>
-          <h2 id="services-title">Web design services for small businesses</h2>
-          <p>Built for plumbers, electricians and other trades, bakeries, cafes and restaurants, salons and barbers, gyms and independent shops.</p>
+                    <h2 id="services-title">Web design for small businesses</h2>
+          <p>I work with plumbers, electricians and other trades, bakeries, cafes, restaurants, salons, barbers, gyms and independent shops.</p>
         </div>
         <ul class="card-grid" role="list">
           <li class="card">
-            <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg></span>
             <h3>Website design</h3>
-            <p>A custom-looking design that fits your brand, with your photos, colors and voice.</p>
+            <p>A design built from your photos, your colors and the way you talk, so it looks like your business.</p>
           </li>
           <li class="card">
-            <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
-            <h3>Mobile-first build</h3>
-            <p>Designed for phones first, then tablets and desktops, with tap-to-call and directions.</p>
+            <h3>Phone-first layout</h3>
+            <p>I lay out the phone version first, then tablet and desktop. Tap-to-call and directions sit where a thumb can reach them.</p>
           </li>
           <li class="card">
-            <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span>
             <h3>Search basics</h3>
-            <p>Page titles, descriptions and Google Business Profile guidance so nearby customers can find you.</p>
+            <p>Page titles, descriptions and help with your Google Business Profile, so people nearby can find you.</p>
           </li>
           <li class="card">
-            <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
             <h3>Bookings and enquiries</h3>
             <p>Contact forms, quote requests, or a "Book now" button that links to the booking page you already use.</p>
           </li>
           <li class="card">
-            <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg></span>
             <h3>Website refresh</h3>
-            <p>Already have a site? I can rebuild an outdated one so it is faster and easier to use.</p>
+            <p>If your current site is slow or dated, I can rebuild it.</p>
           </li>
           <li class="card">
-            <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-wrench"/></svg></span>
             <h3>Care and updates</h3>
             <p>An optional <span data-edit="price">$29/mo</span> plan for hosting checks, updates and small edits.</p>
           </li>
@@ -489,28 +570,75 @@
       </div>
     </section>
 
+    <!-- FREE PREVIEW OFFER: E.M builds a free, private preview from the business's own
+         logo, photos and prices before they pay anything. The CTA is a plain mailto
+         (subject "Free preview request"), so it works without the contact form.
+         The screenshot is a concept site for a fictional business, never a real one. -->
+    <section id="preview" class="section section-dark preview" aria-labelledby="preview-title">
+      <div class="container preview-inner">
+        <div class="preview-copy">
+                    <h2 id="preview-title">See your new site before you pay a cent</h2>
+          <p class="preview-lead">I'll build a private preview of your site with your own logo, photos and prices, and it costs nothing. You only pay the 50% deposit after you approve the preview and sign. If you change your mind within 2 business days of signing, you get the deposit back.</p>
+          <ol class="preview-steps">
+            <li>
+              <h3>Send your business name</h3>
+              <p>Add a link to your Facebook page, Google listing or old site if you have one. That's enough for me to start.</p>
+            </li>
+            <li>
+              <h3>I build the preview</h3>
+              <p>It uses your logo, photos and prices. Only you get the link.</p>
+            </li>
+            <li>
+              <h3>If you like it, we go live</h3>
+              <p>Pick a plan, sign, pay the 50% deposit and tell me what to change. It goes live 7 to 10 business days after I have your content. If it's not for you, you owe nothing and I won't keep emailing you.</p>
+            </li>
+          </ol>
+          <div class="preview-actions">
+            <a class="btn btn-accent" href="mailto:elsharuf107s@gmail.com?subject=Free%20preview%20request&amp;body=Business%20name%3A%20%0D%0ACity%3A%20%0D%0ALink%20to%20your%20Facebook%2C%20Google%20listing%20or%20current%20site%20(optional)%3A%20" data-edit="email">Ask for my free preview <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <p class="preview-note">This opens your email app. The preview is free and you don't have to buy anything.</p>
+          </div>
+          <p class="preview-founding" data-edit="founding-offer"><span class="pill">Founding offer</span> My first 3 clients get 30% off the build fee.</p>
+        </div>
+
+        <figure class="preview-stage">
+          <div class="preview-browser" aria-hidden="true">
+            <div class="browser-bar">
+              <span class="browser-dots"></span>
+              <span class="preview-url">
+                <svg class="preview-lock" viewBox="0 0 24 24" focusable="false"><rect x="5" y="11" width="14" height="10" rx="2" fill="currentColor"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+                your private preview link
+              </span>
+            </div>
+            <div class="browser-screen">
+              <img src="assets/media/plumber-desktop-poster.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <figcaption class="stage-caption">Concept site I made for a fictional plumbing company</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <!-- PRICING -->
     <section id="pricing" class="section section-alt" aria-labelledby="pricing-title">
       <div class="container">
         <div class="section-head">
-          <p class="kicker">Pricing</p>
-          <h2 id="pricing-title">Small business website prices: fixed and public</h2>
-          <p>A one-time build fee and a short, plain-English agreement. 50% deposit to start, 50% at launch.</p>
+                    <h2 id="pricing-title">Website prices, fixed and published</h2>
+          <p>You pay a one-time build fee and sign a short agreement written in plain English. The preview is free. Half the fee is due when you approve it and sign, and the other half at launch.</p>
         </div>
 
         <div class="founding-offer" data-edit="founding-offer">
-          <p><span class="pill">Founding offer</span> <strong>My first 3 clients get 30% off</strong> (Starter $209, Business $489, Growth $839). I'll ask for an honest testimonial, but the discount stays even if you'd rather not write one.</p>
+          <p><span class="pill">Founding offer</span> My first 3 clients get 30% off: Starter $209, Business $489, Growth $839. I'll ask for an honest testimonial afterwards, but you keep the discount whether you write one or not.</p>
         </div>
 
         <div class="pricing-grid">
           <article class="plan" aria-labelledby="plan-starter">
             <h3 id="plan-starter">Starter</h3>
-            <p class="plan-desc">A one-page site that gets you online fast.</p>
+            <p class="plan-desc">One page with what a customer needs to find and contact you.</p>
             <p class="price"><span data-edit="price">$299</span> <span class="price-note">one-time</span></p>
             <p class="plan-founding" data-edit="founding-offer">Founding price: $209</p>
             <ul class="icon-list">
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> 1 page with clear sections</li>
-              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Mobile-friendly design</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Works on phones</li>
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Contact form, map and hours</li>
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Basic page titles and descriptions</li>
             </ul>
@@ -518,13 +646,13 @@
           </article>
 
           <article class="plan plan-featured" aria-labelledby="plan-business">
-            <p class="plan-badge">Best fit for most businesses</p>
+            <p class="plan-badge">My usual recommendation</p>
             <h3 id="plan-business">Business</h3>
-            <p class="plan-desc">A full small-business site, up to 5 pages.</p>
+            <p class="plan-desc">Up to 5 pages, with room for your services, photos and story.</p>
             <p class="price"><span data-edit="price">$699</span> <span class="price-note">one-time</span></p>
             <p class="plan-founding" data-edit="founding-offer">Founding price: $489</p>
             <ul class="icon-list">
-              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Up to 5 pages (e.g. Home, About, Services, Gallery, Contact)</li>
+              <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Up to 5 pages, such as Home, About, Services, Gallery and Contact</li>
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Contact or quote request form</li>
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> Menu, services or price list</li>
               <li><svg class="icon icon-good" aria-hidden="true"><use href="#i-check"/></svg> On-page search basics for every page</li>
@@ -534,7 +662,7 @@
 
           <article class="plan" aria-labelledby="plan-growth">
             <h3 id="plan-growth">Growth</h3>
-            <p class="plan-desc">6 to 10 pages, with bookings, SEO setup and analytics.</p>
+            <p class="plan-desc">6 to 10 pages, with booking or ordering built in.</p>
             <p class="price"><span data-edit="price">$1,199</span> <span class="price-note">one-time</span></p>
             <p class="plan-founding" data-edit="founding-offer">Founding price: $839</p>
             <ul class="icon-list">
@@ -548,11 +676,8 @@
         </div>
 
         <aside class="care-plan" aria-labelledby="care-title">
-          <span class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
-          <div>
-            <h3 id="care-title">Optional care plan: <span data-edit="price">$29/mo</span></h3>
-            <p>Hosting checks, updates and up to 30 minutes of small text or photo edits each month, plus help by email. Cancel any time. Extra work outside the plan is <span data-edit="price">$50/hour</span>, and I'll tell you the estimate before I start.</p>
-          </div>
+          <h3 id="care-title">Care plan, <span data-edit="price">$29/mo</span> <span class="care-optional">(optional)</span></h3>
+          <p>Each month I check the hosting, run updates and make up to 30 minutes of small text or photo edits, and you can email me with questions. Cancel any time. Work outside the plan is <span data-edit="price">$50/hour</span>, and I'll give you an estimate before I start.</p>
         </aside>
         <p class="fine-print">Prices are in USD. Any package can include a simple "Book now" button that links to your existing booking page. Third-party costs like a custom domain name (often around $10 to $20 a year) or paid booking software are separate, and I'll tell you about them up front.</p>
       </div>
@@ -562,8 +687,7 @@
     <section id="process" class="section" aria-labelledby="process-title">
       <div class="container">
         <div class="section-head">
-          <p class="kicker">How it works</p>
-          <h2 id="process-title">From first chat to launch in 4 steps</h2>
+                    <h2 id="process-title">From first chat to launch</h2>
         </div>
         <div class="steps-wrap">
         <div class="steps-track" aria-hidden="true"><span class="steps-fill"></span><span class="steps-fly"><svg class="steps-rocket" viewBox="0 0 24 24" focusable="false"><use href="#i-rocket"/></svg></span></div>
@@ -571,17 +695,17 @@
           <li class="step">
             <span class="step-num" aria-hidden="true">1</span>
             <h3>Free chat</h3>
-            <p>Tell me about your business, your customers and what you need. I'll recommend a package and give you a fixed price.</p>
+            <p>Tell me about your business and what you need. I'll suggest a package and give you a fixed price.</p>
           </li>
           <li class="step">
             <span class="step-num" aria-hidden="true">2</span>
-            <h3>Plan and content</h3>
-            <p>We agree on the pages, you pay the 50% deposit, and you send your text, photos and logo. I can help write the words.</p>
+            <h3>Free preview</h3>
+            <p>You send your logo, photos and prices, and I build a private preview of your site. I can help write the words. You pay nothing at this stage.</p>
           </li>
           <li class="step">
             <span class="step-num" aria-hidden="true">3</span>
-            <h3>Design and build</h3>
-            <p>I build your site, usually within 7 to 10 business days of getting your content, and share a preview link for your changes.</p>
+            <h3>Approve and build</h3>
+            <p>If you're happy with the preview, you sign and pay the 50% deposit. I make your changes and finish the site, usually within 7 to 10 business days of getting your content.</p>
           </li>
           <li class="step">
             <span class="step-num" aria-hidden="true">4</span>
@@ -599,10 +723,9 @@
         <div class="about">
           <span class="about-mark" aria-hidden="true">EM</span>
           <div>
-            <p class="kicker">Who you'll work with</p>
-            <h2 id="about-title">About E.M</h2>
-            <p>Hi, I'm Ervin Mosley. I started E.M, my one-person web design studio, in November 2026. I'm based in Ohio and work remotely with small businesses across the United States. I build simple, fast-loading websites that answer what customers want to know first: what you do, how much it costs, when you're open, and how to reach you.</p>
-            <p>E.M is new, so you won't find client logos or reviews here yet. What you will find: public prices, three clearly labeled concept projects so you can judge my work, and a preview of your site before you pay the balance. When you get in touch, you deal with me, the person building your site.</p>
+                        <h2 id="about-title">About E.M</h2>
+            <p>I'm Ervin Mosley. I started E.M in November 2026, and it's just me. I live in Ohio and work remotely with small businesses anywhere in the US. The sites I build are simple and quick to load, and they put the things customers look for up front: what you do, what it costs, when you're open and how to reach you.</p>
+            <p>Because E.M is new, there are no client logos or reviews here yet. To judge my work, look at the prices on this page, the four concept sites below (all for fictional businesses) and a free preview of your own site. If you get in touch, you'll be talking to the person who builds your site.</p>
           </div>
         </div>
       </div>
@@ -612,11 +735,28 @@
     <section id="work" class="section" aria-labelledby="work-title">
       <div class="container">
         <div class="section-head">
-          <p class="kicker">Work</p>
-          <h2 id="work-title">Concept projects: bakery, plumber and masonry website examples</h2>
-          <p>E.M is new, so these are <strong>concept projects</strong>: example sites I designed and built for fictional businesses to show my style. They are not client work.</p>
+                    <h2 id="work-title">Concept sites for a barbershop, bakery, plumber and mason</h2>
+          <p>I designed and built these for fictional businesses to show how I work. None of them is a client.</p>
         </div>
         <div class="work-grid">
+          <a class="work-card work-card-featured" href="portfolio/barbershop/">
+            <div class="work-thumb work-media work-media-barbershop" aria-hidden="true">
+              <div class="media-browser">
+                <div class="browser-bar"><span class="browser-dots"></span><span class="browser-url"></span></div>
+                <div class="browser-screen">
+                  <img src="assets/media/barbershop-desktop-poster.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
+                  <video muted playsinline loop preload="none" poster="assets/media/barbershop-desktop-poster.webp" data-src="assets/media/barbershop-desktop.webm" tabindex="-1"></video>
+                </div>
+              </div>
+              <div class="media-phone"><div class="phone-screen"><img class="phone-pan" src="assets/media/barbershop-mobile.webp" width="585" height="3300" alt="" loading="lazy" decoding="async"></div></div>
+            </div>
+            <div class="work-body">
+              <p class="work-tag">Concept project, fictional business</p>
+              <h3>Premium barbershop</h3>
+              <p>A 3D shop interior under a hexagon LED ceiling, plus a priced service menu, barber profiles, today's hours and a form to book a chair.</p>
+              <span class="work-link">View the barbershop concept site <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div>
+          </a>
           <a class="work-card" href="portfolio/bakery/">
             <div class="work-thumb work-media work-media-bakery" aria-hidden="true">
               <div class="media-browser">
@@ -667,7 +807,7 @@
             <div class="work-body">
               <p class="work-tag">Concept project, fictional business</p>
               <h3>Masonry &amp; chimney contractor</h3>
-              <p>Starting-price table, photo-first estimate form, before/after sliders and a live brick-wall hero.</p>
+              <p>A table of starting prices, an estimate form that asks for photos first, before-and-after sliders and an animated brick wall at the top.</p>
               <span class="work-link">View the masonry concept site <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
             </div>
           </a>
@@ -679,8 +819,7 @@
     <section id="faq" class="section section-alt" aria-labelledby="faq-title">
       <div class="container container-narrow">
         <div class="section-head">
-          <p class="kicker">FAQ</p>
-          <h2 id="faq-title">Questions about getting a small business website</h2>
+                    <h2 id="faq-title">Questions about getting a website</h2>
         </div>
         <div class="faq">
           <details>
@@ -689,15 +828,15 @@
           </details>
           <details>
             <summary>How long does it take?</summary>
-            <p>Most sites go live 7 to 10 business days after I receive your content: your text, photos and logo. The sooner I have those, the sooner you're live.</p>
+            <p>Most sites go live 7 to 10 business days after I have your text, photos and logo. The sooner you send them, the sooner the site is live.</p>
           </details>
           <details>
             <summary>Do you only work with businesses in Ohio?</summary>
-            <p>No. I'm based in Ohio and work remotely with small businesses across the United States. Everything can be done by email, or by video call if you'd like to talk it through.</p>
+            <p>No. I'm in Ohio, but I work remotely with small businesses anywhere in the US. We can do everything by email, or on a video call if you'd rather talk.</p>
           </details>
           <details>
             <summary>How do payments work?</summary>
-            <p>A 50% deposit to start and 50% at launch. If you cancel in writing within 2 business days of signing, before work starts, you get the full deposit back. The care plan is billed monthly and you can cancel any time.</p>
+            <p>The preview is free. You pay a 50% deposit after you approve the preview and sign. If you cancel in writing within 2 business days of signing, I refund the whole deposit. The other 50% is due at launch. The care plan is billed monthly, and you can cancel it any time.</p>
           </details>
           <details>
             <summary>What's included in the $29/month care plan?</summary>
@@ -705,7 +844,7 @@
           </details>
           <details>
             <summary>What if I need changes the care plan doesn't cover?</summary>
-            <p>Extra work is <span data-edit="price">$50</span> an hour. I'll tell you the estimate before I start, and nothing begins until you say yes.</p>
+            <p>Extra work is <span data-edit="price">$50</span> an hour. I'll give you an estimate first, and I don't start until you say yes.</p>
           </details>
           <details>
             <summary>Can my site take online bookings?</summary>
@@ -713,31 +852,31 @@
           </details>
           <details>
             <summary>Do I need to pay for hosting?</summary>
-            <p>For most simple sites, no. I can host your site on free, reliable static hosting. If you want your own domain name (like yourbusiness.com), you pay the registrar directly, usually a small yearly fee.</p>
+            <p>For most simple sites, no. I can put your site on free static hosting. If you want your own domain name (like yourbusiness.com), you pay the registrar for it directly, often $10 to $20 a year.</p>
           </details>
           <details>
             <summary>Do I own my website?</summary>
-            <p>Yes. Once the build is paid for, the site and its content are yours. I'll hand over all the files if you ever want to move.</p>
+            <p>Yes. Once the build is paid for, the site and its content are yours, and I'll hand over all the files if you ever want to move.</p>
           </details>
           <details>
             <summary>What do I need to provide?</summary>
-            <p>Your logo (if you have one), photos of your work or premises, and basic details like services, prices and hours. Don't have good photos or text? I'll help you with that.</p>
+            <p>Your logo if you have one, photos of your work or your premises, and the basics: services, prices and hours. If you're short on good photos or text, I'll help.</p>
           </details>
           <details>
             <summary>Can I update the site myself?</summary>
-            <p>You can, and I'll show you how. Or join the optional <span data-edit="price">$29/mo</span> care plan and send me your changes by email.</p>
+            <p>Yes, and I'll show you how. If you'd rather not, the optional <span data-edit="price">$29/mo</span> care plan lets you email me your changes instead.</p>
           </details>
           <details data-edit="founding-offer">
             <summary>What is the founding client discount?</summary>
-            <p>E.M is new, so my first 3 clients get 30% off the build fee: Starter $209, Business $489, Growth $839. I'll ask for an honest testimonial, but it's optional and the discount stays either way. I never offer discounts or anything else in exchange for Google reviews.</p>
+            <p>E.M is new, so my first 3 clients get 30% off the build fee: Starter $209, Business $489, Growth $839. I'll ask for an honest testimonial, but it's optional and you keep the discount either way. I don't give discounts or anything else in exchange for Google reviews.</p>
           </details>
           <details>
-            <summary>Are the bakery, plumber and masonry sites real clients?</summary>
-            <p>No. Golden Crumb Bakery, FlowRight Plumbing and Header &amp; Stretcher Masonry are concept projects for fictional businesses, made to show my design and build quality. E.M is new, and real client work will be labeled as such.</p>
+            <summary>Are the barbershop, bakery, plumber and masonry sites real clients?</summary>
+            <p>No. Hex &amp; Hone Barber Co., Golden Crumb Bakery, FlowRight Plumbing and Header &amp; Stretcher Masonry are fictional businesses. I made their sites to show the kind of work I do. When I have real client work, it will be labeled as client work.</p>
           </details>
           <details>
             <summary>Will my site show up on Google?</summary>
-            <p>Every site is set up so Google can read it: page titles, descriptions, a mobile-friendly layout and a link to your Google Business Profile. I can't promise rankings, and nobody honestly can, but I'll make sure the basics are done right.</p>
+            <p>I set up every site so Google can read it, with page titles, descriptions, a layout that works on phones and a link to your Google Business Profile. I can't promise where you'll rank, and nobody else honestly can either, but the basics will be done right.</p>
           </details>
         </div>
       </div>
@@ -747,19 +886,18 @@
     <section id="contact" class="section section-dark" aria-labelledby="contact-title">
       <div class="container contact-inner">
         <div class="contact-copy">
-          <p class="kicker kicker-light">Contact</p>
-          <h2 id="contact-title">Get a free, no-pressure quote</h2>
+                    <h2 id="contact-title">Get a free quote</h2>
           <p>Tell me a little about your business and I'll reply within one business day with a recommendation and a fixed price.</p>
           <ul class="contact-points">
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Fixed price before any work starts</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> 50% deposit, 50% at launch</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Free preview first, then 50% deposit and 50% at launch</li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Live 7 to 10 business days after I have your content</li>
           </ul>
           <p class="contact-email">
             <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
             <a href="mailto:elsharuf107s@gmail.com?subject=Website%20quote%20request" data-edit="email">elsharuf107s@gmail.com</a>
           </p>
-          <p class="contact-note">Prefer email? Just click the address above. No form needed.</p>
+          <p class="contact-note">Or skip the form and email me at that address.</p>
         </div>
 
         <!--
@@ -771,7 +909,9 @@
           Until you do this, script.js opens the visitor's email app with the
           form details filled in, addressed to elsharuf107s@gmail.com.
         -->
+        <!-- FORMSPREE ID: this action URL is the ONE place the real form ID goes. Replace YOUR_FORM_ID here. -->
         <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <noscript><p class="field-full">This form needs JavaScript. Email me at <a href="mailto:elsharuf107s@gmail.com">elsharuf107s@gmail.com</a>.</p></noscript>
           <div class="field">
             <label for="name">Your name</label>
             <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required>
@@ -812,6 +952,8 @@
             </select>
           </div>
           <input type="hidden" name="_subject" value="New website enquiry from E.M site">
+          <!-- Spam trap: Formspree drops any submission that fills this in. -->
+          <div hidden><label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
           <button class="btn btn-accent btn-block field-full" type="submit">Send enquiry</button>
           <p class="form-status field-full" role="status" aria-live="polite"></p>
         </form>
@@ -821,9 +963,9 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p><strong data-edit="business-name">E.M</strong>: web design for small businesses. Based in Ohio, working remotely with clients across the United States. Founded November 2026.</p>
+      <p><strong data-edit="business-name">E.M</strong> is a one-person web design business in Ohio, started in November 2026. I work remotely with clients across the US.</p>
       <p><a href="mailto:elsharuf107s@gmail.com" data-edit="email">elsharuf107s@gmail.com</a></p>
-      <p class="footer-small">&copy; <span id="year">2026</span> E.M, run by Ervin Mosley. Portfolio items are concept projects for fictional businesses. <a href="privacy.html">Privacy</a></p>
+      <p class="footer-small">&copy; <span id="year">2026</span> E.M, run by Ervin Mosley. The portfolio sites are concepts for fictional businesses. <a href="privacy.html">Privacy</a></p>
     </div>
   </footer>
 </body>

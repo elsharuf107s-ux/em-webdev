@@ -275,9 +275,9 @@ function setupSeason() {
   const el = document.getElementById('season-text');
   if (!el) return;
   const m = new Date().getMonth();
-  if (m >= 2 && m <= 4) el.textContent = 'Winter left its mark? Send us photos. We reply in 1 business day.';
-  else if (m >= 5 && m <= 7) el.textContent = 'Patio and retaining wall season. Send photos for a range within 1 business day.';
-  else if (m >= 8 && m <= 9) el.textContent = 'Fix it before it freezes. Fall crown and flashing slots are open.';
+  if (m >= 2 && m <= 4) el.textContent = 'Spring repair list is open. Text us photos of the winter damage and we reply within 1 business day.';
+  else if (m >= 5 && m <= 7) el.textContent = 'Booking patios and retaining walls for summer. Send photos and we reply with a range within 1 business day.';
+  else if (m >= 8 && m <= 9) el.textContent = 'We still have fall openings for chimney crowns and flashing before the first freeze.';
 }
 
 /* ---------- Theme toggle: system -> light -> dark ---------- */
@@ -433,7 +433,7 @@ function setupForm() {
     e.preventDefault();
     const bad = Object.keys(rules).filter((id) => !check(id));
     if (bad.length) { status.textContent = 'Please fix the highlighted field' + (bad.length > 1 ? 's' : '') + '.'; document.getElementById(bad[0]).focus(); return; }
-    status.textContent = 'Concept demo: nothing was sent. On a real site, you’d hear back within one business day.';
+    status.textContent = "Concept demo, so nothing was sent. On a real site you'd hear back within 1 business day.";
   });
 }
 
@@ -445,7 +445,7 @@ function setupZip() {
   f.addEventListener('submit', (e) => {
     e.preventDefault();
     const v = f.querySelector('input').value.trim();
-    f.querySelector('.zip-out').textContent = /^\d{5}$/.test(v) ? 'You’re in our (fictional) area!' : 'Please enter 5 digits.';
+    f.querySelector('.zip-out').textContent = /^\d{5}$/.test(v) ? "Yes, we work there. (Any 5 digits pass here, since the area is fictional.)" : 'Please enter 5 digits.';
   });
 }
 
@@ -464,27 +464,18 @@ function setupBar() {
 }
 
 /* ---------- Service cards: the light sweeps where the pointer is ---------- */
-function setupMicro() {
-  if (reduce || !fine) return;
-  document.querySelectorAll('.svc').forEach((c) => c.addEventListener('pointermove', (e) => {
-    const r = c.getBoundingClientRect();
-    c.style.setProperty('--sx', (((e.clientX - r.left) / r.width) * 100).toFixed(0) + '%');
-  }, { passive: true }));
-}
-
 function init() {
   root.classList.toggle('motion', !reduce);
   if (CAPTURE) root.classList.add('fx-capture');
   setupSeason();
   setupTheme();
-  setupReveals('.section-head, .sym, .svc, .price-wrap, .gal-item, .ba, .swatch, .course, .warranty, .trust li, .area-grid > *, .faq details, .est-aside, form.est');
+  setupReveals('.course'); // one authored moment: the process is laid like courses of brick
   setupWater();
   setupGallery();
   setupBeforeAfter();
   setupForm();
   setupZip();
   setupBar();
-  setupMicro();
   addPauseControl(document.querySelector('.hero'));
   addPauseControl(document.querySelector('#water .section-head'));
   idle(setupHero, { timeout: 800 });
