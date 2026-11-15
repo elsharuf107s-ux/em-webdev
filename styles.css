@@ -341,13 +341,6 @@ html { scroll-padding-top: 80px; }
 /* ---------- Portfolio ---------- */
 .work-grid { display: grid; gap: var(--s-6); }
 @media (min-width: 768px) { .work-grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 1024px) { .work-grid { grid-template-columns: repeat(3, 1fr); } }
-/* Tablet: an odd last card spans the row as a horizontal card instead of leaving a hole */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .work-grid > .work-card:last-child:nth-child(odd) { grid-column: 1 / -1; display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; }
-  .work-grid > .work-card:last-child:nth-child(odd) .work-media { aspect-ratio: auto; height: 100%; min-height: 260px; min-width: 0; border-bottom: 0; border-right: 1px solid var(--c-line); }
-  .work-grid > .work-card:last-child:nth-child(odd) > * { min-width: 0; }
-}
 /* Featured (first) card: spans the row as a wide horizontal card, same parts as the others */
 @media (min-width: 768px) {
   .work-grid > .work-card-featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1.45fr 1fr; align-items: center; }
@@ -600,11 +593,10 @@ html { scroll-padding-top: 80px; }
   padding: 7% 14% 0 7%; isolation: isolate;
   border-bottom: 1px solid var(--c-line);
 }
-.work-media-bakery { background: #fbeedd; }
-.work-media-plumber { background: #e6eefb; }
-.work-media-masonry { background: #efe7dc; }
-.work-media-barbershop { background: #141416; }
-.work-media-barbershop .media-browser { box-shadow: 0 30px 60px -24px rgb(0 0 0 / 0.8), 0 0 0 1px rgb(255 255 255 / 0.14); }
+.work-media-jenns-cleaning { background: #e6eefb; }
+.work-media-martin-3rd-generation { background: #efe7dc; }
+.work-media-parceros-barbershop { background: #141416; }
+.work-media-parceros-barbershop .media-browser { box-shadow: 0 30px 60px -24px rgb(0 0 0 / 0.8), 0 0 0 1px rgb(255 255 255 / 0.14); }
 .work-card-featured .media-phone { width: 17%; }
 .media-browser {
   position: relative; border-radius: 10px 10px 0 0; overflow: hidden; background: #17153f;
@@ -663,7 +655,7 @@ html { scroll-padding-top: 80px; }
 }
 
 /* ==========================================================
-   Build story (#build): a concept site assembles as you scroll.
+   Build story (#build): a preview site assembles as you scroll.
    Static by default (finished site, all steps listed). assets/js/build.js
    adds .is-live and steps the s0..s4 classes when motion is allowed.
    ========================================================== */
@@ -728,10 +720,10 @@ html { scroll-padding-top: 80px; }
 }
 .bw-screen { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #fff; container-type: inline-size; }
 
-/* The mock bakery page, laid out on a 960px grid and scaled with the screen */
+/* The mock Martin 3rd Generation page, laid out on a 960px grid and scaled with the screen */
 .bk {
   --u: calc(100cqw / 960);
-  --crust: #7a3e1d; --crust-dark: #4a2410; --honey: #e3a33b; --honey-soft: #f4cf86; --berry: #b8475a; --ink: #5e4632;
+  --crust: #9a3a24; --crust-dark: #2b1d17; --honey: #a33a24; --honey-soft: #e6d3c2; --berry: #9a3a24; --ink: #4a3a32;
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   --bar: #dfe3f0;
   position: absolute; inset: 0; color: var(--ink);
@@ -773,8 +765,8 @@ html { scroll-padding-top: 80px; }
 .bk-media { position: relative; aspect-ratio: 1; border-radius: 50%; background: var(--honey-soft); }
 .bk-photo {
   position: absolute; inset: -6% -6% -2%;
-  background: url("assets/media/bakery-desktop-poster.webp") no-repeat;
-  background-size: 262% auto; background-position: 90.5% 66%;
+  background: url("portfolio/martin-3rd-generation/hero-poster.webp") no-repeat;
+  background-size: cover; background-position: 70% 50%;
   -webkit-mask: radial-gradient(closest-side, #000 92%, transparent); mask: radial-gradient(closest-side, #000 92%, transparent);
 }
 
@@ -793,7 +785,7 @@ html { scroll-padding-top: 80px; }
 .build:not(.s1) .bk .w, .build:not(.s1) .bk .w * { color: transparent; }
 .build:not(.s1) .bk-media .bk-photo { opacity: 0; }
 /* Stage 1: color and type. Brand surfaces and the headline arrive; body copy is still placeholder */
-.build.s1 .bk { background: #fdf6ea; }
+.build.s1 .bk { background: #f6f1ea; }
 .build.s1:not(.s2) .bk .c { color: transparent; background-color: rgb(122 62 29 / 0.13); }
 .build.s1:not(.s2) .bk-btn .c { background-color: rgb(255 255 255 / 0.35); }
 .build.s1:not(.s2) .bk-btn-line .c { background-color: rgb(122 62 29 / 0.2); }

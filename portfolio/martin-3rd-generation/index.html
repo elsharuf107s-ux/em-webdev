@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; img-src 'self' data: blob:; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Private concept preview for a prospective client: kept out of search results and never published under the business name -->
+<meta name="robots" content="noindex, nofollow">
+<title>Martin 3rd Generation Construction | Cincinnati Masonry &amp; Concrete (Unsolicited Preview)</title>
+<meta name="description" content="Unsolicited preview by E.M for Martin 3rd Generation Construction, LLC: third-generation stone, brick, block and concrete work in Cincinnati, Ohio. Call (513) 815-9663. Not a live site.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#24211F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='6' fill='%23A23E2A'/%3E%3Crect x='7' y='13' width='9' height='14' rx='1.2' fill='%23F4F1EA'/%3E%3Crect x='19' y='13' width='14' height='14' rx='1.2' fill='none' stroke='%23F4F1EA' stroke-width='2.4'/%3E%3C/svg%3E">
+<script src="masonry-theme.js"></script>
+<script type="module" src="masonry-fx.js"></script>
+<style>
+  /* ===== Martin 3rd Generation (concept preview by E.M): design tokens (palette from the brief, all body pairs WCAG AA) ===== */
+  :root {
+    --limewash: #F4F1EA; --limestone: #E4DDCF; --sandstone: #C8A57A; --brick: #A23E2A; --fired: #7E2E1F;
+    --ember: #D9643F; --charcoal: #24211F; --slate: #4B5057; --mortar: #8E8A84; --mortar-light: #B9B4AC; --soot: #171615;
+    --bg: var(--limewash); --bg-alt: var(--limestone); --card: #FBF9F4; --text: var(--charcoal); --text-soft: var(--slate);
+    --line: #CFC7B8; --rule: var(--mortar); --link: var(--fired); --focus: var(--fired);
+    --d-sky: #E9E5DC; --d-roof: #4B5057; --d-ink: #24211F; --d-brick: #B9584A; --d-brick-dark: #8E4134; --d-mortar: #D7D0C2;
+    --d-stone: #DAD2C2; --d-glass: #BFD0DD; --d-metal: #6E747B; --d-ground: #8C9A6E; --d-spall: #E2A48C; --water: #2F6FB3;
+    --display: "Charter", "Bitstream Charter", "Sitka Text", "Cambria", "Georgia", serif;
+    --sans: "Public Sans", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    --radius: 6px; --course: 12px;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --dark: 1; } }
+  :root[data-theme="dark"], :root:not([data-theme="light"]) { }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: var(--soot); --bg-alt: #1F1D1B; --card: #262321; --text: var(--limewash); --text-soft: var(--mortar-light);
+      --line: #45403B; --rule: #5E5953; --link: var(--sandstone); --focus: var(--sandstone);
+      --d-sky: #2A2725; --d-roof: #45484D; --d-ink: #E9E4DA; --d-brick: #8E4134; --d-brick-dark: #6B3127; --d-mortar: #5E5953;
+      --d-stone: #6E6A63; --d-glass: #3B4A57; --d-ground: #4E5A3D; --d-spall: #B9735C; --water: #7DB2EA; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: var(--soot); --bg-alt: #1F1D1B; --card: #262321; --text: var(--limewash); --text-soft: var(--mortar-light);
+    --line: #45403B; --rule: #5E5953; --link: var(--sandstone); --focus: var(--sandstone);
+    --d-sky: #2A2725; --d-roof: #45484D; --d-ink: #E9E4DA; --d-brick: #8E4134; --d-brick-dark: #6B3127; --d-mortar: #5E5953;
+    --d-stone: #6E6A63; --d-glass: #3B4A57; --d-ground: #4E5A3D; --d-spall: #B9735C; --water: #7DB2EA; color-scheme: dark;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 400 1.0625rem/1.6 var(--sans); padding-bottom: 4.5rem; -webkit-font-smoothing: antialiased; }
+  img, svg { display: block; max-width: 100%; }
+  a { color: var(--link); text-underline-offset: 3px; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+  .hero :focus-visible, .site-footer :focus-visible, .mbar :focus-visible { outline-color: var(--sandstone); }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.12; margin: 0 0 .5em; letter-spacing: -.01em; font-weight: 700; }
+  h1 { font-size: clamp(2.2rem, 1.2rem + 3.8vw, 3.9rem); }
+  h2 { font-size: clamp(1.75rem, 1.2rem + 2vw, 2.6rem); }
+  h3 { font-size: 1.25rem; }
+  .h3-like { font-size: 1.5rem; }
+  p { margin: 0 0 1em; }
+  .wrap { width: min(1180px, 100% - 2.5rem); margin-inline: auto; }
+  .narrow { width: min(820px, 100% - 2.5rem); }
+  .vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .skip { position: absolute; left: 1rem; top: -100px; z-index: 200; background: var(--charcoal); color: #fff; padding: .7rem 1rem; border-radius: 6px; }
+  .skip:focus { top: 1rem; color: #fff; }
+  .kicker { font: 700 .78rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--link); margin-bottom: .9rem; }
+  .fine { font-size: .9rem; color: var(--text-soft); }
+  .tag { white-space: nowrap; font-weight: 600; }
+  .hint { font-size: .86rem; color: var(--text-soft); font-weight: 400; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 48px; padding: .8rem 1.35rem; border-radius: var(--radius);
+    font: 700 1rem/1.1 var(--sans); text-decoration: none; border: 2px solid transparent; cursor: pointer; position: relative; overflow: hidden;
+    transition: background-color .18s ease, transform .18s ease, box-shadow .18s ease; }
+  .btn svg { width: 1.1em; height: 1.1em; flex: none; }
+  .btn-brick { background: var(--brick); color: #fff; box-shadow: inset 0 -3px 0 var(--fired); }
+  .btn-brick:hover { background: var(--fired); color: #fff; }
+  .btn-brick:active { transform: translateY(1px); box-shadow: inset 0 -1px 0 var(--fired); }
+  .btn-ghost { background: rgba(244,241,234,.06); color: var(--limewash); border-color: rgba(244,241,234,.55); }
+  .btn-ghost:hover { background: var(--limewash); color: var(--charcoal); }
+  .btn-sm { min-height: 44px; padding: .55rem 1rem; font-size: .92rem; }
+  .btn-block { width: 100%; }
+  .btn:hover svg { transform: translateX(2px); } .btn svg { transition: transform .18s ease; }
+
+  /* Concept preview banner + header */
+  .preview-banner { background: var(--charcoal); color: var(--limewash); font-size: .9rem; text-align: center; border-bottom: 1px solid var(--sandstone); }
+  .preview-banner p { margin: 0; padding: .55rem 0; font-weight: 600; }
+  .preview-banner a { color: var(--sandstone); font-weight: 700; }
+  .preview-banner a:focus-visible { outline-color: var(--sandstone); }
+  .preview-banner .dot { display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: var(--sandstone); margin-right: .45rem; vertical-align: .1em; }
+  .site-header { position: sticky; top: 0; z-index: 60; background: var(--bg); border-bottom: 3px solid var(--brick); }
+  .nav { display: flex; align-items: center; gap: 1rem 1.5rem; padding-block: .7rem; flex-wrap: wrap; }
+  .brand { display: inline-flex; align-items: center; gap: .6rem; color: var(--text); text-decoration: none; }
+  .logo-mark { width: 40px; height: 40px; flex: none; }
+  .brand-name { font: 700 1.2rem/1.05 var(--display); }
+  .brand-name small { display: block; font: 600 .68rem/1.5 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--text-soft); }
+  .nav nav { order: 3; width: 100%; }
+  .nav-links { display: flex; gap: 0 1.4rem; list-style: none; margin: 0; padding: .1rem 0 0; overflow-x: auto; scrollbar-width: none; border-top: 1px solid var(--line); }
+  .nav-links a { display: inline-block; padding: .55rem 0; color: var(--text); text-decoration: none; font-weight: 600; font-size: .95rem; white-space: nowrap; }
+  .nav-links a:hover { color: var(--link); text-decoration: underline; }
+  .nav-actions { margin-left: auto; display: flex; align-items: center; gap: .6rem; }
+  .nav-phone { display: none; align-items: center; gap: .4rem; font-weight: 700; color: var(--text); text-decoration: none; white-space: nowrap; }
+  .nav-phone svg { width: 18px; height: 18px; color: var(--brick); }
+  .js .theme-slot { display: inline-block; width: 44px; height: 44px; flex: none; } /* reserved before the button is added */
+  .theme-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--card); color: var(--text); cursor: pointer; }
+  .theme-btn svg { width: 20px; height: 20px; }
+  @media (min-width: 1000px) {
+    .nav { flex-wrap: nowrap; }
+    .nav nav { order: 0; width: auto; margin-left: auto; }
+    .nav-links { border-top: 0; padding: 0; }
+    .nav-actions { margin-left: 0; }
+    .nav-phone { display: inline-flex; }
+  }
+  @media (max-width: 420px) { .brand-name small { display: none; } .brand-name { font-size: 1.05rem; } .btn-sm { padding: .5rem .8rem; font-size: .86rem; } }
+
+  /* Hero: dark wall. Contrast never depends on the shader: a charcoal scrim sits under the copy. */
+  .hero { position: relative; isolation: isolate; overflow: hidden; color: var(--limewash);
+    background: var(--soot) url("hero-poster.webp") center / cover no-repeat; }
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(180deg, rgba(23,22,21,.5) 0, rgba(23,22,21,.9) 22%, rgba(23,22,21,.93) 100%); }
+  @media (min-width: 1000px) { .hero::before { background: linear-gradient(90deg, rgba(23,22,21,.96) 0%, rgba(23,22,21,.93) 48%, rgba(23,22,21,.5) 66%, rgba(23,22,21,.08) 88%); } }
+  .hero-inner { position: relative; z-index: 2; padding-block: clamp(4rem, 9vw, 7.5rem); }
+  .hero-copy { max-width: 620px; }
+  .hero-tag { font: italic 700 1.2rem/1.2 var(--display); color: #DCC29E; margin-bottom: 1rem; }
+  .hero h1 { color: #fff; }
+  .hero-sub { font-size: 1.18rem; color: #E7E2D8; max-width: 52ch; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1.8rem 0 1.6rem; }
+  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+  .chips li { display: inline-flex; align-items: center; gap: .4rem; padding: .4rem .7rem; border: 1px solid rgba(244,241,234,.28); border-radius: 4px; background: rgba(23,22,21,.6); font-size: .9rem; font-weight: 600; }
+  .chips svg { width: 16px; height: 16px; color: var(--sandstone); }
+  .hero-note { position: absolute; z-index: 2; left: 1.25rem; bottom: .9rem; margin: 0; font-size: .78rem; color: var(--mortar-light); background: rgba(23,22,21,.75); padding: .2rem .55rem; border-radius: 4px; }
+  @media (max-width: 760px) {
+    .hero::before { background: linear-gradient(180deg, rgba(23,22,21,.15) 0, rgba(23,22,21,.7) 130px, rgba(23,22,21,.93) 230px, rgba(23,22,21,.95) 100%); }
+    .hero-inner { padding-top: 9.5rem; padding-bottom: 4.5rem; }
+    .hero-ctas .btn { flex: 1 1 100%; }
+  }
+
+  /* Sections: horizontal "courses" with a thin brick-course divider */
+  .section { padding-block: clamp(3.5rem, 7vw, 5.75rem); position: relative; }
+  .section.alt { background: var(--bg-alt); }
+  .section + .section::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 13px; opacity: .55; pointer-events: none;
+    background:
+      linear-gradient(var(--rule), var(--rule)) 0 0 / 100% 1px no-repeat,
+      linear-gradient(var(--rule), var(--rule)) 0 6px / 100% 1px no-repeat,
+      linear-gradient(var(--rule), var(--rule)) 0 12px / 100% 1px no-repeat,
+      linear-gradient(90deg, var(--rule) 1px, transparent 1px) 0 0 / 48px 6px repeat-x,
+      linear-gradient(90deg, var(--rule) 1px, transparent 1px) 24px 6px / 48px 6px repeat-x; }
+  .section-head { max-width: 760px; margin-bottom: 2.4rem; }
+  .section-head p:last-child { color: var(--text-soft); font-size: 1.08rem; }
+  .sub-head { font-size: 1.6rem; margin: 3.5rem 0 1.4rem; }
+
+  /* Water diagnostic */
+  .water-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 2.5rem; align-items: start; }
+  .water-figure { position: relative; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--d-sky); }
+  .water-svg { width: 100%; height: auto; }
+  .water-svg .mk circle { fill: var(--brick); stroke: #fff; stroke-width: 3; }
+  .water-svg .mk text { fill: #fff; }
+  .water-svg .wp { fill: none; stroke: var(--water); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 2 12; opacity: .85; }
+  .water-svg .rain path { stroke: var(--water); stroke-width: 2; opacity: .35; stroke-linecap: round; }
+  .water-hotspots { position: absolute; inset: 0; }
+  .water-hotspots button { position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 0; background: transparent; cursor: pointer; }
+  .water-hotspots button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .js-water .water-svg .wp { opacity: 0; transition: opacity .35s ease; }
+  .js-water .water-svg .wp.is-on { opacity: 1; animation: flow 1.6s linear infinite; }
+  .js-water .water-svg .mk { transition: transform .25s ease; transform-box: fill-box; transform-origin: center; }
+  .js-water .water-svg .mk.is-on { transform: scale(1.18); }
+  .js-water .water-svg .mk.is-on circle { fill: var(--water); }
+  @keyframes flow { to { stroke-dashoffset: -56; } }
+  .motion .water-svg .rain path { animation: rain 1.4s linear infinite; }
+  .motion .water-svg .rain path:nth-child(2n) { animation-delay: -.7s; }
+  @keyframes rain { from { transform: translateY(-30px); } to { transform: translateY(40px); } }
+  .sym-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; }
+  .sym { position: relative; padding: 1.1rem 1.2rem 1.1rem 3.6rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); transition: border-color .2s ease, box-shadow .2s ease; }
+  .sym h3 { margin-bottom: .35rem; font-size: 1.15rem; }
+  .sym p { margin: 0 0 .45rem; font-size: .96rem; color: var(--text-soft); }
+  .sym p strong { color: var(--text); }
+  .sym-num { position: absolute; left: 1rem; top: 1.05rem; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--brick); color: #fff; font-weight: 700; }
+  .sym.is-on { border-color: var(--water); box-shadow: 0 0 0 2px var(--water) inset; }
+  .sym .show-btn { margin-top: .5rem; display: inline-flex; align-items: center; min-height: 44px; padding: 0 .9rem; border-radius: var(--radius); border: 1px solid var(--line); background: transparent; color: var(--text); font: 600 .9rem var(--sans); cursor: pointer; }
+  .sym .show-btn[aria-pressed="true"] { border-color: var(--water); color: var(--text); }
+  @media (max-width: 900px) { .water-grid { grid-template-columns: 1fr; } }
+
+  /* Services */
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+  .svc { position: relative; display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--brick); border-radius: var(--radius); padding: 1.4rem; overflow: hidden; }
+  .svc::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s ease;
+    background: linear-gradient(115deg, transparent 30%, rgba(255,217,176,.16) 50%, transparent 70%) var(--sx, 0) 0 / 220% 100% no-repeat; }
+  .svc:hover::after { opacity: 1; }
+  .svc-icon { width: 40px; height: 40px; color: var(--brick); margin-bottom: .8rem; }
+  .svc h3 { margin-bottom: .35rem; }
+  .svc > p { color: var(--text-soft); font-size: .97rem; }
+  .svc-cta { margin-top: auto; display: inline-flex; align-items: center; gap: .4rem; font-weight: 700; color: var(--link); min-height: 44px; }
+  .svc-cta svg { width: 18px; height: 18px; transition: transform .18s ease; }
+  .svc-cta:hover svg { transform: translateX(3px); }
+  @media (max-width: 980px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 620px) { .svc-grid { grid-template-columns: 1fr; } }
+
+  /* Gallery */
+  .filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.4rem; }
+  .filters button { min-height: 44px; padding: .4rem 1rem; border-radius: 999px; border: 1px solid var(--rule); background: var(--card); color: var(--text); font: 600 .92rem var(--sans); cursor: pointer; }
+  .filters button[aria-pressed="true"] { background: var(--charcoal); border-color: var(--charcoal); color: var(--limewash); }
+  :root[data-theme="dark"] .filters button[aria-pressed="true"] { background: var(--limewash); color: var(--soot); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .filters button[aria-pressed="true"] { background: var(--limewash); color: var(--soot); } }
+  .gallery { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+  .gal-item[hidden] { display: none; }
+  .gal-item figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .gal-item img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  .gal-item figure:hover img { transform: scale(1.04); }
+  .gal-item figcaption { padding: .7rem .9rem; font-size: .9rem; color: var(--text-soft); }
+  .gal-item figcaption strong { color: var(--text); }
+  @media (max-width: 900px) { .gallery { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .gallery { grid-template-columns: 1fr 1fr; gap: .6rem; } .gal-item figcaption { padding: .5rem .6rem; font-size: .8rem; } }
+
+  /* Before / after: side by side without JS, an accessible slider with JS */
+  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+  .ba { margin: 0; }
+  .ba-frame { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; border-radius: var(--radius); overflow: hidden; background: var(--charcoal); }
+  .ba-pane { position: relative; }
+  .ba-pane img { width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: cover; }
+  .ba-label { position: absolute; top: .6rem; left: .6rem; padding: .2rem .55rem; border-radius: 4px; background: rgba(23,22,21,.82); color: var(--limewash); font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+  .ba-after .ba-label { left: auto; right: .6rem; }
+  .ba figcaption { margin-top: .7rem; font-size: .93rem; color: var(--text-soft); }
+  .ba figcaption strong { color: var(--text); }
+  .ba-handle { display: none; }
+  .ba.is-live .ba-frame { display: block; gap: 0; touch-action: pan-y; }
+  .ba.is-live .ba-after { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--pos, 50%)); }
+  .ba.is-live .ba-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; z-index: 3; touch-action: pan-y; }
+  .ba.is-live .ba-handle { display: block; position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 3px; margin-left: -1.5px; background: #fff; z-index: 2; pointer-events: none; box-shadow: 0 0 0 1px rgba(0,0,0,.25); }
+  .ba.is-live .ba-handle::after { content: ""; position: absolute; top: 50%; left: 50%; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%;
+    background: var(--brick) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6l-5 6 5 6M15 6l5 6-5 6' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 24px no-repeat; box-shadow: 0 2px 8px rgba(0,0,0,.4); }
+  .ba.is-live .ba-range:focus-visible ~ .ba-handle::after { outline: 3px solid var(--sandstone); outline-offset: 3px; }
+  @media (max-width: 900px) { .ba-grid { grid-template-columns: 1fr; } }
+
+  /* Process laid out as courses of brick (running bond offset) */
+  .courses { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; counter-reset: c; }
+  .course { grid-column: span 2; position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 1.2rem 1.2rem 1.2rem 1.2rem; box-shadow: inset 0 -4px 0 var(--sandstone); }
+  .course:nth-child(4) { grid-column: 2 / span 2; } .course:nth-child(5) { grid-column: 4 / span 2; } .course:nth-child(6) { grid-column: 2 / span 4; }
+  .course-n { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 4px; background: var(--brick); color: #fff; font: 700 1rem var(--display); margin-bottom: .6rem; }
+  .course h3 { font-size: 1.12rem; margin-bottom: .3rem; }
+  .course p { margin: 0; color: var(--text-soft); font-size: .95rem; }
+  @media (max-width: 900px) { .courses { grid-template-columns: 1fr 1fr; } .course, .course:nth-child(n) { grid-column: auto; } }
+  @media (max-width: 560px) { .courses { grid-template-columns: 1fr; } }
+
+  /* Review + trust */
+  .rvcard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+  .rvcard { background: var(--charcoal); color: var(--limewash); border-radius: var(--radius); padding: 2rem; border-top: 6px solid var(--brick); }
+  .rvcard h2 { color: #fff; }
+  .rvcard .kicker { color: var(--sandstone); }
+  .rvcard .fine { color: var(--mortar-light); margin: 1rem 0 0; }
+  .rvcard :focus-visible { outline-color: var(--sandstone); }
+  .trust { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; }
+  .trust li { display: flex; gap: .6rem; align-items: flex-start; color: var(--text-soft); }
+  .trust li strong { color: var(--text); }
+  .trust svg { width: 20px; height: 20px; flex: none; color: var(--brick); margin-top: .2rem; }
+  @media (max-width: 860px) { .rvcard-grid { grid-template-columns: 1fr; } }
+
+  /* FAQ */
+  .faq { display: grid; gap: .6rem; }
+  .faq details { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+  .faq summary { cursor: pointer; padding: 1rem 1.2rem; font-weight: 700; min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font: 700 1.4rem/1 var(--display); color: var(--brick); transition: transform .2s ease; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details p { margin: 0; padding: 0 1.2rem 1.1rem; color: var(--text-soft); }
+
+  /* Estimate form */
+  .est-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 2.5rem; align-items: start; }
+  .est-points { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: .35rem; color: var(--text-soft); }
+  form.est { background: var(--card); border: 1px solid var(--line); border-top: 5px solid var(--brick); border-radius: var(--radius); padding: clamp(1.2rem, 3vw, 2rem); }
+  .field { display: grid; gap: .35rem; margin: 0 0 1.05rem; border: 0; padding: 0; min-width: 0; align-content: start; }
+  .field label, .field legend { font-weight: 700; font-size: .95rem; padding: 0; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .req { color: var(--brick); }
+  input[type=text], input:not([type]), input[inputmode], input[type=email], textarea {
+    width: 100%; font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--mortar); border-radius: 4px; padding: .7rem .8rem; min-height: 48px; }
+  textarea { min-height: 110px; resize: vertical; }
+  input:focus, textarea:focus { outline: 3px solid var(--focus); outline-offset: 1px; border-color: var(--focus); }
+  .field input[aria-invalid="true"] { border-color: #B3261E; border-width: 2px; }
+  .err { color: #B3261E; font-size: .86rem; font-weight: 600; }
+  :root[data-theme="dark"] .err { color: #F2A29B; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .err { color: #F2A29B; } }
+  .err:empty { display: none; }
+  .chip-group { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .4rem; }
+  .chip { position: relative; }
+  .chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .chip span { display: inline-flex; align-items: center; min-height: 44px; padding: .4rem .85rem; border: 1px solid var(--rule); border-radius: 999px; background: var(--bg); font-weight: 600; font-size: .92rem; cursor: pointer; }
+  .chip input:checked + span { background: var(--brick); border-color: var(--brick); color: #fff; }
+  .chip input:checked + span::before { content: "✓ "; }
+  .chip input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .seg { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .4rem; }
+  .seg label { position: relative; }
+  .seg input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .seg span { display: inline-flex; align-items: center; min-height: 44px; padding: .3rem .8rem; border: 1px solid var(--rule); border-radius: 4px; background: var(--bg); font-weight: 600; font-size: .9rem; cursor: pointer; }
+  .seg input:checked + span { background: var(--charcoal); color: var(--limewash); border-color: var(--charcoal); }
+  :root[data-theme="dark"] .seg input:checked + span { background: var(--limewash); color: var(--soot); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .seg input:checked + span { background: var(--limewash); color: var(--soot); } }
+  .seg input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .photos label { display: inline-flex; align-items: center; gap: .4rem; }
+  .photos label svg { width: 20px; height: 20px; color: var(--brick); }
+  .photos input[type=file] { font: inherit; font-size: .92rem; padding: .7rem; border: 2px dashed var(--rule); border-radius: var(--radius); background: var(--bg); width: 100%; min-height: 56px; cursor: pointer; }
+  .thumbs { list-style: none; margin: .3rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
+  .thumbs li { position: relative; width: 96px; font-size: .74rem; color: var(--text-soft); }
+  .thumbs img { width: 96px; height: 72px; object-fit: cover; border-radius: 4px; border: 1px solid var(--line); }
+  .thumbs button { position: absolute; top: -10px; right: -10px; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--card); background: var(--charcoal); color: #fff; font: 700 1rem/1 var(--sans); cursor: pointer; }
+  .check { display: flex; gap: .55rem; align-items: center; font-weight: 600; margin-bottom: 1rem; min-height: 44px; }
+  .check input { width: 22px; height: 22px; accent-color: var(--brick); }
+  .company[hidden] { display: none; }
+  .form-note { font-size: .88rem; color: var(--text-soft); text-align: center; margin: .8rem 0 0; }
+  .form-status { font-weight: 700; text-align: center; margin: .5rem 0 0; }
+  .form-status:empty { display: none; }
+  @media (max-width: 860px) { .est-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .row { grid-template-columns: 1fr; } }
+
+  /* Footer */
+  .site-footer { background: var(--charcoal); color: #E7E2D8; padding-block: 3rem 1.5rem; }
+  .site-footer a { color: var(--limewash); }
+  .site-footer .brand { color: #fff; } .site-footer .brand-name small { color: var(--mortar-light); }
+  .foot-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 2rem; }
+  .foot-h { font: 700 .85rem var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--sandstone); }
+  .site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; }
+  .fine-foot { margin: 2rem 0 0; padding-top: 1.2rem; border-top: 1px solid rgba(244,241,234,.15); font-size: .86rem; color: var(--mortar-light); }
+  @media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr; } }
+
+  .concept-badge { position: fixed; z-index: 90; left: 50%; bottom: 14px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: .5rem; max-width: calc(100% - 24px);
+    padding: .5rem .9rem; border-radius: 4px; background: var(--charcoal); color: var(--limewash); text-decoration: none; font: 600 .8rem/1.3 var(--sans);
+    border: 1px solid var(--sandstone); box-shadow: 0 8px 20px -8px rgba(0,0,0,.5); transition: transform .25s ease; }
+  .concept-badge:hover { background: var(--fired); color: #fff; }
+  .concept-badge:focus-visible { outline-color: var(--sandstone); }
+  .concept-badge .dot { width: 8px; height: 8px; border-radius: 2px; background: var(--sandstone); flex: none; }
+  /* Sticky mobile bar (after the badge rule so its offset wins) */
+  .mbar { display: none; }
+  @media (max-width: 899px) {
+    body { padding-bottom: 8.5rem; }
+    .mbar { display: grid; grid-template-columns: 1fr 1fr 1fr; position: fixed; z-index: 80; left: 0; right: 0; bottom: 0; background: var(--charcoal); border-top: 3px solid var(--brick);
+      padding: .35rem .4rem calc(.35rem + env(safe-area-inset-bottom)); gap: .35rem; transition: transform .25s ease; }
+    .mbar a { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; min-height: 48px; border-radius: 4px; color: var(--limewash); font-weight: 700; text-decoration: none; font-size: .9rem; white-space: nowrap; }
+    .mbar a svg { width: 18px; height: 18px; }
+    .mbar .mbar-primary { background: var(--brick); color: #fff; }
+    .mbar.is-hidden { transform: translateY(110%); }
+    .concept-badge { bottom: 12px; transform: translate(-50%, calc(-56px - env(safe-area-inset-bottom))); font-size: .74rem; padding: .4rem .7rem; }
+    .nav-actions .btn { display: none; }
+    .nav { flex-wrap: wrap; row-gap: .2rem; padding-block: .5rem .1rem; }
+    .nav-links { -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); padding-right: 2rem; }
+    .mbar.is-hidden ~ .concept-badge { transform: translateX(-50%); }
+  }
+
+  /* Optional effects (masonry-fx.js). Without JS or WebGL none of this applies. */
+  .fx-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; pointer-events: none; opacity: 0; transition: opacity 1s ease; }
+  .fx-canvas.is-live { opacity: 1; }
+  .motion .reveal { opacity: 0; translate: 0 22px; transition: opacity .7s ease var(--d, 0ms), translate .85s cubic-bezier(.2,.7,.2,1) var(--d, 0ms), border-color .2s ease, box-shadow .2s ease; }
+  .motion .reveal.is-in { opacity: 1; translate: none; }
+  .motion .course.reveal { translate: -26px 0; }
+  .motion .course.reveal.is-in { translate: none; }
+  .motion-toggle { position: absolute; z-index: 3; right: 1.25rem; bottom: .9rem; display: inline-flex; align-items: center; gap: .45rem; min-height: 40px; padding: .45rem .85rem;
+    font: 700 .82rem/1 var(--sans); color: var(--limewash); cursor: pointer; background: rgba(23,22,21,.85); border: 1px solid rgba(244,241,234,.35); border-radius: 4px; }
+  .motion-toggle:hover { border-color: var(--limewash); }
+  .motion-toggle .i-play, .motion-toggle[aria-pressed="true"] .i-pause { display: none; }
+  .motion-toggle[aria-pressed="true"] .i-play { display: inline; }
+  .water .motion-toggle { position: static; margin-top: .8rem; color: var(--text); background: var(--card); border-color: var(--line); }
+  .motion-paused *, .motion-paused *::before, .motion-paused *::after { animation-play-state: paused !important; }
+  @media (max-width: 760px) { .hero-note { left: auto; right: .75rem; top: .7rem; bottom: auto; } .motion-toggle { right: .75rem; bottom: .7rem; } }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; translate: none !important; } }
+  .fx-capture .mbar { display: none; } /* portfolio capture only: a fixed bar would float mid-screenshot */
+  :root[data-theme="dark"] .req { color: #F2A29B; } @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .req { color: #F2A29B; } }
+  @media (max-width: 899px) { html { scroll-padding: 140px 0 9rem; } }
+
+  /* Mockup additions: sample badge, review card, 3-step process, call button */
+  .sample-badge { display: inline-flex; align-items: center; gap: .5rem; margin: -1rem 0 1.4rem; padding: .45rem .85rem; border: 1px dashed var(--rule); border-radius: 999px; background: var(--card); font-weight: 700; font-size: .92rem; color: var(--text); }
+  .sample-badge svg { width: 18px; height: 18px; color: var(--brick); flex: none; }
+  .gal-item figcaption .tag { display: block; color: var(--link); font-size: .85em; }
+  .ba-single { grid-template-columns: 1fr; max-width: 760px; }
+  .review h2 { font-style: italic; font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem); }
+  .stars { display: flex; gap: .25rem; margin: 0 0 1.1rem; }
+  .stars svg { width: 24px; height: 24px; color: var(--sandstone); }
+  .rv-job { font-size: 1.08rem; }
+  .rv-more { color: #E7E2D8; }
+  .rv-more q { font-weight: 700; color: #fff; }
+  .rv-cite { margin: 1.2rem 0 0; padding-top: .9rem; border-top: 1px solid rgba(244,241,234,.2); font: 700 .82rem/1.3 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--sandstone); }
+  .courses-3 .course:nth-child(n) { grid-column: span 2; }
+  @media (max-width: 900px) { .courses-3 { grid-template-columns: 1fr; } .courses-3 .course:nth-child(n) { grid-column: auto; } }
+  .btn-call { margin: .4rem 0 .6rem; font-size: 1.1rem; }
+  .form-intro { font: 700 1.15rem/1.2 var(--display); margin-bottom: 1rem; }
+  .form-note a { font-weight: 700; }
+  .btn-nowrap { white-space: nowrap; }
+  .brand-name small { white-space: nowrap; }
+  .mbar.mbar { grid-template-columns: 1.6fr 1fr; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<svg width="0" height="0" class="vh" aria-hidden="true" focusable="false">
+ <symbol id="i-bond" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="28" height="22" rx="1.5"/><path d="M2 12.3h28M2 19.6h28M11 5v7.3M21 5v7.3M6 12.3v7.3M16 12.3v7.3M26 12.3v7.3M11 19.6V27M21 19.6V27"/></g></symbol>
+ <symbol id="i-flemish" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="28" height="22" rx="1.5"/><path d="M2 12.3h28M2 19.6h28M9 5v7.3M14 5v7.3M21 5v7.3M26 5v7.3M5 12.3v7.3M12 12.3v7.3M17 12.3v7.3M24 12.3v7.3M9 19.6V27M14 19.6V27M21 19.6V27M26 19.6V27"/></g></symbol>
+ <symbol id="i-arch" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 28V16a12 12 0 0 1 24 0v12"/><path d="M9 28V16a7 7 0 0 1 14 0v12"/><path d="M14.5 4.5l1.5 4.5 1.5-4.5M4 16h5M23 16h5M7 9l4 3.5M25 9l-4 3.5"/></g></symbol>
+ <symbol id="i-steps" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 27h26M5 27v-6h22v6M8 21v-6h16v6M11 15V9h10v6"/><path d="M14 21v6M18 15v6M16 9v6"/></g></symbol>
+ <symbol id="i-pavers" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="26" height="26" rx="1.5"/><path d="M3 16h26M16 3v26M9.5 3v13M22.5 16v13M16 9.5h13M3 22.5h13"/></g></symbol>
+ <symbol id="i-soldier" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h26v18H3z"/><path d="M8.2 9v18M13.4 9v18M18.6 9v18M23.8 9v18M2 5h28"/></g></symbol>
+ <symbol id="i-block" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="28" height="18" rx="1"/><path d="M2 16h28M16 7v9M9 16v9M23 16v9"/><rect x="6" y="9.5" width="6" height="4"/><rect x="20" y="9.5" width="6" height="4"/></g></symbol>
+ <symbol id="i-ashlar" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2" y="4" width="28" height="24" rx="1.5"/><path d="M2 12h12M14 4v14M14 18h16M22 4v8h8M8 12v16M8 21h6M20 18v10"/></g></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+ <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2" fill="currentColor"/></symbol>
+ <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h3l2-2.5h6L17 7h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+ <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" fill="currentColor"/><circle cx="12" cy="9.5" r="2.6" fill="#fff"/></symbol>
+ <symbol id="i-road" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M11 3 4 29M21 3l7 26"/><path d="M16 5v4M16 13v5M16 22v6" stroke-linecap="round"/></g></symbol>
+ <symbol id="i-pour" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 12v16h26V12"/><path d="M3 22h26"/><path d="M14 3h8l-3 6h-2z"/><path d="M18 9v8" stroke-dasharray="2 2"/></g></symbol>
+ <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="currentColor"/></symbol>
+</svg>
+<aside class="preview-banner" aria-label="Unsolicited preview notice"><div class="wrap"><p><span class="dot" aria-hidden="true"></span>Unsolicited preview by <a href="https://elsharuf107s-ux.github.io/em-webdev/">E.M</a> for Martin 3rd Generation Construction — not a client, not their official site</p></div></aside>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Martin 3rd Generation Construction, LLC, home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="6" fill="var(--brick)"/><rect x="7" y="13" width="9" height="14" rx="1.2" fill="#F4F1EA"/><rect x="19" y="13" width="14" height="14" rx="1.2" fill="none" stroke="#F4F1EA" stroke-width="2.4"/><path d="M19 20h14" stroke="#F4F1EA" stroke-width="2.4"/></svg><span class="brand-name">Martin 3rd Generation<small>Construction, LLC · Cincinnati</small></span></a>
+    <nav aria-label="Primary"><ul class="nav-links">
+      <li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#review">Review</a></li>
+      <li><a href="#process">Get started</a></li><li><a href="#faq">FAQ</a></li><li><a href="#estimate">Contact</a></li>
+    </ul></nav>
+    <div class="nav-actions">
+      <span class="theme-slot"></span>
+      <a class="btn btn-brick btn-sm btn-nowrap" href="tel:+15138159663"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Call (513) 815-9663</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="hero-tag">Third-generation masonry craft.</p>
+        <h1 id="hero-title">Stone, brick &amp; concrete work from a third-generation family of masons.</h1>
+        <p class="hero-sub">Martin 3rd Generation Construction handles stone, brick, block and concrete work, driveways and blacktop across Cincinnati and the surrounding area.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-brick" href="tel:+15138159663"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Call (513) 815-9663</a>
+          <a class="btn btn-ghost" href="#services">See the services <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+        </div>
+        <ul class="chips" aria-label="At a glance">
+          <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>In business since 2018</li>
+          <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>BBB Accredited since 2023</li>
+          <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>A+ BBB rating</li>
+          <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Family masonry, three generations</li>
+        </ul>
+      </div>
+    </div>
+    <p class="hero-note">Hero wall: rendered live from code, not a photo.</p>
+  </section>
+
+  <section class="section water" id="water" aria-labelledby="water-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Start with the cause</p>
+        <h2 id="water-title">Where's the water getting in?</h2>
+        <p>Most masonry trouble starts with water. Here are four common signs, and what each one usually means.</p>
+      </div>
+      <div class="water-grid">
+        <div class="water-figure">
+        <svg class="water-svg" viewBox="0 0 800 520" role="img" aria-labelledby="water-svg-t" aria-describedby="water-svg-d" focusable="false">
+          <title id="water-svg-t">Cutaway diagram of a brick house wall and chimney</title>
+          <desc id="water-svg-d">Four places water gets in: 1, eroded mortar joints in the wall; 2, a brick face flaking from freeze-thaw; 3, white salt staining where water exits near blocked weep holes above the foundation; 4, a cracked concrete crown on top of the chimney.</desc>
+          <defs>
+            <pattern id="wbrick" width="40" height="16" patternUnits="userSpaceOnUse"><rect width="40" height="16" fill="var(--d-brick)"/><path d="M0 15.5h40M20 0v8M0 8h40M0 0v8M40 8v8M10 8v8M30 8v8" stroke="var(--d-mortar)" stroke-width="1.6" fill="none"/></pattern>
+            <pattern id="wbrick-side" width="16" height="16" patternUnits="userSpaceOnUse"><rect width="16" height="16" fill="var(--d-brick-dark)"/><path d="M0 15.5h16M0 8h16M8 0v8M4 8v8M12 8v8" stroke="var(--d-mortar)" stroke-width="1.4" fill="none"/></pattern>
+          </defs>
+          <rect width="800" height="520" fill="var(--d-sky)"/>
+          <g class="rain" aria-hidden="true"><path d="M90 20l-6 22M160 40l-6 22M560 10l-6 22M640 50l-6 22M720 20l-6 22M420 30l-6 22M300 60l-6 22"/></g>
+          <!-- chimney -->
+          <rect x="520" y="44" width="70" height="140" fill="url(#wbrick)"/>
+          <rect x="590" y="50" width="18" height="140" fill="url(#wbrick-side)"/>
+          <path class="crown" d="M510 34h106l-4 12H514z" fill="var(--d-stone)" stroke="var(--d-ink)" stroke-width="2"/>
+          <path class="crack" d="M548 35l6 6-4 4 7 6" fill="none" stroke="var(--d-ink)" stroke-width="2"/>
+          <!-- roof, drawn over the chimney base -->
+          <path d="M60 210 L400 70 L740 210 Z" fill="var(--d-roof)"/>
+          <path d="M60 210 L400 70 L740 210" fill="none" stroke="var(--d-ink)" stroke-width="3" stroke-linejoin="round"/>
+          <!-- wall section -->
+          <rect x="110" y="210" width="580" height="250" fill="url(#wbrick)"/>
+          <rect x="110" y="210" width="580" height="250" fill="none" stroke="var(--d-ink)" stroke-width="3"/>
+          <!-- cutaway: cavity + sheathing on the right end -->
+          <rect x="640" y="210" width="12" height="250" fill="var(--d-sky)"/>
+          <rect x="652" y="210" width="38" height="250" fill="var(--d-stone)"/>
+          <path d="M646 214v240" stroke="var(--d-mortar)" stroke-dasharray="4 6" stroke-width="2"/>
+          <!-- window + lintel -->
+          <rect x="250" y="260" width="120" height="110" fill="var(--d-glass)" stroke="var(--d-ink)" stroke-width="3"/>
+          <path d="M310 260v110M250 315h120" stroke="var(--d-ink)" stroke-width="2"/>
+          <rect x="238" y="246" width="144" height="14" fill="var(--d-stone)" stroke="var(--d-ink)" stroke-width="2"/>
+          <rect x="242" y="370" width="136" height="12" fill="var(--d-stone)" stroke="var(--d-ink)" stroke-width="2"/>
+          <!-- eroded joints region -->
+          <g class="eroded"><path d="M460 290h120M470 306h100M455 322h110" stroke="var(--d-ink)" stroke-width="3" stroke-dasharray="6 5"/></g>
+          <!-- spalled brick -->
+          <path class="spalled" d="M170 402h36v14h-36z" fill="var(--d-spall)" stroke="var(--d-ink)" stroke-width="1.5"/>
+          <!-- weeps + flashing + efflorescence -->
+          <path d="M110 440h580" stroke="var(--d-metal)" stroke-width="5"/>
+          <g class="weeps" fill="var(--d-ink)"><rect x="150" y="430" width="6" height="10"/><rect x="330" y="430" width="6" height="10"/><rect x="510" y="430" width="6" height="10"/></g>
+          <path class="efflo" d="M300 412c10-10 30-10 40 0 6 8 26 8 34 0" fill="none" stroke="#FBFAF6" stroke-width="7" stroke-linecap="round" opacity=".9"/>
+          <!-- ground + foundation -->
+          <rect x="0" y="460" width="800" height="60" fill="var(--d-ground)"/>
+          <rect x="110" y="460" width="580" height="40" fill="var(--d-stone)" opacity=".8"/>
+          <!-- water paths (animated when selected) -->
+          <path class="wp wp-joints" d="M600 250 C560 270 520 290 470 300 S430 330 420 352"/>
+          <path class="wp wp-spall" d="M150 360 C170 380 182 392 188 402"/>
+          <path class="wp wp-efflo" d="M646 240 C646 320 646 400 600 432 S360 436 330 418"/>
+          <path class="wp wp-crown" d="M552 20 C553 40 556 60 555 90 S556 150 556 186"/>
+          <!-- numbered markers -->
+          <g class="markers" font-family="system-ui, sans-serif" font-weight="700" font-size="18" text-anchor="middle">
+            <g class="mk mk-joints"><circle cx="520" cy="268" r="17"/><text x="520" y="274">1</text></g>
+            <g class="mk mk-spall"><circle cx="188" cy="378" r="17"/><text x="188" y="384">2</text></g>
+            <g class="mk mk-efflo"><circle cx="356" cy="400" r="17"/><text x="356" y="406">3</text></g>
+            <g class="mk mk-crown"><circle cx="490" cy="30" r="17"/><text x="490" y="36">4</text></g>
+          </g>
+        </svg>
+          <div class="water-hotspots" hidden></div>
+        </div>
+        <ol class="sym-list">
+          <li class="sym" id="sym-joints" data-water="joints">
+            <span class="sym-num" aria-hidden="true">1</span>
+            <h3>Crumbling joints</h3>
+            <p><strong>What it means:</strong> Rain soaks into eroded mortar and gets behind the brick face. Sandy joints you can scrape with a key are due.</p>
+            <p><strong>Usual fix:</strong> Rake out to sound mortar and repoint.</p>
+            <a href="#svc-tuckpointing">Tuck pointing</a>
+          </li>
+          <li class="sym" id="sym-spall" data-water="spall">
+            <span class="sym-num" aria-hidden="true">2</span>
+            <h3>Flaking brick</h3>
+            <p><strong>What it means:</strong> Water in the brick freezes, expands and pops the face off (spalling).</p>
+            <p><strong>Usual fix:</strong> Find the water source, replace the damaged brick, repoint around it.</p>
+            <a href="#svc-brick">Brick work</a>
+          </li>
+          <li class="sym" id="sym-efflo" data-water="efflo">
+            <span class="sym-num" aria-hidden="true">3</span>
+            <h3>White powder</h3>
+            <p><strong>What it means:</strong> Efflorescence: salts left behind as water moves through the wall and dries at the surface.</p>
+            <p><strong>Usual fix:</strong> Trace and stop the water first, then clean. Otherwise it comes back.</p>
+            <a href="#svc-brick">Brick work</a>
+          </li>
+          <li class="sym" id="sym-crown" data-water="crown">
+            <span class="sym-num" aria-hidden="true">4</span>
+            <h3>Cracked crown</h3>
+            <p><strong>What it means:</strong> The concrete cap on top of a chimney cracks, and water runs straight down into the brick below.</p>
+            <p><strong>Usual fix:</strong> Seal or rebuild the concrete crown.</p>
+            <a href="#svc-concrete">Concrete</a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Services</p>
+        <h2 id="services-title">Stone, brick, block and concrete, inside and out</h2>
+        <p>Not sure your job fits one of these? Call <a href="tel:+15138159663">(513) 815-9663</a> and ask.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc" id="svc-stone" aria-labelledby="svc-stone-t">
+          <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-ashlar"/></svg>
+          <h3 id="svc-stone-t">Stone work</h3>
+          <p>Stone walls, steps and features, including retaining and terrace walls.</p>
+          <a class="svc-cta" href="tel:+15138159663">Call about this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Stone work)</span></a>
+        </article>
+        <article class="svc" id="svc-brick" aria-labelledby="svc-brick-t">
+          <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-flemish"/></svg>
+          <h3 id="svc-brick-t">Brick work</h3>
+          <p>New brick work and brick repair.</p>
+          <a class="svc-cta" href="tel:+15138159663">Call about this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Brick work)</span></a>
+        </article>
+        <article class="svc" id="svc-block" aria-labelledby="svc-block-t">
+          <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-block"/></svg>
+          <h3 id="svc-block-t">Block work</h3>
+          <p>Block walls and foundations.</p>
+          <a class="svc-cta" href="tel:+15138159663">Call about this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Block work)</span></a>
+        </article>
+        <article class="svc" id="svc-concrete" aria-labelledby="svc-concrete-t">
+          <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-soldier"/></svg>
+          <h3 id="svc-concrete-t">Concrete</h3>
+          <p>Poured concrete work, from flatwork to walls.</p>
+          <a class="svc-cta" href="tel:+15138159663">Call about this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Concrete)</span></a>
+        </article>
+        <article class="svc" id="svc-tuckpointing" aria-labelledby="svc-tuckpointing-t">
+          <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-bond"/></svg>
+          <h3 id="svc-tuckpointing-t">Tuck pointing</h3>
+          <p>Worn mortar joints raked out and refilled, so water stays out of the wall.</p>
+          <a class="svc-cta" href="tel:+15138159663">Call about this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Tuck pointing)</span></a>
+        </article>
+        <article class="svc" id="svc-driveways" aria-labelledby="svc-driveways-t">
+          <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-pavers"/></svg>
+          <h3 id="svc-driveways-t">Driveways</h3>
+          <p>New driveways and driveway work.</p>
+          <a class="svc-cta" href="tel:+15138159663">Call about this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Driveways)</span></a>
+        </article>
+        <article class="svc" id="svc-blacktop" aria-labelledby="svc-blacktop-t">
+          <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-road"/></svg>
+          <h3 id="svc-blacktop-t">Blacktop</h3>
+          <p>Blacktop (asphalt) paving.</p>
+          <a class="svc-cta" href="tel:+15138159663">Call about this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Blacktop)</span></a>
+        </article>
+        <article class="svc" id="svc-interior" aria-labelledby="svc-interior-t">
+          <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-arch"/></svg>
+          <h3 id="svc-interior-t">Interior masonry repairs</h3>
+          <p>Masonry repairs inside the home: brick, block and stone.</p>
+          <a class="svc-cta" href="tel:+15138159663">Call about this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Interior masonry repairs)</span></a>
+        </article>
+        <article class="svc" id="svc-basement" aria-labelledby="svc-basement-t">
+          <svg class="svc-icon" aria-hidden="true" focusable="false"><use href="#i-pour"/></svg>
+          <h3 id="svc-basement-t">Basement pouring</h3>
+          <p>Poured concrete for basements.</p>
+          <a class="svc-cta" href="tel:+15138159663">Call about this <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="vh"> (Basement pouring)</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Work</p>
+        <h2 id="work-title">Project gallery by type</h2>
+        <p>These are sample images for this preview, not Martin 3rd Generation's own jobs. On the finished site, your real project photos go here.</p>
+      </div>
+      <p class="sample-badge"><svg aria-hidden="true" focusable="false"><use href="#i-camera"/></svg>Sample photos — your project photos go here</p>
+      <div class="filters" role="group" aria-label="Filter projects" hidden>
+        <button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="tuckpointing" aria-pressed="false">Tuck pointing</button><button type="button" data-filter="walls" aria-pressed="false">Walls</button><button type="button" data-filter="patios" aria-pressed="false">Brick &amp; pavers</button><button type="button" data-filter="steps" aria-pressed="false">Steps</button><button type="button" data-filter="stone" aria-pressed="false">Stone</button>
+      </div>
+      <p class="filter-status vh" role="status" aria-live="polite"></p>
+      <ul class="gallery">
+          <li class="gal-item" data-type="tuckpointing"><figure>
+            <img src="gal-tuckpointing-1.webp" width="720" height="540" alt="Sample image: close-up of a running-bond brick wall with crisp, tooled mortar joints" loading="lazy" decoding="async">
+            <figcaption><strong>Repointed wall section</strong><span class="tag">Sample photo</span></figcaption>
+          </figure></li>
+          <li class="gal-item" data-type="walls"><figure>
+            <img src="gal-retaining-1.webp" width="720" height="540" alt="Sample image: segmental block retaining wall with stone caps and a planting bed above" loading="lazy" decoding="async">
+            <figcaption><strong>Block retaining wall</strong><span class="tag">Sample photo</span></figcaption>
+          </figure></li>
+          <li class="gal-item" data-type="walls"><figure>
+            <img src="gal-retaining-2.webp" width="720" height="540" alt="Sample image: split-face block garden wall with flowering plants behind it" loading="lazy" decoding="async">
+            <figcaption><strong>Garden terrace wall</strong><span class="tag">Sample photo</span></figcaption>
+          </figure></li>
+          <li class="gal-item" data-type="patios"><figure>
+            <img src="gal-patio-1.webp" width="720" height="540" alt="Sample image: basketweave paver patio with a brick soldier-course border" loading="lazy" decoding="async">
+            <figcaption><strong>Paver patio, brick border</strong><span class="tag">Sample photo</span></figcaption>
+          </figure></li>
+          <li class="gal-item" data-type="patios"><figure>
+            <img src="gal-patio-2.webp" width="720" height="540" alt="Sample image: running-bond clay paver terrace in front of a brick house wall" loading="lazy" decoding="async">
+            <figcaption><strong>Clay paver terrace</strong><span class="tag">Sample photo</span></figcaption>
+          </figure></li>
+          <li class="gal-item" data-type="steps"><figure>
+            <img src="gal-steps-1.webp" width="720" height="540" alt="Sample image: front steps with brick risers and limestone treads between brick piers" loading="lazy" decoding="async">
+            <figcaption><strong>Brick &amp; limestone steps</strong><span class="tag">Sample photo</span></figcaption>
+          </figure></li>
+          <li class="gal-item" data-type="steps"><figure>
+            <img src="gal-steps-2.webp" width="720" height="540" alt="Sample image: concrete front steps with a broom finish" loading="lazy" decoding="async">
+            <figcaption><strong>Concrete front steps</strong><span class="tag">Sample photo</span></figcaption>
+          </figure></li>
+          <li class="gal-item" data-type="stone"><figure>
+            <img src="gal-veneer-1.webp" width="720" height="540" alt="Sample image: random ashlar natural stone wall with a limestone sill course" loading="lazy" decoding="async">
+            <figcaption><strong>Natural stone wall</strong><span class="tag">Sample photo</span></figcaption>
+          </figure></li>
+          <li class="gal-item" data-type="stone"><figure>
+            <img src="gal-veneer-2.webp" width="720" height="540" alt="Sample image: tight-jointed stone wall in muted grey and buff tones" loading="lazy" decoding="async">
+            <figcaption><strong>Tight-joint stone</strong><span class="tag">Sample photo</span></figcaption>
+          </figure></li>
+      </ul>
+      <p class="gal-empty" hidden>Nothing here yet. Like a wall waiting for its next course.</p>
+
+      <h3 class="sub-head">Before and after</h3>
+      <div class="ba-grid ba-single">
+        <figure class="ba" data-ba>
+          <div class="ba-frame">
+            <div class="ba-pane ba-before"><img src="ba-brick-before.webp" width="960" height="600" alt="Before, sample image: a brick wall with flaking brick faces, deeply eroded sandy joints and white salt staining" loading="lazy" decoding="async"><span class="ba-label">Before</span></div>
+            <div class="ba-pane ba-after"><img src="ba-brick-after.webp" width="960" height="600" alt="After, sample image: the same wall with damaged bricks replaced and every joint repointed" loading="lazy" decoding="async"><span class="ba-label">After</span></div>
+            <input class="ba-range" type="range" min="0" max="100" value="50" step="1" aria-label="Reveal after image: flaking brick and eroded joints, repointed" hidden>
+            <span class="ba-handle" aria-hidden="true"></span>
+          </div>
+          <figcaption><strong>Flaking brick and eroded joints, repointed.</strong> A before-and-after slider like this can show your own jobs. <span class="tag">Sample image</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="review" aria-labelledby="review-title">
+    <div class="wrap rvcard-grid">
+      <div class="rvcard review">
+        <p class="kicker">What a customer said</p>
+        <h2 id="review-title">“a work of art”</h2>
+        <p class="stars" role="img" aria-label="5 out of 5 stars"><svg aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg aria-hidden="true" focusable="false"><use href="#i-star"/></svg></p>
+        <p class="rv-job"><strong>The job:</strong> a 60-foot stone and concrete wall that turned a hill into a terrace.</p>
+        <p class="rv-more">Also in the review: <q>solid, structurally sound</q> and <q>reliable and affordable</q>.</p>
+        <p class="rv-cite">Verified BBB review, July 2025</p>
+      </div>
+      <div>
+        <h2 class="h3-like">On the record</h2>
+        <ul class="trust">
+          <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span><strong>In business since 2018.</strong> Martin 3rd Generation Construction, LLC, based in Cincinnati, Ohio.</span></li>
+          <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span><strong>BBB Accredited since June 2023.</strong></span></li>
+          <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span><strong>A+ BBB rating.</strong></span></li>
+          <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span><strong>Third-generation family masonry.</strong> A trade handed down, now working across Cincinnati and the surrounding area.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Get started</p>
+        <h2 id="process-title">Three steps to get your project going</h2>
+      </div>
+      <ol class="courses courses-3">
+        <li class="course"><span class="course-n" aria-hidden="true">1</span><h3>Call (513) 815-9663</h3><p>Talk through your project: stone, brick, block, concrete, driveways, blacktop or repairs.</p></li><li class="course"><span class="course-n" aria-hidden="true">2</span><h3>Describe the job</h3><p>Where it is, roughly how big, and what's going on with it.</p></li><li class="course"><span class="course-n" aria-hidden="true">3</span><h3>Ask for an estimate</h3><p>Call for an estimate and talk through next steps.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section alt" id="faq" aria-labelledby="faq-title">
+    <div class="wrap narrow">
+      <div class="section-head">
+        <p class="kicker">FAQ</p>
+        <h2 id="faq-title">Common questions</h2>
+      </div>
+      <div class="faq"><details><summary>What kind of work does Martin 3rd Generation do?</summary><p>Stone, brick, block and concrete work, tuck pointing, driveways, blacktop, interior masonry repairs and basement pouring.</p></details><details><summary>Where do you work?</summary><p>Cincinnati, Ohio and the surrounding area. Call <a href="tel:+15138159663">(513) 815-9663</a> to check your location.</p></details><details><summary>How long have you been in business?</summary><p>Since 2018. Martin 3rd Generation Construction has been BBB Accredited since June 2023 and holds an A+ BBB rating.</p></details><details><summary>How do I get an estimate?</summary><p>Call <a href="tel:+15138159663">(513) 815-9663</a> for an estimate.</p></details><details><summary>What&#x27;s the difference between tuckpointing and repointing?</summary><p>Repointing means raking out failing mortar and replacing it, and that&#x27;s what most walls need. Tuckpointing originally meant a decorative finish with a thin contrasting line “tucked” into the joint. Most people say “tuckpointing” for both.</p></details><details><summary>What&#x27;s the white powder on my brick?</summary><p>That&#x27;s usually efflorescence: salts carried to the surface by water and left behind when it evaporates. It&#x27;s normally cosmetic, but it tells you water is moving through the wall.</p></details></div>
+    </div>
+  </section>
+
+  <section class="section" id="estimate" aria-labelledby="estimate-title">
+    <div class="wrap est-grid">
+      <div class="est-aside">
+        <p class="kicker">Contact</p>
+        <h2 id="estimate-title">Call for an estimate</h2>
+        <p>The quickest way to reach Martin 3rd Generation Construction is by phone.</p>
+        <a class="btn btn-brick btn-call" href="tel:+15138159663"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Call (513) 815-9663</a>
+        <ul class="est-points">
+          <li>Cincinnati, Ohio and the surrounding area</li>
+          <li>BBB Accredited · A+ BBB rating</li>
+        </ul>
+      </div>
+      <form class="est" action="#" method="post" novalidate aria-describedby="est-note">
+        <p class="form-intro">Or leave the details here</p>
+        <fieldset class="field">
+          <legend>What needs work? <span class="hint">(choose any)</span></legend>
+          <div class="chip-group"><label class="chip"><input type="checkbox" name="service" value="Stone"><span>Stone</span></label><label class="chip"><input type="checkbox" name="service" value="Brick"><span>Brick</span></label><label class="chip"><input type="checkbox" name="service" value="Block"><span>Block</span></label><label class="chip"><input type="checkbox" name="service" value="Concrete"><span>Concrete</span></label><label class="chip"><input type="checkbox" name="service" value="Tuck pointing"><span>Tuck pointing</span></label><label class="chip"><input type="checkbox" name="service" value="Driveway"><span>Driveway</span></label><label class="chip"><input type="checkbox" name="service" value="Blacktop"><span>Blacktop</span></label><label class="chip"><input type="checkbox" name="service" value="Interior repair"><span>Interior repair</span></label><label class="chip"><input type="checkbox" name="service" value="Basement pouring"><span>Basement pouring</span></label><label class="chip"><input type="checkbox" name="service" value="Something else"><span>Something else</span></label></div>
+        </fieldset>
+        <div class="row">
+          <div class="field"><label for="f-name">Name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" autocomplete="name" required aria-describedby="f-name-err"><span class="err" id="f-name-err"></span></div>
+          <div class="field"><label for="f-contact">Phone or email <span class="req" aria-hidden="true">*</span></label><input id="f-contact" name="contact" required aria-describedby="f-contact-hint f-contact-err"><span class="hint" id="f-contact-hint">Either is fine.</span><span class="err" id="f-contact-err"></span></div>
+        </div>
+        <fieldset class="field"><legend>Timing</legend><div class="seg">
+          <label><input type="radio" name="timing" value="asap"><span>ASAP</span></label>
+          <label><input type="radio" name="timing" value="soon" checked><span>1-3 months</span></label>
+          <label><input type="radio" name="timing" value="later"><span>Planning ahead</span></label></div></fieldset>
+        <div class="field"><label for="f-details">Tell us a bit <span class="hint">(optional)</span></label><textarea id="f-details" name="details" rows="4" placeholder="e.g. Stone wall along the back yard, about 40 ft long"></textarea></div>
+        <div class="field photos">
+          <label for="f-photos"><svg aria-hidden="true" focusable="false"><use href="#i-camera"/></svg> Photos <span class="hint">(optional, up to 5)</span></label>
+          <input id="f-photos" name="photos" type="file" accept="image/*" multiple aria-describedby="f-photos-hint">
+          <span class="hint" id="f-photos-hint">Photos stay on your device in this preview.</span>
+          <ul class="thumbs" aria-live="polite"></ul>
+        </div>
+        <button class="btn btn-brick btn-block" type="submit">Send my request</button>
+        <p class="form-note" id="est-note">Preview only: this form isn't connected yet and sends nothing. Please call <a href="tel:+15138159663">(513) 815-9663</a>.</p>
+        <p class="form-status" id="est-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div>
+      <a class="brand" href="#top"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="6" fill="var(--brick)"/><rect x="7" y="13" width="9" height="14" rx="1.2" fill="#F4F1EA"/><rect x="19" y="13" width="14" height="14" rx="1.2" fill="none" stroke="#F4F1EA" stroke-width="2.4"/><path d="M19 20h14" stroke="#F4F1EA" stroke-width="2.4"/></svg><span class="brand-name">Martin 3rd Generation<small>Construction, LLC</small></span></a>
+      <p>Third-generation masonry craft.</p>
+    </div>
+    <div>
+      <h2 class="foot-h">Contact</h2>
+      <ul><li><a href="tel:+15138159663">(513) 815-9663</a></li><li>Cincinnati, Ohio and the surrounding area</li></ul>
+    </div>
+    <div>
+      <h2 class="foot-h">On the record</h2>
+      <ul><li>In business since 2018</li><li>BBB Accredited since 06/2023</li><li>A+ BBB rating</li></ul>
+    </div>
+  </div>
+  <div class="wrap"><p class="fine-foot">Unsolicited preview designed by E.M for Martin 3rd Generation Construction, LLC. Not a client, not a live site and not published by the business. Business details are from its public BBB profile; gallery images are samples. <a href="https://elsharuf107s-ux.github.io/em-webdev/">E.M web design</a> · <a href="mailto:elsharuf107s@gmail.com">elsharuf107s@gmail.com</a></p></div>
+</footer>
+
+<nav class="mbar" aria-label="Quick contact">
+  <a href="tel:+15138159663" class="mbar-primary"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Call (513) 815-9663</a>
+  <a href="#services">Services</a>
+</nav>
+<a class="concept-badge" href="https://elsharuf107s-ux.github.io/em-webdev/"><span class="dot" aria-hidden="true"></span>Unsolicited preview by E.M — not a client</a>
+</body>
+</html>

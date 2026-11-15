@@ -1,6 +1,6 @@
 // E.M: the "Watch a website come together" story (#build).
 // Optional. Without this file, or with reduced motion, the section shows the
-// finished concept site and all five steps as a plain list.
+// finished preview site and all five steps as a plain list.
 
 const section = document.getElementById('build');
 const root = document.documentElement;

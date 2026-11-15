@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Private concept preview for a pitch. Not published under the shop's name; kept out of search engines. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Parcer00's Barbershop | Columbus, Grandview (Unsolicited Preview)</title>
+<meta name="description" content="Unsolicited preview by E.M for Parcer00's Barbershop (Parceros), 1250 W 5th Ave, Columbus, Ohio. Not a live site.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" type="image/jpeg" href="brand/parceros-logo.jpeg">
+<link rel="apple-touch-icon" href="brand/parceros-logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Pirata+One&family=UnifrakturMaguntia&display=swap">
+<style>
+  /* ===== Tokens: monochrome, black walls + white light. All text pairs checked for WCAG AA ===== */
+  :root {
+    --black: #0A0A0A; --black-2: #111111; --black-3: #171717;
+    --white: #FAFAFA; --grey: #A3A3A3;        /* ~8.3:1 on --black */
+    --grey-dim: #8A8A8A;                      /* ~5.9:1 on --black, for small print only on dark */
+    --bg: var(--black); --bg-alt: var(--black-2); --card: var(--black-3);
+    --text: var(--white); --text-soft: var(--grey);
+    --accent: #FFFFFF; --accent-ink: #0A0A0A; --accent-text: #FFFFFF;
+    --line: #2E2E2E; --line-strong: #4A4A4A; --focus: #FFFFFF;
+    --glow: 0 0 0 1px rgba(255,255,255,.9), 0 0 18px rgba(255,255,255,.28), 0 0 42px rgba(255,255,255,.12);
+    --glow-soft: 0 0 22px rgba(255,255,255,.10);
+    --sans: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --wordmark: "UnifrakturMaguntia", "Old English Text MT", "Pirata One", "Times New Roman", serif;
+    --display: "Pirata One", "Old English Text MT", Georgia, "Times New Roman", serif;
+    --radius: 14px; --wrap: 1180px;
+    /* Hexagon line tile, echoing the shop's hex LED ceiling */
+    --hex: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0 0v34' fill='none' stroke='%23ffffff' stroke-width='1.2'/%3E%3C/svg%3E");
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 400 1.0625rem/1.6 var(--sans); overflow-x: hidden; }
+  img, svg { max-width: 100%; display: block; }
+  a { color: var(--accent-text); }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+  .wrap { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--white); color: var(--black); padding: .6rem 1rem; border-radius: 8px; font-weight: 700; }
+  .skip:focus { top: 12px; }
+  h1, h2 { font-family: var(--display); font-weight: 400; line-height: 1.02; letter-spacing: .005em; margin: 0 0 .6em; text-wrap: balance; }
+  h3 { font: 800 1.3rem/1.15 var(--sans); text-transform: uppercase; letter-spacing: .02em; margin: 0 0 .5em; }
+  h2 { font-size: clamp(2.4rem, 5.6vw, 3.9rem); }
+  .eyebrow { display: inline-flex; align-items: center; gap: .6rem; font: 700 .8rem/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 1rem; }
+  .eyebrow::before { content: ""; width: 14px; height: 16px; flex: none; background: var(--white); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); box-shadow: 0 0 10px #fff; filter: drop-shadow(0 0 4px rgba(255,255,255,.6)); }
+  .lede { color: var(--text-soft); font-size: 1.15rem; max-width: 56ch; }
+  .es { font-style: italic; }
+
+  /* Concept banner (required) */
+  .concept { background: var(--white); color: var(--black); font: 600 .9rem/1.35 var(--sans); text-align: center; padding: .55rem 16px; }
+  .concept a { color: var(--black); font-weight: 800; }
+  .concept a:focus-visible { outline-color: var(--black); }
+
+  /* Buttons: primary = white light with LED glow */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 52px; padding: .8rem 1.4rem; border-radius: 999px; font: 800 1rem/1 var(--sans); text-decoration: none; letter-spacing: .01em; border: 2px solid transparent; transition: transform .15s ease, background-color .15s ease, box-shadow .2s ease; }
+  .btn svg { width: 20px; height: 20px; flex: none; }
+  .btn-primary { background: var(--white); color: var(--black); box-shadow: var(--glow); }
+  .btn-primary:hover { background: #E8E8E8; box-shadow: 0 0 0 1px #fff, 0 0 26px rgba(255,255,255,.42), 0 0 60px rgba(255,255,255,.18); }
+  .btn-ghost { border-color: var(--line-strong); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--white); box-shadow: var(--glow-soft); }
+  .btn:active { transform: translateY(1px); }
+  .note { font-size: .84rem; color: var(--text-soft); margin: .7rem 0 0; }
+
+  /* Header */
+  .site-header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 70px; }
+  .brand { display: inline-flex; align-items: center; gap: .7rem; color: var(--text); text-decoration: none; }
+  .brand-mark { width: 42px; height: 42px; flex: none; border-radius: 10px; border: 1px solid var(--line-strong); box-shadow: 0 0 14px rgba(255,255,255,.14); object-fit: cover; }
+  .brand-text { display: block; font: 400 1.65rem/1 var(--wordmark); letter-spacing: .01em; }
+  .brand-text small { display: block; font: 700 .6rem/1 var(--sans); letter-spacing: .32em; text-transform: uppercase; color: var(--text-soft); margin-top: .3rem; }
+  .nav-links { display: flex; gap: .25rem; list-style: none; margin: 0; padding: 0; }
+  .nav-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 .8rem; color: var(--text-soft); text-decoration: none; font-weight: 600; border-radius: 8px; }
+  .nav-links a:hover { color: var(--text); }
+  .nav .btn { min-height: 44px; padding: .6rem 1.1rem; font-size: .92rem; }
+
+  /* Hex motif */
+  .hex-bg { position: absolute; inset: 0; pointer-events: none; background-image: var(--hex); background-size: 56px 100px; opacity: .07;
+    -webkit-mask-image: radial-gradient(120% 90% at 70% 0%, #000 0%, transparent 75%); mask-image: radial-gradient(120% 90% at 70% 0%, #000 0%, transparent 75%); }
+  .hex-rule { height: 34px; background-image: var(--hex); background-size: 28px 50px; background-position: center; opacity: .16;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%, #000 75%, transparent); mask-image: linear-gradient(90deg, transparent, #000 25%, #000 75%, transparent); }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(3rem, 6vw, 4.5rem); }
+  .hero-grid { position: relative; display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(2rem, 4.5vw, 3.5rem); align-items: center; }
+  .hero h1 { font-size: clamp(3.2rem, 8.4vw, 6.6rem); margin-bottom: .3em; text-shadow: 0 0 30px rgba(255,255,255,.18); }
+  .hero h1 .line2 { display: block; color: var(--text-soft); }
+  .tagline { margin: 0 0 1.2rem; font: 600 1.15rem/1.45 var(--sans); }
+  .tagline span { display: block; color: var(--text-soft); font-weight: 500; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+  .hero-facts { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; list-style: none; padding: 0; margin: 2rem 0 0; color: var(--text-soft); font-weight: 600; font-size: .95rem; }
+  .hero-facts li { display: inline-flex; align-items: center; gap: .45rem; }
+  .hero-facts svg { width: 18px; height: 18px; color: var(--text); flex: none; }
+  .hero-facts strong { color: var(--text); }
+
+  .shot { position: relative; margin: 0; }
+  .shot-frame { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(255,255,255,.55); box-shadow: 0 0 24px rgba(255,255,255,.16), 0 30px 60px -30px rgba(0,0,0,.9); aspect-ratio: 1287 / 723; background: #000; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; }
+  .shot figcaption { font-size: .82rem; color: var(--text-soft); margin-top: .7rem; }
+  .sticker { position: absolute; left: -14px; bottom: 44px; background: var(--black); color: var(--white); border: 1px solid #fff; box-shadow: var(--glow); font: 400 1.25rem/1.05 var(--display); padding: .7rem 1rem; border-radius: 10px; transform: rotate(-4deg); }
+  .sticker small { display: block; font: 700 .68rem/1.2 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--text-soft); margin-top: .2rem; }
+
+  /* Marquee strip: white light band */
+  .strip { background: var(--white); color: var(--black); overflow: hidden; box-shadow: 0 0 30px rgba(255,255,255,.18); }
+  .strip ul { display: flex; gap: 1.3rem; list-style: none; margin: 0; flex-wrap: wrap; justify-content: center; row-gap: .6rem; padding: .85rem 16px; width: auto; margin-inline: auto; font: 800 .95rem/1 var(--sans); text-transform: uppercase; letter-spacing: .06em; }
+  .strip li[aria-hidden="true"] { display: none; }
+  .strip li:nth-child(6)::after { display: none; }
+  .strip li { display: inline-flex; align-items: center; gap: 1.3rem; white-space: nowrap; }
+  .strip li::after { content: ""; width: 12px; height: 14px; background: var(--black); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+
+  section { scroll-margin-top: 80px; }
+  .section { position: relative; padding: clamp(3.5rem, 8vw, 6rem) 0; }
+  .section-alt { background: var(--bg-alt); }
+  .section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: 2.4rem; }
+  .section-head h2 { margin: 0; }
+  .section-head p { margin: 0; max-width: 44ch; color: var(--text-soft); }
+
+  /* Services with real prices */
+  .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; list-style: none; margin: 0; padding: 0; }
+  .svc { position: relative; display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.6rem 1.4rem 1.4rem; overflow: hidden; transition: border-color .2s ease, box-shadow .2s ease; }
+  .svc::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; background: linear-gradient(90deg, transparent, #fff, transparent); box-shadow: 0 0 12px #fff; opacity: .85; }
+  .svc:hover { border-color: var(--line-strong); box-shadow: var(--glow-soft); }
+  .svc svg { width: 38px; height: 38px; color: var(--text); margin-bottom: 1rem; }
+  .svc h3 { margin-bottom: .35rem; }
+  .svc p { margin: 0 0 1.2rem; color: var(--text-soft); font-size: .98rem; }
+  .price { margin-top: auto; display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .price b { font: 800 2rem/1 var(--sans); letter-spacing: -.02em; text-shadow: 0 0 18px rgba(255,255,255,.25); }
+  .price span { color: var(--text-soft); font-weight: 600; font-size: .95rem; font-variant-numeric: tabular-nums; }
+  .svc-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 1.5rem; margin-top: 1.2rem; }
+  .svc-foot .note { margin: 0; }
+  .perk { display: flex; align-items: center; gap: 1rem; margin-top: 1.4rem; padding: 1.1rem 1.4rem; border: 1px dashed var(--line-strong); border-radius: var(--radius); font-weight: 600; }
+  .perk svg { width: 34px; height: 34px; flex: none; color: var(--text); }
+
+  /* Rating band */
+  .rating { background: var(--black); border-block: 1px solid var(--line); overflow: hidden; }
+  .rating-grid { position: relative; display: grid; grid-template-columns: auto 1fr; gap: 1.5rem 3rem; align-items: center; }
+  .score { display: flex; align-items: center; gap: 1.2rem; }
+  .score-num { font: 800 clamp(4.5rem, 12vw, 7.5rem)/.9 var(--sans); color: var(--white); letter-spacing: -.04em; text-shadow: 0 0 34px rgba(255,255,255,.35); }
+  .stars { display: flex; gap: 4px; color: var(--white); }
+  .stars svg { width: 24px; height: 24px; }
+  .score-meta strong { display: block; font-size: 1.2rem; margin-top: .4rem; }
+  .badges { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; list-style: none; padding: 0; margin: 0; }
+  .badges li { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.05rem 1.2rem; background: var(--black-2); }
+  .badges b { display: block; font: 800 1.1rem/1.15 var(--sans); text-transform: uppercase; letter-spacing: .02em; margin-bottom: .3rem; }
+  .badges span { color: var(--text-soft); font-size: .95rem; }
+
+  /* Family / gallery */
+  .vibe-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.4rem; align-items: end; }
+  .vibe-copy > p { margin: 0; color: var(--text-soft); font-size: 1.1rem; }
+  .bio { margin: 0 0 2.4rem; padding: 1.4rem 1.6rem; border-left: 2px solid #fff; background: var(--card); border-radius: 0 var(--radius) var(--radius) 0; box-shadow: -8px 0 22px -12px rgba(255,255,255,.5); }
+  .bio p { margin: 0; font: 600 1.25rem/1.45 var(--sans); }
+  .bio p + p { margin-top: .3rem; }
+  .bio .tr { color: var(--text-soft); font-weight: 500; font-size: .95rem; }
+  .bio footer { margin-top: .8rem; font-size: .85rem; color: var(--text-soft); }
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 1rem; }
+  .ph { position: relative; border-radius: var(--radius); border: 1px dashed var(--line-strong); background: var(--hex) center / 28px 50px, var(--card); display: grid; place-items: center; text-align: center; padding: 1rem; color: var(--text-soft); font-weight: 600; margin: 0; isolation: isolate; }
+  .ph::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: color-mix(in srgb, var(--card) 90%, transparent); z-index: -1; }
+  .ph svg { width: 32px; height: 32px; margin: 0 auto .5rem; color: var(--text); }
+  .ph small { display: block; font-weight: 500; font-size: .82rem; }
+  .ph-big { grid-column: span 2; grid-row: span 2; }
+  .ph-wide { grid-column: span 2; }
+
+  /* Visit */
+  .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.4rem, 3vw, 2rem); }
+  .hours { width: 100%; border-collapse: collapse; font-size: 1.05rem; }
+  .hours th, .hours td { padding: .85rem .6rem; border-bottom: 1px solid var(--line); text-align: left; }
+  .hours td { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+  .hours tr:last-child th, .hours tr:last-child td { border-bottom: 0; }
+  .hours tr.is-today { background: rgba(255,255,255,.07); box-shadow: inset 2px 0 0 #fff; }
+  .hours tr.is-today th::after { content: " · Today"; color: var(--text); font-weight: 700; font-size: .85rem; }
+  .status { display: inline-flex; align-items: center; gap: .5rem; font-weight: 700; margin: 0 0 1rem; min-height: 1.6em; }
+  .status::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: #555; }
+  .status.open::before { background: #fff; box-shadow: 0 0 0 4px rgba(255,255,255,.15), 0 0 12px #fff; }
+  .map { position: relative; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 1.2rem; background: #121212;
+    background-image: linear-gradient(90deg, transparent 47%, #2A2A2A 47% 53%, transparent 53%), linear-gradient(0deg, transparent 44%, #383838 44% 56%, transparent 56%),
+      linear-gradient(90deg, transparent 0 18%, #1F1F1F 18% 20%, transparent 20% 78%, #1F1F1F 78% 80%, transparent 80%), linear-gradient(0deg, transparent 0 16%, #1F1F1F 16% 18%, transparent 18% 82%, #1F1F1F 82% 84%, transparent 84%); }
+  .map .pin { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -100%); width: 44px; height: 44px; color: #fff; filter: drop-shadow(0 0 10px rgba(255,255,255,.6)); }
+  .map .street { position: absolute; left: 12px; top: calc(50% + 12px); font: 700 .72rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #BDBDBD; }
+  .map .tag { position: absolute; right: 10px; top: 10px; background: rgba(10,10,10,.88); color: var(--grey); font-size: .75rem; font-weight: 600; padding: .3rem .6rem; border-radius: 6px; }
+  address { font-style: normal; font-size: 1.15rem; font-weight: 600; margin-bottom: 1.2rem; }
+  address span { display: block; color: var(--text-soft); font-weight: 500; font-size: 1rem; }
+  .visit-actions { display: flex; flex-wrap: wrap; gap: .7rem; }
+
+  /* Final CTA */
+  .final { text-align: center; overflow: hidden; }
+  .final .hex-bg { -webkit-mask-image: radial-gradient(60% 80% at 50% 50%, #000, transparent 80%); mask-image: radial-gradient(60% 80% at 50% 50%, #000, transparent 80%); opacity: .08; }
+  .final .wrap { position: relative; }
+  .final h2 { font-size: clamp(2.8rem, 7vw, 5rem); text-shadow: 0 0 30px rgba(255,255,255,.2); }
+  .final .lede { margin-inline: auto; }
+  .final .cta-row { justify-content: center; }
+
+  /* Footer */
+  .site-footer { border-top: 1px solid var(--line); padding: 2.6rem 0 2rem; background: var(--black); }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; }
+  .site-footer h2 { font: 800 .9rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; margin-bottom: .9rem; }
+  .site-footer p { margin: 0 0 .4rem; color: var(--text-soft); }
+  .site-footer a { color: var(--text); }
+  .socials { display: flex; gap: .6rem; list-style: none; margin: .4rem 0 0; padding: 0; }
+  .socials a { display: inline-grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line-strong); color: var(--text); }
+  .socials a:hover { background: var(--white); color: var(--black); border-color: var(--white); box-shadow: var(--glow); }
+  .socials svg { width: 20px; height: 20px; }
+  .credit { margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); font-size: .88rem; color: var(--text-soft); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; }
+
+  /* Mobile action bar */
+  .mbar { display: none; }
+
+  @media (max-width: 1060px) {
+    .services { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 960px) {
+    .nav-links { display: none; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .sticker { left: auto; right: -4px; bottom: auto; top: -14px; transform: rotate(4deg); }
+    .rating-grid { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: minmax(170px, auto); } .ph { font-size: .92rem; padding: .8rem; } .vibe-copy { gap: 1rem; }
+    .vibe-copy, .visit-grid { grid-template-columns: 1fr; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .foot-grid > :first-child { grid-column: 1 / -1; }
+  }
+  @media (max-width: 640px) {
+    body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+    .nav .btn { display: none; }
+    .services, .badges { grid-template-columns: 1fr; }
+    .hero .cta-row .btn { flex: 1 1 100%; }
+    .hero-facts { gap: .5rem 1rem; }
+    .sticker { font-size: 1.05rem; padding: .55rem .8rem; }
+    .mbar { display: grid; grid-template-columns: 1.3fr 1fr; gap: .5rem; position: fixed; z-index: 60; left: 0; right: 0; bottom: 0; padding: .55rem 12px calc(.55rem + env(safe-area-inset-bottom)); background: var(--black); border-top: 1px solid rgba(255,255,255,.5); box-shadow: 0 -8px 24px rgba(255,255,255,.06); }
+    .mbar .btn { min-height: 50px; padding: .6rem .8rem; font-size: .95rem; }
+    .foot-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ===== Motion layer (added on top; the page looks identical with JS/WebGL off) ===== */
+  /* Hero: WebGL hex LED ceiling + scrim that keeps hero text at AA contrast */
+  .hero-gl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; opacity: 0; transition: opacity .5s ease; }
+  .gl-on .hero-gl { opacity: 1; }
+  .gl-on .hero > .hex-bg { display: none; }
+  .hero-scrim { position: absolute; inset: 0; pointer-events: none; display: none;
+    background: linear-gradient(90deg, rgba(10,10,10,.88) 0%, rgba(10,10,10,.78) 38%, rgba(10,10,10,.3) 60%, rgba(10,10,10,.12) 100%),
+                linear-gradient(0deg, #0A0A0A 0%, rgba(10,10,10,0) 26%); }
+  .gl-on .hero-scrim { display: block; }
+
+  /* Hero photo: scroll parallax wrapper > Ken Burns wrapper > photo + light canvas + sweep */
+  .shot-par, .shot-kb { position: absolute; inset: 0; will-change: transform; }
+  .motion-on .shot-par { transform: translate3d(0, var(--py, 0px), 0) scale(1.06); }
+  .motion-on .shot-kb { animation: kb 24s ease-in-out infinite alternate; }
+  @keyframes kb { from { transform: scale(1) translate(0, 0); } to { transform: scale(1.07) translate(-1.6%, -1%); } }
+  .shot-gl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; mix-blend-mode: screen; opacity: 0; transition: opacity .8s ease; }
+  .gl-on .shot-gl { opacity: 1; }
+  .shot-frame::after { content: ""; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen; opacity: 0;
+    background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,.05) 45%, rgba(255,255,255,.2) 50%, rgba(255,255,255,.05) 55%, transparent 62%) no-repeat;
+    background-size: 260% 100%; background-position: 160% 0; }
+  .motion-on .shot-frame::after { opacity: 1; animation: sweep 9s cubic-bezier(.45,0,.25,1) 1.6s infinite; }
+  @keyframes sweep { 0% { background-position: 160% 0; } 45%, 100% { background-position: -60% 0; } }
+
+  /* Ring light behind the 4.9 */
+  .score-num { position: relative; display: inline-block; isolation: isolate; padding-inline: .12em; }
+  .score-num::before { content: ""; position: absolute; left: 50%; top: 50%; width: 1.5em; height: 1.5em; border-radius: 50%; z-index: -1; pointer-events: none;
+    transform: translate(-50%, -50%); border: .035em solid rgba(255,255,255,.85);
+    box-shadow: 0 0 .12em rgba(255,255,255,.55), inset 0 0 .12em rgba(255,255,255,.35), 0 0 .5em rgba(255,255,255,.12), inset 0 0 .5em rgba(255,255,255,.06); }
+  .motion-on .score:not(.lit) .score-num::before { opacity: .08; transform: translate(-50%, -50%) scale(.82); }
+  .motion-on .score .score-num::before { transition: transform 1.1s cubic-bezier(.2,.8,.2,1); }
+  .motion-on .score.lit .score-num::before { animation: ringOn 1.3s steps(1, end) both, ringBreath 5s ease-in-out 1.4s infinite; }
+  @keyframes ringOn { 0% { opacity: .1; } 12% { opacity: .9; } 20% { opacity: .15; } 34% { opacity: 1; } 42% { opacity: .35; } 55%, 100% { opacity: 1; } }
+  @keyframes ringBreath { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.35); } }
+
+  /* Ring light on service cards: lights up on hover/focus, flashes once on entry */
+  .svc { isolation: isolate; }
+  .svc::after { content: ""; position: absolute; width: 124px; height: 124px; right: -46px; top: -46px; border-radius: 50%; z-index: -1; pointer-events: none;
+    border: 2px solid rgba(255,255,255,.14); transition: border-color .35s ease, box-shadow .35s ease; }
+  .svc:hover::after, .svc:focus-within::after { border-color: rgba(255,255,255,.9); box-shadow: 0 0 14px rgba(255,255,255,.5), inset 0 0 14px rgba(255,255,255,.3), 0 0 46px rgba(255,255,255,.14); }
+  .motion-on .svc.in::after { animation: ringFlash 1.6s ease-out .25s 1; }
+  @keyframes ringFlash { 0% { border-color: rgba(255,255,255,.14); } 18% { border-color: rgba(255,255,255,.9); box-shadow: 0 0 14px rgba(255,255,255,.5), inset 0 0 14px rgba(255,255,255,.3); } 100% { border-color: rgba(255,255,255,.14); box-shadow: none; } }
+
+  /* Scroll reveals (only armed when motion is on at load) */
+  .motion-on .rv-ink { opacity: 0; filter: blur(9px); clip-path: inset(-30% 100% -30% -6%); transform: translateY(.06em);
+    transition: opacity .8s ease, filter 1.2s cubic-bezier(.2,.7,.2,1), clip-path 1.15s cubic-bezier(.65,0,.35,1), transform 1s ease; }
+  .motion-on .rv-ink.in { opacity: 1; filter: none; clip-path: inset(-30% -6% -30% -6%); transform: none; }
+  .motion-on .rv-up { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .8s cubic-bezier(.2,.7,.2,1), border-color .2s ease, box-shadow .2s ease; }
+  .motion-on .rv-up.in { opacity: 1; transform: none; }
+
+  /* Pause motion toggle */
+  .motion-toggle { position: fixed; z-index: 70; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; padding: .5rem .95rem .5rem .8rem;
+    border-radius: 999px; border: 1px solid rgba(255,255,255,.55); background: rgba(10,10,10,.92); color: var(--white); font: 700 .85rem/1 var(--sans); letter-spacing: .02em; cursor: pointer;
+    box-shadow: 0 0 16px rgba(255,255,255,.1); }
+  .motion-toggle:hover { border-color: #fff; box-shadow: var(--glow-soft); }
+  .motion-toggle svg { width: 16px; height: 16px; flex: none; }
+  @media (max-width: 640px) { .motion-toggle { bottom: calc(84px + env(safe-area-inset-bottom)); left: 12px; min-height: 40px; font-size: .8rem; } }
+  @media (max-width: 960px) {
+    /* Text stacks over the ceiling on smaller screens: flatter, darker scrim */
+    .hero-scrim { background: linear-gradient(180deg, rgba(10,10,10,.55) 0%, rgba(10,10,10,.78) 30%, rgba(10,10,10,.78) 100%), linear-gradient(0deg, #0A0A0A 0%, rgba(10,10,10,0) 20%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="concept" role="note">
+  Unsolicited preview by <a href="https://elsharuf107s-ux.github.io/em-webdev/">E.M</a> for Parcer00's Barbershop — not a client, not their official site
+</div>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Main">
+    <a class="brand" href="#top" aria-label="Parcer00's Barbershop, home">
+      <img class="brand-mark" src="brand/parceros-logo.jpeg" alt="" width="42" height="42">
+      <span class="brand-text" aria-hidden="true">Parcer00's<small>Barbershop</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#family">The Family</a></li>
+      <li><a href="#visit">Hours &amp; Map</a></li>
+    </ul>
+    <a class="btn btn-primary" href="https://booksy.com/en-us/604527_parcer00s-barbershop_barber-shop_134589_columbus" target="_blank" rel="noopener">Book on Booksy<span class="sr-only"> (opens in a new tab)</span></a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hex-bg" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <h1 id="hero-title">Fresh cuts.<span class="line2">Good company.</span></h1>
+        <p class="tagline">Welcome to this family! <span class="es" lang="es">Abrimos todos los días.</span></p>
+        <p class="lede">Haircuts, line-ups and beard work on West 5th Avenue, with 10 barbers on the team. Pick your time on Booksy, or just give us a call.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://booksy.com/en-us/604527_parcer00s-barbershop_barber-shop_134589_columbus" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            Book on Booksy<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+          <a class="btn btn-ghost" href="tel:+16142609051">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+            Call (614) 260-9051
+          </a>
+        </div>
+        <ul class="hero-facts">
+          <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg><span><strong>4.9★</strong> from 800+ reviews on Booksy</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5" stroke-linecap="round"/></svg><span>BBB Accredited</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg><span>Open 7 days</span></li>
+        </ul>
+      </div>
+      <figure class="shot">
+        <div class="shot-frame">
+          <div class="shot-par"><div class="shot-kb">
+          <img src="brand/parceros-biz.jpeg" width="1287" height="723" fetchpriority="high" decoding="async"
+               alt="Inside Parcer00's Barbershop: black walls, a white hexagon LED ceiling, glowing ring lights and lit mirrors above two rows of black barber chairs">
+          </div></div>
+        </div>
+        <figcaption>Photo: Parcer00's Barbershop (Booksy)</figcaption>
+        <div class="sticker" aria-hidden="true">Est. 2024<small>W 5th Ave · Grandview</small></div>
+      </figure>
+    </div>
+  </section>
+
+  <div class="strip" aria-label="Services">
+    <ul>
+      <li>Haircuts</li><li>Line-ups</li><li>Beard work</li><li>Free drinks while you wait</li><li lang="es">Abrimos todos los días</li><li>10 barbers on the team</li>
+      <li aria-hidden="true">Haircuts</li><li aria-hidden="true">Line-ups</li><li aria-hidden="true">Beard work</li><li aria-hidden="true">Free drinks while you wait</li><li aria-hidden="true" lang="es">Abrimos todos los días</li><li aria-hidden="true">10 barbers on the team</li>
+    </ul>
+  </div>
+
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Services &amp; prices</p>
+          <h2 id="services-title">The chair is ready</h2>
+        </div>
+        <p>Four services, done right. Book any of them on Booksy in a couple of taps.</p>
+      </div>
+      <ul class="services">
+        <li class="svc">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="35" r="6"/><circle cx="35" cy="35" r="6"/><path d="M17 31L38 6M31 31L10 6"/></svg>
+          <h3>Haircut</h3>
+          <p>Fades, tapers, classic cuts and everything in between, done the way you asked for it.</p>
+          <div class="price"><b>$55</b><span>50 min</span></div>
+        </li>
+        <li class="svc">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="20" r="5"/><circle cx="25" cy="20" r="5"/><path d="M14 17L30 4M22 17L8 4"/><path d="M30 26c0 10 4 16 8 16s7-6 7-16" /><path d="M33 34h10"/></svg>
+          <h3>Haircut and Beard</h3>
+          <p>The full reset: a fresh cut plus a shaped, even beard.</p>
+          <div class="price"><b>$65</b><span>1 h</span></div>
+        </li>
+        <li class="svc">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 14c6-6 26-6 32 0M10 14v8M38 14v8"/><path d="M16 30h16" stroke-dasharray="3 4"/><path d="M14 38h20"/></svg>
+          <h3>Line up</h3>
+          <p>Crisp edges between cuts to keep your hairline looking fresh.</p>
+          <div class="price"><b>$30</b><span>20 min</span></div>
+        </li>
+        <li class="svc">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 16c0 14 6 24 14 24s14-10 14-24"/><path d="M16 26c4-3 12-3 16 0"/><path d="M18 34h12"/><path d="M10 10h28" stroke-dasharray="3 4"/></svg>
+          <h3>Beard and line up</h3>
+          <p>Beard trimmed and shaped, with a sharp line up to match.</p>
+          <div class="price"><b>$40</b><span>30 min</span></div>
+        </li>
+      </ul>
+      <div class="svc-foot">
+        <p class="note">Prices as listed on Booksy, Nov 2026.</p>
+        <a class="btn btn-primary" href="https://booksy.com/en-us/604527_parcer00s-barbershop_barber-shop_134589_columbus" target="_blank" rel="noopener">Book a service<span class="sr-only"> on Booksy (opens in a new tab)</span></a>
+      </div>
+      <p class="perk">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18h24v10a12 12 0 0 1-24 0z"/><path d="M34 21h3a5 5 0 0 1 0 10h-3M16 6c-2 3 2 5 0 8M23 6c-2 3 2 5 0 8"/></svg>
+        <span><strong>Free drinks while you wait.</strong> Grab one, kick back, catch up.</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="hex-rule" aria-hidden="true"></div>
+
+  <section class="section rating" aria-labelledby="rating-title">
+    <div class="hex-bg" aria-hidden="true"></div>
+    <div class="wrap rating-grid">
+      <div class="score">
+        <span class="score-num" aria-hidden="true">4.9</span>
+        <div class="score-meta">
+          <h2 id="rating-title" class="sr-only">Rated 4.9 out of 5 stars from 800+ reviews on Booksy</h2>
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg>
+          </div>
+          <strong aria-hidden="true">4.9★ from 800+ reviews on Booksy</strong>
+          <p class="note">As listed on Booksy, Nov 2026.</p>
+        </div>
+      </div>
+      <ul class="badges">
+        <li><b>BBB Accredited</b><span>Accredited Business since August 2026</span></li>
+        <li><b>Since 2024</b><span>Cutting in Grandview since July 2024</span></li>
+        <li><b>10 barbers</b><span>On the team, so there’s a chair for you</span></li>
+        <li><b>7 days a week</b><span lang="es">Abrimos todos los días</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="family" aria-labelledby="family-title">
+    <div class="wrap">
+      <div class="vibe-copy">
+        <div>
+          <p class="eyebrow">The family</p>
+          <h2 id="family-title">Welcome to this family!</h2>
+        </div>
+        <p>“Parcero” means friend, and that’s the idea. White light, black walls, a drink in your hand and a barber who remembers how you like it. Come see it for yourself on West 5th.</p>
+      </div>
+      <blockquote class="bio">
+        <p>Welcome to this family! <span aria-hidden="true">🙌🏼🫂</span></p>
+        <p lang="es">Abrimos todos los días <span aria-hidden="true">💈🔥</span></p>
+        <p class="tr">“We’re open every day.”</p>
+        <footer>From the shop’s Instagram, <a href="https://www.instagram.com/00barbershop/" target="_blank" rel="noopener">@00barbershop<span class="sr-only"> (opens in a new tab)</span></a></footer>
+      </blockquote>
+      <div class="gallery">
+        <figure class="ph ph-big"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>Your shop photos go here<small>A fresh fade under the ring lights</small></div></figure>
+        <figure class="ph"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>Your shop photos go here<small>A crisp line up</small></div></figure>
+        <figure class="ph"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>Your shop photos go here<small>Beard work, up close</small></div></figure>
+        <figure class="ph ph-wide"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>Your shop photos go here<small>The storefront on W 5th Ave</small></div></figure>
+      </div>
+      <p class="note">Concept note: these tiles become your real photos, or pull straight from Instagram <a href="https://www.instagram.com/00barbershop/" target="_blank" rel="noopener">@00barbershop<span class="sr-only"> (opens in a new tab)</span></a>.</p>
+    </div>
+  </section>
+
+  <div class="hex-rule" aria-hidden="true"></div>
+
+  <section class="section" id="visit" aria-labelledby="visit-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Come through</p>
+          <h2 id="visit-title">Hours &amp; location</h2>
+        </div>
+        <p>On West 5th Avenue in the Grandview area of Columbus.</p>
+      </div>
+      <div class="visit-grid">
+        <div class="card">
+          <h3>Hours</h3>
+          <p class="status" id="status" aria-live="polite"></p>
+          <table class="hours">
+            <caption class="sr-only">Opening hours</caption>
+            <tbody>
+              <tr data-days="1"><th scope="row">Monday</th><td>10am – 7pm</td></tr>
+              <tr data-days="2"><th scope="row">Tuesday</th><td>10am – 7pm</td></tr>
+              <tr data-days="3"><th scope="row">Wednesday</th><td>10am – 7pm</td></tr>
+              <tr data-days="4"><th scope="row">Thursday</th><td>10am – 7pm</td></tr>
+              <tr data-days="5"><th scope="row">Friday</th><td>10am – 7pm</td></tr>
+              <tr data-days="6"><th scope="row">Saturday</th><td>9am – 6pm</td></tr>
+              <tr data-days="0"><th scope="row">Sunday</th><td>10am – 4pm</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <h3>Find us</h3>
+          <div class="map" role="img" aria-label="Map placeholder showing 1250 W 5th Ave">
+            <span class="tag">Map placeholder</span>
+            <span class="street" aria-hidden="true">W 5th Ave</span>
+            <svg class="pin" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          </div>
+          <address>1250 W 5th Ave<span>Columbus, OH 43212 · Grandview area</span></address>
+          <div class="visit-actions">
+            <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=1250+W+5th+Ave+Columbus+OH+43212">Get directions<span class="sr-only"> (opens Google Maps)</span></a>
+            <a class="btn btn-ghost" href="tel:+16142609051">Call (614) 260-9051</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt final" aria-labelledby="final-title">
+    <div class="hex-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow">Ready when you are</p>
+      <h2 id="final-title">Time for a fresh one?</h2>
+      <p class="lede">Grab a time on Booksy in under a minute, or call the shop. <span lang="es">Abrimos todos los días.</span></p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://booksy.com/en-us/604527_parcer00s-barbershop_barber-shop_134589_columbus" target="_blank" rel="noopener">Book on Booksy<span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="btn btn-ghost" href="tel:+16142609051">Call (614) 260-9051</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Parcer00's Barbershop, back to top">
+          <img class="brand-mark" src="brand/parceros-logo.jpeg" alt="" width="42" height="42" loading="lazy">
+          <span class="brand-text" aria-hidden="true">Parcer00's<small>Barbershop</small></span>
+        </a>
+        <p style="margin-top:1rem">Haircuts, line-ups and beard work in Grandview, Columbus. Welcome to this family!</p>
+      </div>
+      <div>
+        <h2>Visit</h2>
+        <p>1250 W 5th Ave<br>Columbus, OH 43212</p>
+        <p><a href="tel:+16142609051">(614) 260-9051</a></p>
+      </div>
+      <div>
+        <h2>Follow</h2>
+        <ul class="socials">
+          <li><a href="https://www.instagram.com/00barbershop/" target="_blank" rel="noopener" aria-label="Instagram @00barbershop (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a></li>
+          <li><a href="#" aria-label="Facebook (link to be added)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></a></li>
+          <li><a href="#" aria-label="TikTok (link to be added)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 3c.4 2.4 1.9 4 4 4.3v3.4c-1.5 0-2.9-.4-4-1.2V16a6 6 0 1 1-6-6h.5v3.5H10a2.5 2.5 0 1 0 2.5 2.5V3z"/></svg></a></li>
+        </ul>
+        <p class="note">Instagram: @00barbershop</p>
+      </div>
+    </div>
+    <div class="credit">
+      <span>© 2026 Parcer00's Barbershop</span>
+      <span>Unsolicited preview by <a href="https://elsharuf107s-ux.github.io/em-webdev/">E.M</a> — not a live site</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mbar" aria-label="Quick actions" role="region">
+  <a class="btn btn-primary" href="https://booksy.com/en-us/604527_parcer00s-barbershop_barber-shop_134589_columbus" target="_blank" rel="noopener">Book on Booksy<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="btn btn-ghost" href="tel:+16142609051">Call</a>
+</div>
+
+<script>
+  // Concept-only: Facebook/TikTok links are placeholders until the shop's URLs are added.
+  document.querySelectorAll('a[href="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); });
+  });
+  // Highlight today's hours + open/closed status, in Columbus time.
+  (function () {
+    var hours = { 0: [10, 16], 1: [10, 19], 2: [10, 19], 3: [10, 19], 4: [10, 19], 5: [10, 19], 6: [9, 18] };
+    try {
+      var parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false }).formatToParts(new Date());
+      var get = function (t) { return (parts.find(function (p) { return p.type === t; }) || {}).value; };
+      var day = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(get('weekday'));
+      var now = (parseInt(get('hour'), 10) % 24) + parseInt(get('minute'), 10) / 60;
+      var row = document.querySelector('.hours tr[data-days="' + day + '"]');
+      if (row) row.classList.add('is-today');
+      var h = hours[day], s = document.getElementById('status');
+      var fmt = function (x) { return (x > 12 ? x - 12 : x) + (x >= 12 ? 'pm' : 'am'); };
+      if (now >= h[0] && now < h[1]) { s.textContent = 'Open now · until ' + fmt(h[1]); s.classList.add('open'); }
+      else { s.textContent = now < h[0] ? 'Closed now · opens ' + fmt(h[0]) + ' today' : 'Closed now'; }
+    } catch (e) {}
+  })();
+</script>
+<script>
+/* ===== Motion layer: WebGL hex LED ceiling, photo light pulses, ring lights, reveals, count-ups =====
+   No libraries. Everything degrades: no JS / no WebGL = the original static page.
+   prefers-reduced-motion (or the Pause toggle) = final "lights on" still, no animation. */
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var rm = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
+  var stored = null;
+  try { stored = localStorage.getItem('parceros-motion'); } catch (e) {}
+  var paused = stored ? stored === 'off' : rm.matches;
+  var armed = !paused;               // scroll reveals + count-ups only run if motion was on at load
+  var lite = window.innerWidth < 600; // phones: lower-res shader
+  // QA hook: ?glt=3.5 renders a frozen frame at that many seconds into the intro (for headless screenshots).
+  var qaT = /[?&]glt=([\d.]+)/.exec(location.search); qaT = qaT ? parseFloat(qaT[1]) : null;
+  var layers = [];
+
+  /* ---------- tiny WebGL helper: one fullscreen triangle + a fragment shader ---------- */
+  function GLLayer(canvas, fsBody, opts) {
+    var ctxOpts = { alpha: false, antialias: false, depth: false, stencil: false, premultipliedAlpha: false, powerPreference: 'low-power' };
+    var gl = null;
+    try { gl = canvas.getContext('webgl', ctxOpts) || canvas.getContext('experimental-webgl', ctxOpts); } catch (e) {}
+    if (!gl) return null;
+    var hasD = !!gl.getExtension('OES_standard_derivatives');
+    var head = (hasD ? '#extension GL_OES_standard_derivatives : enable\n#define HAS_D 1\n' : '') +
+      '#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\n';
+    function sh(type, src) {
+      var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
+      return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null;
+    }
+    var vs = sh(gl.VERTEX_SHADER, 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}');
+    var fs = sh(gl.FRAGMENT_SHADER, head + fsBody);
+    if (!vs || !fs) return null;
+    var pr = gl.createProgram(); gl.attachShader(pr, vs); gl.attachShader(pr, fs); gl.linkProgram(pr);
+    if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) return null;
+    gl.useProgram(pr);
+    var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    var loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    var U = {}; function u(n) { return n in U ? U[n] : (U[n] = gl.getUniformLocation(pr, n)); }
+
+    var L = { gl: gl, u: u, canvas: canvas, visible: true, raf: 0, lost: false, frame: 0, clock: 0, last: 0 };
+    L.resize = function () {
+      var r = canvas.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, lite ? 1.25 : 1.5) * (opts.scale || 1);
+      var w = Math.max(1, Math.round(r.width * dpr)), h = Math.max(1, Math.round(r.height * dpr));
+      if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; gl.viewport(0, 0, w, h); return true; }
+      return false;
+    };
+    L.draw = function (t, still) {
+      if (L.lost) return;
+      L.resize();
+      gl.uniform2f(u('uRes'), canvas.width, canvas.height);
+      opts.uniforms(L, t, still);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    };
+    function tick(now) {
+      L.raf = 0;
+      if (paused || !L.visible || document.hidden || L.lost) return;
+      var dt = L.last ? Math.min((now - L.last) / 1000, 0.25) : 0; L.last = now;
+      L.clock += dt;
+      if (qaT !== null) { L.clock = qaT; L.draw(qaT, false); return; }
+      L.frame++;
+      // After the intro, idle frames render at ~30fps; any active easing keeps 60fps.
+      if (!(opts.idle && opts.idle(L) && (L.frame & 1))) L.draw(L.clock, false);
+      L.raf = requestAnimationFrame(tick);
+    }
+    L.play = function () { if (!L.raf && !paused && L.visible && !document.hidden) { L.last = 0; L.raf = requestAnimationFrame(tick); } };
+    L.stop = function () { if (L.raf) cancelAnimationFrame(L.raf); L.raf = 0; };
+    L.still = function () { L.stop(); L.draw(L.clock, true); };
+    canvas.addEventListener('webglcontextlost', function (e) { e.preventDefault(); L.lost = true; L.stop(); root.classList.remove('gl-on'); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { L.visible = es[0].isIntersecting; L.visible ? L.play() : L.stop(); }).observe(canvas);
+    }
+    if ('ResizeObserver' in window) new ResizeObserver(function () { if (paused) L.still(); }).observe(canvas);
+    layers.push(L); window.__pcLayers = layers;
+    return L;
+  }
+
+  /* ---------- 1. Hero: white hexagon LED tube ceiling in perspective ---------- */
+  var HERO_FS = [
+    'uniform vec2 uRes; uniform float uT, uOn, uScroll, uLite; uniform vec2 uPar;',
+    'float h21(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}',
+    'vec4 hexC(vec2 p){const vec2 s=vec2(1.,1.7320508);vec4 hc=floor(vec4(p,p-vec2(.5,1.))/s.xyxy)+.5;',
+    ' vec4 h=vec4(p-hc.xy*s,p-(hc.zw+.5)*s);return dot(h.xy,h.xy)<dot(h.zw,h.zw)?vec4(h.xy,hc.xy):vec4(h.zw,hc.zw+.5);}',
+    'float hexD(vec2 p){p=abs(p);return max(dot(p,vec2(.5,.8660254)),p.x);}',
+    // Each hex switches on at its own time (centre first), flickers like a starting tube, then holds.
+    'float cellOn(vec2 id,vec2 cam){float r=h21(id);float ton=.25+min(length(id-cam)*.055,2.)+r*1.1;float x=uOn-ton;',
+    ' if(x<0.)return 0.;',
+    ' if(x<.5){return step(.42,h21(id+floor(uOn*22.)))*(.55+x);}',
+    ' return 1.-.55*step(.9975,h21(id+floor(uT*7.)));}',
+    'void main(){',
+    ' vec2 uv=(gl_FragCoord.xy-.5*uRes)/uRes.y;',
+    ' float pitch=.40+uPar.y*.035+uScroll*.10;',
+    ' vec3 d=normalize(vec3(uv.x+uPar.x*.04,uv.y,1.3));',
+    ' float cp=cos(pitch),sp=sin(pitch);',
+    ' d=vec3(d.x,d.y*cp+d.z*sp,-d.y*sp+d.z*cp);',
+    ' vec3 col=vec3(0.);',
+    ' if(d.y>.015){',
+    '  float t=1.5/d.y;',
+    '  vec2 p=vec2(d.x,d.z)*t;',
+    '  p+=vec2(uPar.x*.45+.25,uT*.045+uScroll*1.8);',
+    '  p*=vec2(5.2,3.8);',
+    '  vec4 h=hexC(p);',
+    '  float e=.5-hexD(h.xy);',
+    '#ifdef HAS_D',
+    '  float w=fwidth(e);',
+    '#else',
+    '  float w=.0016*t*t/1.5;',
+    '#endif',
+    '  float tube=.03;',
+    '  float core=1.-smoothstep(tube-w,tube+w,e);',
+    '  core=mix(core,tube*3.,smoothstep(.04,.2,w));',            // fade to average where the grid gets sub-pixel (no moire)
+    '  float glow=exp(-e*22.)*.42+exp(-e*6.)*.1;',               // soft bloom around each tube
+    '  vec2 cam=floor(vec2(uPar.x*.45+.25,uT*.045+uScroll*1.8)*vec2(5.2,3.8)/vec2(1.,1.732));\n  float on=cellOn(h.zw,cam);',
+    '  float fog=exp(-t*.24)*smoothstep(.04,.16,d.y);',
+    '  float amb=.035*smoothstep(1.,3.2,uOn)*fog;',               // the room lifting once the lights are on
+    '  col=vec3((core*1.05+glow)*on*fog+amb)*.85;',
+    ' }',
+    ' col*=1.-.28*dot(uv,uv);',
+    ' col+=(h21(gl_FragCoord.xy+fract(uT))-.5)/255.;',
+    ' gl_FragColor=vec4(col,1.);',
+    '}'
+  ].join('\n');
+
+  var hero = document.querySelector('.hero');
+  var heroL = null, mouse = { x: 0, y: 0, tx: 0, ty: 0 }, scroll = { v: 0, t: 0 };
+  if (hero) {
+    var hc = document.createElement('canvas');
+    hc.className = 'hero-gl'; hc.setAttribute('aria-hidden', 'true');
+    var scrim = document.createElement('div'); scrim.className = 'hero-scrim'; scrim.setAttribute('aria-hidden', 'true');
+    hero.insertBefore(scrim, hero.firstChild); hero.insertBefore(hc, scrim);
+    heroL = GLLayer(hc, HERO_FS, {
+      scale: 1,
+      idle: function (L) { return L.clock > 6 && Math.abs(mouse.tx - mouse.x) < .002 && Math.abs(mouse.ty - mouse.y) < .002 && Math.abs(scroll.t - scroll.v) < .002; },
+      uniforms: function (L, t, still) {
+        var gl = L.gl;
+        if (!still) { mouse.x += (mouse.tx - mouse.x) * .06; mouse.y += (mouse.ty - mouse.y) * .06; scroll.v += (scroll.t - scroll.v) * .12; }
+        gl.uniform1f(L.u('uT'), still ? 0 : t);
+        gl.uniform1f(L.u('uOn'), (still && !armed) || paused ? 99 : t);
+        gl.uniform1f(L.u('uScroll'), scroll.v);
+        gl.uniform2f(L.u('uPar'), mouse.x, mouse.y);
+        gl.uniform1f(L.u('uLite'), lite ? 1 : 0);
+      }
+    });
+    if (!heroL) { hc.remove(); scrim.remove(); }
+    window.addEventListener('pointermove', function (e) {
+      if (e.pointerType === 'touch') return;
+      mouse.tx = e.clientX / window.innerWidth * 2 - 1; mouse.ty = e.clientY / window.innerHeight * 2 - 1;
+    }, { passive: true });
+  }
+
+  /* ---------- 5. Shop photo: light pulses on the real ring lights + LED ceiling wave ---------- */
+  // Ring-light centres/radii measured on brand/parceros-biz.jpeg (1287x723): x, y, radius in px.
+  var RINGS = [[178, 277, 50], [105, 320, 22], [372, 296, 36], [458, 302, 27], [517, 312, 21], [558, 318, 17],
+               [880, 290, 42], [849, 303, 33], [828, 316, 25], [812, 326, 18], [1208, 312, 32]];
+  var PHOTO_FS = [
+    'uniform vec2 uRes; uniform float uT; uniform sampler2D uTex; uniform vec3 uRing[11];',
+    'float lum(vec2 uv){return dot(texture2D(uTex,uv).rgb,vec3(.299,.587,.114));}',
+    'float m(vec2 uv){return smoothstep(.62,.95,lum(uv));}',
+    'void main(){',
+    ' vec2 uv=gl_FragCoord.xy/uRes; uv.y=1.-uv.y;',
+    ' const float A=1.7801;',                                      // 1287/723
+    ' float px=1./uRes.y;',
+    // cheap bloom of the bright parts of the photo (tubes, rings, mirrors)
+    ' float b=0.; float k=0.;',
+    ' for(int i=0;i<8;i++){float a=float(i)*.785398;vec2 o=vec2(cos(a),sin(a))*vec2(1./A,1.);',
+    '  b+=m(uv+o*.012)+.6*m(uv+o*.028);}',
+    ' b/=12.8;',
+    ' float self=m(uv);',
+    // ceiling: a wave of light running from the back of the shop toward you
+    ' vec2 vp=vec2(.47,.37);',
+    ' float r=length((uv-vp)*vec2(A,1.));',
+    ' float ceil=smoothstep(.40,.30,uv.y);',
+    ' float wave=pow(.5+.5*cos(r*16.-uT*2.1),10.);',
+    ' float L=(self*.55+b*.9)*wave*ceil*.7;',
+    // ring lights: each one breathes in turn, chasing down both rows
+    ' for(int i=0;i<11;i++){vec3 R=uRing[i];',
+    '  vec2 q=(uv-R.xy)*vec2(A,1.)/vec2(1.,.84);',
+    '  float d=abs(length(q)/R.z-1.);',
+    '  float ph=uT*1.25-float(i)*.62;',
+    '  float pulse=pow(.5+.5*sin(ph),3.);',
+    '  float near=smoothstep(2.6,.6,length(q)/R.z);',
+    '  L+=pulse*(exp(-d*d*28.)*.26+exp(-d*3.)*.2*near+exp(-d*1.2)*.07*near+(self*.5+b*.9)*near*.6);',
+    ' }',
+    ' gl_FragColor=vec4(vec3(L),1.);',
+    '}'
+  ].join('\n');
+
+  var frame = document.querySelector('.shot-frame'), img = frame && frame.querySelector('img');
+  var photoL = null;
+  if (img) {
+    var pc = document.createElement('canvas'); pc.className = 'shot-gl'; pc.setAttribute('aria-hidden', 'true');
+    img.parentNode.insertBefore(pc, img.nextSibling);
+    photoL = GLLayer(pc, PHOTO_FS, {
+      scale: lite ? .8 : 1,
+      uniforms: function (L, t, still) {
+        // Still frame: a moment with the left row's ring lights bright and the ceiling wave mid-room.
+        L.gl.uniform1f(L.u('uT'), still ? 1.9 : t + 1.2);
+      }
+    });
+    if (photoL) {
+      var gl = photoL.gl, ringData = [];
+      RINGS.forEach(function (r) { ringData.push(r[0] / 1287, r[1] / 723, r[2] / 723); });
+      gl.uniform3fv(photoL.u('uRing[0]'), new Float32Array(ringData));
+      gl.uniform1i(photoL.u('uTex'), 0);
+      var tex = gl.createTexture();
+      var upload = function () {
+        try {
+          gl.bindTexture(gl.TEXTURE_2D, tex);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, img);
+          photoL.ready = true;
+          if (paused) photoL.still(); else photoL.play();
+        } catch (e) { photoL.lost = true; pc.remove(); }
+      };
+      photoL.ready = false;
+      var basePlay = photoL.play; photoL.play = function () { if (photoL.ready) basePlay(); };
+      var baseStill = photoL.still; photoL.still = function () { if (photoL.ready) baseStill(); };
+      if (img.complete && img.naturalWidth) upload(); else img.addEventListener('load', upload, { once: true });
+    } else pc.remove();
+  }
+  if (heroL || photoL) root.classList.add('gl-on');
+
+  document.addEventListener('visibilitychange', function () {
+    layers.forEach(function (L) { document.hidden ? L.stop() : L.play(); });
+  });
+
+  /* ---------- 3. Photo scroll parallax + hero scroll value for the shader ---------- */
+  var par = document.querySelector('.shot-par'), ticking = false;
+  function onScroll() {
+    ticking = false;
+    var vh = window.innerHeight;
+    if (hero) scroll.t = Math.max(0, Math.min(1, window.scrollY / Math.max(1, hero.offsetHeight)));
+    if (par && !paused) {
+      var r = par.parentNode.getBoundingClientRect();
+      var prog = (r.top + r.height / 2 - vh / 2) / vh;  // -1..1 around the viewport centre
+      par.style.setProperty('--py', (Math.max(-1, Math.min(1, prog)) * -18).toFixed(1) + 'px');
+    }
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  /* ---------- 4. Reveals, ring-light entries, count-ups ---------- */
+  var inks = [].slice.call(document.querySelectorAll('main h1, main h2:not(.sr-only)'));
+  var ups = [].slice.call(document.querySelectorAll('.svc, .badges li, .bio, .gallery .ph, .visit-grid .card, .perk, .shot'));
+  inks.forEach(function (el) { el.classList.add('rv-ink'); });
+  ups.forEach(function (el) {
+    el.classList.add('rv-up');
+    var sibs = [].slice.call(el.parentNode.children).filter(function (c) { return ups.indexOf(c) > -1; });
+    if (sibs.length > 1) el.style.transitionDelay = (sibs.indexOf(el) * 90) + 'ms';
+  });
+  var score = document.querySelector('.score');
+  var counters = [].slice.call(document.querySelectorAll('.price b, .score-num'));
+
+  function countUp(el) {
+    if (el.dataset.counted) return; el.dataset.counted = '1';
+    var txt = el.textContent, m = txt.match(/^(\D*)([\d.]+)(.*)$/); if (!m) return;
+    var end = parseFloat(m[2]), dec = (m[2].split('.')[1] || '').length, t0 = performance.now(), dur = 1100;
+    el.style.fontVariantNumeric = 'tabular-nums';
+    (function step(now) {
+      var k = Math.min(1, (now - t0) / dur); k = 1 - Math.pow(1 - k, 3);
+      el.textContent = m[1] + (end * k).toFixed(dec) + m[3];
+      if (k < 1 && !paused) requestAnimationFrame(step); else el.textContent = txt;
+    })(t0);
+  }
+  function revealAll() {
+    inks.concat(ups).forEach(function (el) { el.classList.add('in'); });
+    if (score) score.classList.add('lit');
+    counters.forEach(function (el) { el.dataset.counted = '1'; });
+  }
+  if (armed && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target; io.unobserve(el);
+        if (el._ink) { el._ink.classList.add('in'); return; }
+        if (el === score) { el.classList.add('lit'); countUp(el.querySelector('.score-num')); return; }
+        el.classList.add('in');
+        var b = el.querySelector && el.querySelector('.price b'); if (b) setTimeout(function () { countUp(b); }, 250);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: .12 });
+    // Ink headings are clip-path'd to zero width while hidden, which IntersectionObserver treats as
+    // not visible, so watch their parent box instead.
+    inks.forEach(function (el) { if (el.tagName !== 'H1') { el.parentNode._ink = el; io.observe(el.parentNode); } });
+    ups.forEach(function (el) { io.observe(el); });
+    if (score) io.observe(score);
+    // Hero headline inks in with the lights
+    var h1 = document.querySelector('main h1');
+    if (h1) setTimeout(function () { h1.classList.add('in'); }, 250);
+  } else revealAll();
+
+  /* ---------- Pause motion toggle ---------- */
+  var btn = document.createElement('button');
+  btn.type = 'button'; btn.className = 'motion-toggle';
+  var ICON_PAUSE = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>';
+  var ICON_PLAY = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.5v11a.5.5 0 0 0 .77.42l8.5-5.5a.5.5 0 0 0 0-.84l-8.5-5.5A.5.5 0 0 0 4 2.5z"/></svg>';
+  function apply() {
+    root.classList.toggle('motion-on', !paused);
+    btn.innerHTML = (paused ? ICON_PLAY + 'Play motion' : ICON_PAUSE + 'Pause motion');
+    if (paused) {
+      revealAll();
+      if (par) par.style.removeProperty('--py');
+      layers.forEach(function (L) { L.still(); });
+    } else {
+      layers.forEach(function (L) { L.play(); });
+      onScroll();
+    }
+  }
+  btn.addEventListener('click', function () {
+    paused = !paused;
+    if (!paused) revealAll(); // never re-hide content that is already on screen
+    try { localStorage.setItem('parceros-motion', paused ? 'off' : 'on'); } catch (e) {}
+    apply();
+  });
+  if (rm.addEventListener) rm.addEventListener('change', function (e) {
+    if (e.matches && !paused) { paused = true; apply(); }
+  });
+  document.body.appendChild(btn);
+  apply();
+})();
+</script>
+</body>
+</html>

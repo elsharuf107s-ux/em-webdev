@@ -32,14 +32,12 @@
                     script later, it will be blocked until you add its address
                     there. If you change the one-line inline script in <head>,
                     its sha256 hash in that line must be updated too.
-                    "media-src 'self'" is what lets the demo videos play.
-  - Visual effects: assets/js/fx.js (scroll reveals, 3D tilt, lazy videos,
+                      - Visual effects: assets/js/fx.js (scroll reveals, 3D tilt, lazy videos,
                     the "Pause animations" buttons), assets/js/gl.js (the three
                     WebGL backgrounds), assets/js/build.js (the "Watch a website
                     come together" build story) and assets/js/scroll.js (the
-                    scroll-driven effects). Screenshots and videos of the concept
-                    sites are in assets/media/; re-capture them if those sites
-                    change. To switch every effect off, delete the three
+                    scroll-driven effects). Screenshots of the preview sites are in
+                    assets/media/; re-capture them if those sites change. To switch every effect off, delete the three
                     module <script> lines (fx.js,
                     build.js, scroll.js): the page still works and shows still
                     images and the finished build story instead.
@@ -303,10 +301,10 @@
           },
           {
             "@type": "Question",
-            "name": "Are the barbershop, bakery, plumber and masonry sites real clients?",
+            "name": "Are the businesses in the Work section your clients?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. Hex & Hone Barber Co., Golden Crumb Bakery, FlowRight Plumbing and Header & Stretcher Masonry are fictional businesses. I made their sites to show the kind of work I do. When I have real client work, it will be labeled as client work."
+              "text": "Not yet. Parcer00's Barbershop, Martin 3rd Generation Construction and Jenns Home and Office Cleaning are real businesses, but they haven't hired me. I built those previews on my own to show what I'd make for them. When I have paid client work, it will be labeled as client work."
             }
           },
           {
@@ -389,7 +387,7 @@
           <a class="scroll-cue" href="#build"><span class="scroll-cue-line" aria-hidden="true"></span>Watch a site get built</a>
         </div>
 
-        <!-- Decorative: real screenshots of two of the concept sites in a 3D device rig.
+        <!-- Decorative: real screenshots of two of the preview sites in a 3D device rig.
              The WebGL background and the tilt are added by assets/js/fx.js; without
              JS or WebGL this shows as a still image on a CSS gradient. -->
         <figure class="hero-stage">
@@ -397,13 +395,12 @@
             <div class="device-browser">
               <div class="browser-bar"><span class="browser-dots"></span><span class="browser-url"></span></div>
               <div class="browser-screen">
-                <img src="assets/media/bakery-desktop-poster.webp" width="960" height="600" alt="" decoding="async">
-                <video muted playsinline loop preload="none" poster="assets/media/bakery-desktop-poster.webp" data-src="assets/media/bakery-desktop.webm" tabindex="-1"></video>
+                <img src="assets/media/parceros-barbershop-desktop.webp" width="960" height="600" alt="" decoding="async">
               </div>
               <span class="device-glare"></span>
             </div>
             <div class="device-phone">
-              <div class="phone-screen"><img class="phone-pan" src="assets/media/plumber-mobile.webp" width="585" height="3300" alt="" decoding="async" fetchpriority="low"></div>
+              <div class="phone-screen"><img class="phone-pan" src="assets/media/jenns-cleaning-mobile.webp" width="585" height="3300" alt="" decoding="async" fetchpriority="low"></div>
               <span class="device-glare"></span>
             </div>
             <div class="device-chip">
@@ -411,12 +408,12 @@
               <span>Built for phones first</span>
             </div>
           </div>
-          <figcaption class="stage-caption">Concept sites I made for fictional businesses</figcaption>
+          <figcaption class="stage-caption">Unsolicited previews I built for real Ohio businesses. None of them is a client yet.</figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- BUILD STORY: a concept site assembles itself as you scroll.
+    <!-- BUILD STORY: the Martin 3rd Generation preview assembles itself as you scroll.
          Without JS, or with reduced motion, it shows the finished site and all
          five steps as a normal list. The scrolling is added by assets/js/build.js. -->
     <section id="build" class="build s0 s1 s2 s3 s4" aria-labelledby="build-title">
@@ -424,7 +421,7 @@
         <div class="container build-inner">
           <div class="build-copy">
             <h2 id="build-title">Watch a website come together</h2>
-            <p class="build-lead">Golden Crumb is a fictional bakery. I made its site as a concept, and this is the order I built it in. Yours would go together the same way.</p>
+            <p class="build-lead">This is a preview I built for Martin 3rd Generation Construction, a masonry company in Cincinnati, in the order I built it. They haven't hired me. Yours would go together the same way.</p>
             <ol class="build-steps">
               <li class="build-step" data-step="0">
                 <h3>A free chat and a sketch</h3>
@@ -466,23 +463,23 @@
                   <div class="bk">
                     <div class="bk-nav">
                       <span class="bk-logo w" style="--i:0"></span>
-                      <span class="bk-name"><b class="w t" style="--i:1">Golden Crumb</b><small class="w c" style="--i:2">Bakery &amp; coffee</small></span>
-                      <span class="bk-links"><i class="w c" style="--i:2">Menu</i><i class="w c" style="--i:3">Gallery</i><i class="w c" style="--i:3">Order ahead</i><i class="w c" style="--i:4">Hours &amp; location</i></span>
-                      <span class="bk-btn bk-btn-fill w" style="--i:4"><span class="c">Order ahead</span></span>
+                      <span class="bk-name"><b class="w t" style="--i:1">Martin 3rd Generation</b><small class="w c" style="--i:2">Construction &middot; Cincinnati</small></span>
+                      <span class="bk-links"><i class="w c" style="--i:2">Services</i><i class="w c" style="--i:3">Work</i><i class="w c" style="--i:3">Review</i><i class="w c" style="--i:4">Get started</i></span>
+                      <span class="bk-btn bk-btn-fill w" style="--i:4"><span class="c">Call (513) 815-9663</span></span>
                     </div>
                     <div class="bk-hero">
                       <div class="bk-text">
-                        <p class="bk-eyebrow"><span class="w c" style="--i:3">Baked on Maple Street since dawn</span></p>
-                        <p class="bk-h"><span class="w t" style="--i:4">Warm bread, <em>flaky</em> pastry &amp; a seat for you.</span></p>
-                        <p class="bk-p"><span class="w c" style="--i:5">Golden Crumb is your neighborhood bakery: slow-fermented sourdough, butter-laminated pastries, and coffee pulled by people who know your name.</span></p>
+                        <p class="bk-eyebrow"><span class="w c" style="--i:3">Third-generation masonry craft</span></p>
+                        <p class="bk-h"><span class="w t" style="--i:4">Stone, brick &amp; <em>concrete</em> work from a family of masons.</span></p>
+                        <p class="bk-p"><span class="w c" style="--i:5">Stone, brick, block and concrete work, driveways and blacktop across Cincinnati and the surrounding area.</span></p>
                         <p class="bk-actions">
-                          <span class="bk-btn bk-btn-fill w" style="--i:6"><span class="c">Order ahead for pickup</span></span>
-                          <span class="bk-btn bk-btn-line w" style="--i:7"><span class="c">See today's menu</span></span>
+                          <span class="bk-btn bk-btn-fill w" style="--i:6"><span class="c">Call (513) 815-9663</span></span>
+                          <span class="bk-btn bk-btn-line w" style="--i:7"><span class="c">See the services</span></span>
                         </p>
                         <p class="bk-stats">
-                          <span class="w" style="--i:7"><b class="c">6:30am</b><small class="c">Ovens open daily</small></span>
-                          <span class="w" style="--i:8"><b class="c">36 hrs</b><small class="c">Sourdough ferment</small></span>
-                          <span class="w" style="--i:8"><b class="c">0</b><small class="c">Shortcuts taken</small></span>
+                          <span class="w" style="--i:7"><b class="c">2018</b><small class="c">In business since</small></span>
+                          <span class="w" style="--i:8"><b class="c">A+</b><small class="c">BBB rating</small></span>
+                          <span class="w" style="--i:8"><b class="c">3</b><small class="c">Generations of masons</small></span>
                         </p>
                       </div>
                       <div class="bk-media w" style="--i:5"><span class="bk-photo"></span></div>
@@ -492,11 +489,11 @@
                 </div>
               </div>
               <div class="bw-phone">
-                <div class="phone-screen"><img class="phone-pan" src="assets/media/bakery-mobile.webp" width="585" height="3300" alt="" loading="lazy" decoding="async"></div>
+                <div class="phone-screen"><img class="phone-pan" src="assets/media/martin-3rd-generation-mobile.webp" width="585" height="3300" alt="" loading="lazy" decoding="async"></div>
               </div>
               <svg class="bw-rocket" viewBox="0 0 24 24" focusable="false"><use href="#i-rocket"/></svg>
             </div>
-            <figcaption class="stage-caption">Concept site for a fictional bakery, not a client</figcaption>
+            <figcaption class="stage-caption">Unsolicited preview for Martin 3rd Generation Construction, not a client</figcaption>
           </figure>
         </div>
       </div>
@@ -573,7 +570,7 @@
     <!-- FREE PREVIEW OFFER: E.M builds a free, private preview from the business's own
          logo, photos and prices before they pay anything. The CTA is a plain mailto
          (subject "Free preview request"), so it works without the contact form.
-         The screenshot is a concept site for a fictional business, never a real one. -->
+         The screenshot is an unsolicited preview for a real business, labeled as not a client. -->
     <section id="preview" class="section section-dark preview" aria-labelledby="preview-title">
       <div class="container preview-inner">
         <div class="preview-copy">
@@ -610,10 +607,10 @@
               </span>
             </div>
             <div class="browser-screen">
-              <img src="assets/media/plumber-desktop-poster.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
+              <img src="assets/media/jenns-cleaning-desktop.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
             </div>
           </div>
-          <figcaption class="stage-caption">Concept site I made for a fictional plumbing company</figcaption>
+          <figcaption class="stage-caption">A preview I built for Jenns Home and Office Cleaning in Akron, unasked. Not a client.</figcaption>
         </figure>
       </div>
     </section>
@@ -725,7 +722,7 @@
           <div>
                         <h2 id="about-title">About E.M</h2>
             <p>I'm Ervin Mosley. I started E.M in November 2026, and it's just me. I live in Ohio and work remotely with small businesses anywhere in the US. The sites I build are simple and quick to load, and they put the things customers look for up front: what you do, what it costs, when you're open and how to reach you.</p>
-            <p>Because E.M is new, there are no client logos or reviews here yet. To judge my work, look at the prices on this page, the four concept sites below (all for fictional businesses) and a free preview of your own site. If you get in touch, you'll be talking to the person who builds your site.</p>
+            <p>Because E.M is new, there are no client logos or reviews here yet. To judge my work, look at the prices on this page, the previews below (built for real Ohio businesses that haven't hired me) and a free preview of your own site. If you get in touch, you'll be talking to the person who builds your site.</p>
           </div>
         </div>
       </div>
@@ -735,80 +732,59 @@
     <section id="work" class="section" aria-labelledby="work-title">
       <div class="container">
         <div class="section-head">
-                    <h2 id="work-title">Concept sites for a barbershop, bakery, plumber and mason</h2>
-          <p>I designed and built these for fictional businesses to show how I work. None of them is a client.</p>
+                    <h2 id="work-title">Previews I built for real Ohio businesses</h2>
+          <p>I built these for real businesses, using their own logos, photos and prices, before anyone asked me to. None of them has hired me, and none of these is their official site.</p>
         </div>
         <div class="work-grid">
-          <a class="work-card work-card-featured" href="portfolio/barbershop/">
-            <div class="work-thumb work-media work-media-barbershop" aria-hidden="true">
+          <a class="work-card work-card-featured" href="portfolio/parceros-barbershop/">
+            <div class="work-thumb work-media work-media-parceros-barbershop" aria-hidden="true">
               <div class="media-browser">
                 <div class="browser-bar"><span class="browser-dots"></span><span class="browser-url"></span></div>
                 <div class="browser-screen">
-                  <img src="assets/media/barbershop-desktop-poster.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
-                  <video muted playsinline loop preload="none" poster="assets/media/barbershop-desktop-poster.webp" data-src="assets/media/barbershop-desktop.webm" tabindex="-1"></video>
+                  <img src="assets/media/parceros-barbershop-desktop.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
                 </div>
               </div>
-              <div class="media-phone"><div class="phone-screen"><img class="phone-pan" src="assets/media/barbershop-mobile.webp" width="585" height="3300" alt="" loading="lazy" decoding="async"></div></div>
+              <div class="media-phone"><div class="phone-screen"><img class="phone-pan" src="assets/media/parceros-barbershop-mobile.webp" width="585" height="3300" alt="" loading="lazy" decoding="async"></div></div>
             </div>
             <div class="work-body">
-              <p class="work-tag">Concept project, fictional business</p>
-              <h3>Premium barbershop</h3>
-              <p>A 3D shop interior under a hexagon LED ceiling, plus a priced service menu, barber profiles, today's hours and a form to book a chair.</p>
-              <span class="work-link">View the barbershop concept site <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              <p class="work-tag">Unsolicited preview, not a client</p>
+              <h3>Parcer00's Barbershop, Columbus</h3>
+              <p>A bilingual site for a 10-barber shop in Grandview, with the real price list, the hex-light ceiling, hours, a map and Booksy booking.</p>
+              <span class="work-link">View the barbershop preview <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
             </div>
           </a>
-          <a class="work-card" href="portfolio/bakery/">
-            <div class="work-thumb work-media work-media-bakery" aria-hidden="true">
+          <a class="work-card" href="portfolio/martin-3rd-generation/">
+            <div class="work-thumb work-media work-media-martin-3rd-generation" aria-hidden="true">
               <div class="media-browser">
                 <div class="browser-bar"><span class="browser-dots"></span><span class="browser-url"></span></div>
                 <div class="browser-screen">
-                  <img src="assets/media/bakery-desktop-poster.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
-                  <video muted playsinline loop preload="none" poster="assets/media/bakery-desktop-poster.webp" data-src="assets/media/bakery-desktop.webm" tabindex="-1"></video>
+                  <img src="assets/media/martin-3rd-generation-desktop.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
                 </div>
               </div>
-              <div class="media-phone"><div class="phone-screen"><img class="phone-pan" src="assets/media/bakery-mobile.webp" width="585" height="3300" alt="" loading="lazy" decoding="async"></div></div>
+              <div class="media-phone"><div class="phone-screen"><img class="phone-pan" src="assets/media/martin-3rd-generation-mobile.webp" width="585" height="3300" alt="" loading="lazy" decoding="async"></div></div>
             </div>
             <div class="work-body">
-              <p class="work-tag">Concept project, fictional business</p>
-              <h3>Neighborhood bakery</h3>
-              <p>Menu, opening hours, order enquiries and a location map.</p>
-              <span class="work-link">View the bakery concept site <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              <p class="work-tag">Unsolicited preview, not a client</p>
+              <h3>Martin 3rd Generation Construction, Cincinnati</h3>
+              <p>Masonry and concrete: services, a before-and-after slider, a work gallery and tap-to-call on every screen.</p>
+              <span class="work-link">View the masonry preview <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
             </div>
           </a>
-          <a class="work-card" href="portfolio/plumber/">
-            <div class="work-thumb work-media work-media-plumber" aria-hidden="true">
+          <a class="work-card" href="portfolio/jenns-cleaning/">
+            <div class="work-thumb work-media work-media-jenns-cleaning" aria-hidden="true">
               <div class="media-browser">
                 <div class="browser-bar"><span class="browser-dots"></span><span class="browser-url"></span></div>
                 <div class="browser-screen">
-                  <img src="assets/media/plumber-desktop-poster.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
-                  <video muted playsinline loop preload="none" poster="assets/media/plumber-desktop-poster.webp" data-src="assets/media/plumber-desktop.webm" tabindex="-1"></video>
+                  <img src="assets/media/jenns-cleaning-desktop.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
                 </div>
               </div>
-              <div class="media-phone"><div class="phone-screen"><img class="phone-pan" src="assets/media/plumber-mobile.webp" width="585" height="3300" alt="" loading="lazy" decoding="async"></div></div>
+              <div class="media-phone"><div class="phone-screen"><img class="phone-pan" src="assets/media/jenns-cleaning-mobile.webp" width="585" height="3300" alt="" loading="lazy" decoding="async"></div></div>
             </div>
             <div class="work-body">
-              <p class="work-tag">Concept project, fictional business</p>
-              <h3>Local plumbing service</h3>
-              <p>Tap-to-call, service list, service area and a quote request form.</p>
-              <span class="work-link">View the plumbing concept site <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-            </div>
-          </a>
-          <a class="work-card" href="portfolio/masonry/">
-            <div class="work-thumb work-media work-media-masonry" aria-hidden="true">
-              <div class="media-browser">
-                <div class="browser-bar"><span class="browser-dots"></span><span class="browser-url"></span></div>
-                <div class="browser-screen">
-                  <img src="assets/media/masonry-desktop-poster.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
-                  <video muted playsinline loop preload="none" poster="assets/media/masonry-desktop-poster.webp" data-src="assets/media/masonry-desktop.webm" tabindex="-1"></video>
-                </div>
-              </div>
-              <div class="media-phone"><div class="phone-screen"><img class="phone-pan" src="assets/media/masonry-mobile.webp" width="585" height="3300" alt="" loading="lazy" decoding="async"></div></div>
-            </div>
-            <div class="work-body">
-              <p class="work-tag">Concept project, fictional business</p>
-              <h3>Masonry &amp; chimney contractor</h3>
-              <p>A table of starting prices, an estimate form that asks for photos first, before-and-after sliders and an animated brick wall at the top.</p>
-              <span class="work-link">View the masonry concept site <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              <p class="work-tag">Unsolicited preview, not a client</p>
+              <h3>Jenns Home and Office Cleaning, Akron</h3>
+              <p>Their old websites are offline. This one lists every service and the hours, with a call button that stays in reach on a phone.</p>
+              <span class="work-link">View the cleaning preview <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
             </div>
           </a>
         </div>
@@ -871,8 +847,8 @@
             <p>E.M is new, so my first 3 clients get 30% off the build fee: Starter $209, Business $489, Growth $839. I'll ask for an honest testimonial, but it's optional and you keep the discount either way. I don't give discounts or anything else in exchange for Google reviews.</p>
           </details>
           <details>
-            <summary>Are the barbershop, bakery, plumber and masonry sites real clients?</summary>
-            <p>No. Hex &amp; Hone Barber Co., Golden Crumb Bakery, FlowRight Plumbing and Header &amp; Stretcher Masonry are fictional businesses. I made their sites to show the kind of work I do. When I have real client work, it will be labeled as client work.</p>
+            <summary>Are the businesses in the Work section your clients?</summary>
+            <p>Not yet. Parcer00's Barbershop, Martin 3rd Generation Construction and Jenns Home and Office Cleaning are real businesses, but they haven't hired me. I built those previews on my own to show what I'd make for them. When I have paid client work, it will be labeled as client work.</p>
           </details>
           <details>
             <summary>Will my site show up on Google?</summary>
@@ -965,7 +941,7 @@
     <div class="container footer-inner">
       <p><strong data-edit="business-name">E.M</strong> is a one-person web design business in Ohio, started in November 2026. I work remotely with clients across the US.</p>
       <p><a href="mailto:elsharuf107s@gmail.com" data-edit="email">elsharuf107s@gmail.com</a></p>
-      <p class="footer-small">&copy; <span id="year">2026</span> E.M, run by Ervin Mosley. The portfolio sites are concepts for fictional businesses. <a href="privacy.html">Privacy</a></p>
+      <p class="footer-small">&copy; <span id="year">2026</span> E.M, run by Ervin Mosley. The previews in the Work section are unsolicited, and those businesses are not clients. <a href="privacy.html">Privacy</a></p>
     </div>
   </footer>
 </body>

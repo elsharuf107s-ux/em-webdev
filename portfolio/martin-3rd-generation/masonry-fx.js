@@ -1,6 +1,6 @@
-// Header & Stretcher concept site: optional visual effects (Raking Light hero, diagram, sliders, form).
+// Martin 3rd Generation concept preview (by E.M): optional visual effects (Raking Light hero, diagram, sliders, form).
 // The page is complete without this file; it only adds motion and conveniences on top.
-const STORE_KEY = 'hs-motion';
+const STORE_KEY = 'm3g-motion';
 /* ---------- Tiny WebGL engine (no libraries) ---------- */
 const root = document.documentElement;
 const reduceMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -174,7 +174,7 @@ if (TEST) window.__emfx = { loops, renderAt: (t) => loops.forEach((l) => { if (l
 const idle = window.requestIdleCallback || ((f) => setTimeout(f, 200));
 
 /* ==========================================================
-   Header & Stretcher: "Raking Light" hero. A procedural running-bond
+   "Raking Light" hero. A procedural running-bond
    wall lit by a low sun. One band of eroded joints repoints itself
    from left to right as you scroll. No textures, one triangle.
    ========================================================== */
@@ -270,16 +270,6 @@ function setupHero() {
   }, { passive: true });
 }
 
-/* ---------- Seasonal banner (by month) ---------- */
-function setupSeason() {
-  const el = document.getElementById('season-text');
-  if (!el) return;
-  const m = new Date().getMonth();
-  if (m >= 2 && m <= 4) el.textContent = 'Spring repair list is open. Text us photos of the winter damage and we reply within 1 business day.';
-  else if (m >= 5 && m <= 7) el.textContent = 'Booking patios and retaining walls for summer. Send photos and we reply with a range within 1 business day.';
-  else if (m >= 8 && m <= 9) el.textContent = 'We still have fall openings for chimney crowns and flashing before the first freeze.';
-}
-
 /* ---------- Theme toggle: system -> light -> dark ---------- */
 function setupTheme() {
   const slot = document.querySelector('.theme-slot');
@@ -290,12 +280,12 @@ function setupTheme() {
     dark: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>'
   };
   let mode = 'system';
-  try { mode = localStorage.getItem('hs-theme') || 'system'; } catch (e) { /* ignore */ }
+  try { mode = localStorage.getItem('m3g-theme') || 'system'; } catch (e) { /* ignore */ }
   const b = document.createElement('button');
   b.type = 'button'; b.className = 'theme-btn';
   const apply = () => {
     if (mode === 'system') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', mode);
-    try { if (mode === 'system') localStorage.removeItem('hs-theme'); else localStorage.setItem('hs-theme', mode); } catch (e) { /* ignore */ }
+    try { if (mode === 'system') localStorage.removeItem('m3g-theme'); else localStorage.setItem('m3g-theme', mode); } catch (e) { /* ignore */ }
     b.innerHTML = icons[mode] + '<span class="vh">Theme: ' + mode + '. Change theme</span>';
     b.title = 'Theme: ' + mode;
   };
@@ -400,6 +390,7 @@ function setupForm() {
   const thumbs = form.querySelector('.thumbs');
   let picked = [];
   const draw = () => {
+    if (!thumbs) return;
     thumbs.querySelectorAll('img').forEach((i) => URL.revokeObjectURL(i.src));
     thumbs.innerHTML = '';
     picked.forEach((f, i) => {
@@ -418,8 +409,7 @@ function setupForm() {
   // validation: inline, after blur and on submit
   const rules = {
     'f-name': (v) => v.trim() ? '' : 'Please add your name.',
-    'f-contact': (v) => /\S+@\S+\.\S+/.test(v) || v.replace(/\D/g, '').length >= 10 ? '' : 'Add a phone number (10 digits) or an email address.',
-    'f-zip': (v) => /^\d{5}$/.test(v.trim()) ? '' : 'ZIP should be 5 digits.'
+    'f-contact': (v) => /\S+@\S+\.\S+/.test(v) || v.replace(/\D/g, '').length >= 10 ? '' : 'Add a phone number (10 digits) or an email address.'
   };
   const check = (id) => {
     const el = document.getElementById(id); const msg = rules[id](el.value);
@@ -427,25 +417,13 @@ function setupForm() {
     if (msg) el.setAttribute('aria-invalid', 'true'); else el.removeAttribute('aria-invalid');
     return !msg;
   };
-  Object.keys(rules).forEach((id) => document.getElementById(id).addEventListener('blur', (e) => { if (e.target.value) check(id); }));
+  Object.keys(rules).forEach((id) => document.getElementById(id) && document.getElementById(id).addEventListener('blur', (e) => { if (e.target.value) check(id); }));
   const status = form.querySelector('#est-status');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const bad = Object.keys(rules).filter((id) => !check(id));
     if (bad.length) { status.textContent = 'Please fix the highlighted field' + (bad.length > 1 ? 's' : '') + '.'; document.getElementById(bad[0]).focus(); return; }
-    status.textContent = "Concept demo, so nothing was sent. On a real site you'd hear back within 1 business day.";
-  });
-}
-
-/* ---------- ZIP check (any 5 digits is "in the area": it's a fictional area) ---------- */
-function setupZip() {
-  const f = document.querySelector('.zip-check');
-  if (!f) return;
-  f.hidden = false;
-  f.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const v = f.querySelector('input').value.trim();
-    f.querySelector('.zip-out').textContent = /^\d{5}$/.test(v) ? "Yes, we work there. (Any 5 digits pass here, since the area is fictional.)" : 'Please enter 5 digits.';
+    status.textContent = 'Preview only: nothing was sent. Please call (513) 815-9663.';
   });
 }
 
@@ -464,18 +442,25 @@ function setupBar() {
 }
 
 /* ---------- Service cards: the light sweeps where the pointer is ---------- */
+function setupMicro() {
+  if (reduce || !fine) return;
+  document.querySelectorAll('.svc').forEach((c) => c.addEventListener('pointermove', (e) => {
+    const r = c.getBoundingClientRect();
+    c.style.setProperty('--sx', (((e.clientX - r.left) / r.width) * 100).toFixed(0) + '%');
+  }, { passive: true }));
+}
+
 function init() {
   root.classList.toggle('motion', !reduce);
   if (CAPTURE) root.classList.add('fx-capture');
-  setupSeason();
   setupTheme();
-  setupReveals('.course'); // one authored moment: the process is laid like courses of brick
+  setupReveals('.section-head, .sym, .svc, .gal-item, .ba, .course, .rvcard, .trust li, .faq details, .est-aside, form.est');
   setupWater();
   setupGallery();
   setupBeforeAfter();
   setupForm();
-  setupZip();
   setupBar();
+  setupMicro();
   addPauseControl(document.querySelector('.hero'));
   addPauseControl(document.querySelector('#water .section-head'));
   idle(setupHero, { timeout: 800 });
